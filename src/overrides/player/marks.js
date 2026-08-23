@@ -127,7 +127,7 @@ export function playerMark(item, info, skill) {
 		return item.map(card => this.mark(card, info));
 	}
 
-	const mark = createMarkElement(item, skill);
+	const mark = createMarkElement(item, skill, this);
 
 	if (typeof info === "object") {
 		mark.info = info;
@@ -148,9 +148,10 @@ export function playerMark(item, info, skill) {
  * 创建标记DOM元素
  * @param {string|Object} item - 标记项（技能名或卡牌对象）
  * @param {string} [skill] - 关联的技能名称
+ * @param {Player} [player] - 关联的角色
  * @returns {HTMLElement} 创建的标记元素
  */
-function createMarkElement(item, skill) {
+function createMarkElement(item, skill, player) {
 	let mark;
 	let itemName = item;
 
@@ -192,6 +193,16 @@ function createMarkElement(item, skill) {
 			});
 			mark.text.setBackgroundImage(lib.skill[item].markimage);
 			mark.text.classList.add("before-hidden");
+		} else if (lib.skill[item]?.markimage2) {
+			markText = "　";
+			Object.assign(mark.text.style, {
+				animation: "none",
+				backgroundPosition: "center",
+				backgroundSize: "contain",
+				backgroundRepeat: "no-repeat",
+			});
+			mark.text.setBackgroundImage(lib.skill[item].markimage2);
+			mark.text.classList.add("before-hidden");
 		} else if (markText.length === 2) {
 			mark.text.classList.add("small-text");
 		}
@@ -199,32 +210,45 @@ function createMarkElement(item, skill) {
 		if (lib.skill[item]?.zhuanhuanji) {
 			mark.text.style.animation = "none";
 			mark.text.classList.add("before-hidden");
-		}
 
-		if (markStyle === "decade" && markText?.includes("☯")) {
-			mark.style.setProperty("display", "none", "important");
+			if (markStyle === "decade" && markText?.includes("☯")) {
+				if (markStyle === "decade") {
+					mark.style.setProperty("display", "none", "important");
+				} else if (markText === "☯") {
+					const zhuanhuanLimit = get.zhuanhuanItemNum(item, player);
+					const storage = player.storage[item];
+					let index;
+
+					if (zhuanhuanLimit === 2) {
+						if (get.info(item).zhuanhuanji === "number" || typeof storage === "number") {
+							index = player.countMark(item) % zhuanhuanLimit;
+						} else {
+							index = storage ? 1 : 0;
+						}
+					} else {
+						index = player.countMark(item) % zhuanhuanLimit;
+					}
+
+					const angle = index * (360 / zhuanhuanLimit);
+					mark.text.reversed = angle;
+					mark.text.style.transform = `rotate(${angle}deg)`;
+				}
+			}
 		}
 
 		mark.text.innerHTML = markText;
 
 		const originalSetBackground = mark.setBackground;
 		mark.setBackground = function (name, type) {
-			if (type === "character") {
-				let skillText = lib.translate[item + "_bg"];
-				if (!skillText || skillText[0] === "+" || skillText[0] === "-") {
-					skillText = get.translation(item).slice(0, 2);
-					if (markStyle !== "decade") {
-						skillText = skillText[0];
-					}
-				}
-				if (mark.text) {
-					mark.text.innerHTML = skillText;
-					if (skillText.length === 2) {
-						mark.text.classList.add("small-text");
-					} else {
-						mark.text.classList.remove("small-text");
-					}
-				}
+			if (type === "character" && mark.text) {
+				mark.text.innerHTML = "　";
+				mark.text.style.animation = "none";
+				mark.text.style.boxShadow = "none";
+				mark.text.classList.add("before-hidden");
+				mark.text.setBackground(name, "character");
+				mark.text.style.backgroundPosition = "center";
+				mark.text.style.backgroundSize = "contain";
+				mark.text.style.backgroundRepeat = "no-repeat";
 				return this;
 			}
 			return originalSetBackground?.apply(this, arguments);
@@ -459,6 +483,18 @@ function updateExistingSkillMark(player, id, name, content, target) {
 	mark.classList.remove("own-skill", "other-skill");
 	mark.classList.add(hasCardDisplay ? "other-skill" : "own-skill");
 
+	if (mark.text) {
+		mark.text.innerHTML = "　";
+		mark.text.classList.remove("small-text");
+		mark.text.style.animation = "none";
+		mark.text.style.boxShadow = "none";
+		mark.text.classList.add("before-hidden");
+		mark.text.setBackground(target, "character");
+		mark.text.style.backgroundPosition = "center";
+		mark.text.style.backgroundSize = "contain";
+		mark.text.style.backgroundRepeat = "no-repeat";
+	}
+
 	game.addVideo("changeMarkCharacter", player, { id, name, content, target });
 }
 
@@ -475,18 +511,15 @@ function createNewSkillMark(player, id, name, content, target) {
 	const nodeMark = ui.create.div(".card.mark");
 	const nodeMarkText = ui.create.div(".mark-text", nodeMark);
 
-	const skillName = get.translation(name);
-	const text = skillName.slice(0, 2);
+	nodeMarkText.innerHTML = "　";
+	nodeMarkText.style.animation = "none";
+	nodeMarkText.style.boxShadow = "none";
+	nodeMarkText.classList.add("before-hidden");
+	nodeMarkText.setBackground(target, "character");
+	nodeMarkText.style.backgroundPosition = "center";
+	nodeMarkText.style.backgroundSize = "contain";
+	nodeMarkText.style.backgroundRepeat = "no-repeat";
 
-	if (text.length === 2) {
-		nodeMarkText.classList.add("small-text");
-	}
-	const markStyle = window.decadeUI?.config?.playerMarkStyle ?? lib.config.extension_十周年UI_playerMarkStyle;
-	if (markStyle === "decade" && text?.includes("☯")) {
-		nodeMark.style.setProperty("display", "none", "important");
-	}
-
-	nodeMarkText.innerHTML = text;
 	nodeMark.name = name + "_skillmark";
 	nodeMark.info = { name, content, id };
 	nodeMark.text = nodeMarkText;
