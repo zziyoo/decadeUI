@@ -13,19 +13,19 @@ jobs:
 
     steps:
       - name: Checkout latest main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 1
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 9
           run_install: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: pnpm
@@ -38,8 +38,9 @@ jobs:
 
       - name: Read version
         id: version
-        shell: bash
-        run: echo "version=$(node -p \"JSON.parse(require('fs').readFileSync('dist/info.json', 'utf8')).version\")" >> "$GITHUB_OUTPUT"
+        run: |
+          VERSION=$(node -e "process.stdout.write(JSON.parse(require('fs').readFileSync('dist/info.json', 'utf8')).version)")
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Verify build output
         env:
