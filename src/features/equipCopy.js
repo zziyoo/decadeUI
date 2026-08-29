@@ -35,6 +35,8 @@ function createCopy(original) {
 		} else {
 			ui.selected.cards.remove(card.relatedCard);
 		}
+
+		game.check();
 	};
 
 	card.addEventListener("click", syncSelection);
@@ -91,9 +93,10 @@ function processMultiSelect(event, player, copies, filtered) {
 	}
 
 	const result = [...filtered];
+	const originalPosition = event._equipCopyOriginalPosition || event.position;
 	const validCards = player.getCards("he", card => {
 		const real = card.relatedCard || card;
-		return event.position.includes(get.position(real)) && event.filterCard.call(event, real, player);
+		return originalPosition.includes(get.position(real)) && event.filterCard.call(event, real, player);
 	});
 
 	for (const card of validCards) {
@@ -103,7 +106,7 @@ function processMultiSelect(event, player, copies, filtered) {
 		for (const copy of copies) {
 			if (result.includes(copy)) continue;
 			const real = copy.relatedCard || copy;
-			if (event.position.includes(get.position(real)) && event.filterCard.call(event, real, player)) {
+			if (originalPosition.includes(get.position(real)) && event.filterCard.call(event, real, player)) {
 				result.push(copy);
 			}
 		}
@@ -185,13 +188,14 @@ export function setupEquipCopy() {
 		event.copyCards = true;
 		const includeS = !event.position.includes("s");
 
+		event._equipCopyOriginalPosition = event.position;
 		event.position = event.position.replace("e", "");
 		if (includeS) event.position += "s";
 
 		const copies = player.getCards("e").map(createCopy);
 		const filtered = event.filterCard ? copies.filter(c => event.filterCard.call(event, c.relatedCard || c, player)) : [];
 
-		if (event.filterCard && !event.skill) {
+		if (event.filterCard) {
 			event.filterCard = wrapFilter(event, event.filterCard, includeS);
 		}
 
@@ -231,7 +235,7 @@ export function setupEquipCopy() {
 	lib.hooks.uncheckBegin.add(async (event, args) => {
 		if (!lib.config["extension_十周年UI_enableEquipCopy"] || lib.config["extension_十周年UI_aloneEquip"]) return;
 
-		const shouldCleanup = args.includes("card") && event.copyCards && (event.result || (["chooseToUse", "chooseToRespond"].includes(event.name) && !event.skill && !event.result));
+		const shouldCleanup = args.includes("card") && event.copyCards && (event.result || (["chooseToUse", "chooseToRespond"].includes(event.name) && !event.result));
 		if (shouldCleanup) cleanup(event, event.player);
 	});
 }
