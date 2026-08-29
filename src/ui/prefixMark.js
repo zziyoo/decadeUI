@@ -30,6 +30,7 @@ const PREFIX_CONFIGS = {
 	新杀谋: "sb",
 	"新杀|谋": "sb",
 	"新杀|牢": "lao",
+	"新杀|神": "shen",
 	OL谋: "sb",
 	OL界: "jie",
 	OL神: "shen",
