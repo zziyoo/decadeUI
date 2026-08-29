@@ -80,8 +80,9 @@ export const mainpackage = otherInfo => {
 			const diff = Math.max(0, Date.now() - start);
 			const days = Math.floor(diff / 86400000);
 			const hours = Math.floor((diff % 86400000) / 3600000);
+			const minutes = Math.floor((diff % 3600000) / 60000);
 			const seconds = Math.floor((diff % 60000) / 1000);
-			return `想念点点的第${days}天${hours}小时${seconds}秒`;
+			return `想念点点的第${days}天${hours}小时${minutes}分钟${seconds}秒`;
 		},
 		startTimer() {
 			if (this._timerStarted) return;
