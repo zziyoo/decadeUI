@@ -14,6 +14,9 @@ import { initCardAlternateNameVisible } from "./ui/cardAlternateName.js";
  * Precontent主入口 - 游戏初始化前执行
  */
 export async function precontent() {
+	// 同一游戏进程内重复导入扩展时，保留第一次初始化的运行时状态。
+	if (window.decadeUI) return;
+
 	const mode = get.mode();
 	if (EXCLUDED_MODES.includes(mode)) return;
 

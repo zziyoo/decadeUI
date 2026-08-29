@@ -142,6 +142,9 @@ async function loadUIPlugins() {
  * @param {Object} config - 扩展配置
  */
 export async function content(config) {
+	// 热更新/重复导入时不要再次覆写无名杀的原始方法。
+	if (window.decadeUI) return;
+
 	if (!bootstrapExtension()) return;
 
 	const decadeUI = createDecadeUIObject();
