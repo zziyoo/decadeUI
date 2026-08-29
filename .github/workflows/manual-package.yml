@@ -57,12 +57,12 @@ jobs:
           VERSION: ${{ steps.version.outputs.version }}
         run: |
           cd dist
-          zip -r -q "../decadeUI-${VERSION}.zip" .
+          zip -r -q "../十周年UI-${VERSION}.zip" .
 
       - name: Upload package
         uses: actions/upload-artifact@v7
         with:
-          name: decadeUI-${{ steps.version.outputs.version }}
-          path: decadeUI-${{ steps.version.outputs.version }}.zip
+          name: 十周年UI-${{ steps.version.outputs.version }}
+          path: 十周年UI-${{ steps.version.outputs.version }}.zip
           if-no-files-found: error
           compression-level: 0
