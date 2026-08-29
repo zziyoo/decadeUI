@@ -34,11 +34,13 @@ export const mainpackage = otherInfo => {
 		_audio: null,
 		_longPressTimer: null,
 		_longPressTriggered: false,
+		_lastToggleAt: 0,
 		longPressStart() {
 			this._longPressTriggered = false;
 			clearTimeout(this._longPressTimer);
 			this._longPressTimer = setTimeout(() => {
 				this._longPressTriggered = true;
+				this._lastToggleAt = Date.now();
 				this.toggle();
 			}, 1500);
 		},
@@ -58,7 +60,7 @@ export const mainpackage = otherInfo => {
 			}
 		},
 		show() {
-			if (this._longPressTriggered) {
+			if (this._longPressTriggered || Date.now() - this._lastToggleAt < 800) {
 				this._longPressTriggered = false;
 				return;
 			}
@@ -78,7 +80,7 @@ export const mainpackage = otherInfo => {
 	Object.defineProperty(pack, "author", {
 		get() {
 			const isDiandian = window.decadeUIWelcome?.mode === "diandian";
-			return `<img src="${lib.assetURL}extension/十周年UI/image/ui/avatar/avatar_${isDiandian ? "diandian" : "ziyoo"}.jpg" class="author-avatar decade-author-avatar" onclick="window.decadeUIWelcome.show()" onmousedown="window.decadeUIWelcome.longPressStart()" onmouseup="window.decadeUIWelcome.longPressEnd()" onmouseleave="window.decadeUIWelcome.longPressEnd()" oncontextmenu="return false" style="cursor:pointer;border-radius:50%;width:50px;height:50px;vertical-align:bottom"><span class="decade-author-name">${isDiandian ? "点点" : "子右"}</span><br>${window.decadeUIDidYouKnow.getHTML()}`;
+			return `<img src="${lib.assetURL}extension/十周年UI/image/ui/avatar/avatar_${isDiandian ? "diandian" : "ziyoo"}.jpg" class="author-avatar decade-author-avatar" onclick="window.decadeUIWelcome.show()" onmousedown="window.decadeUIWelcome.longPressStart()" onmouseup="window.decadeUIWelcome.longPressEnd()" onmouseleave="window.decadeUIWelcome.longPressEnd()" ontouchstart="window.decadeUIWelcome.longPressStart()" ontouchend="window.decadeUIWelcome.longPressEnd()" ontouchcancel="window.decadeUIWelcome.longPressEnd()" oncontextmenu="return false" style="cursor:pointer;border-radius:50%;width:50px;height:50px;vertical-align:bottom;touch-action:manipulation;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none"><span class="decade-author-name">${isDiandian ? "点点" : "子右"}</span><br>${window.decadeUIDidYouKnow.getHTML()}`;
 		},
 	});
 
