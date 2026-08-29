@@ -50,7 +50,7 @@ export function createWelcomeDialog() {
 	ui.create.div(".decade-welcome-pattern", dialog);
 
 	const avatar = document.createElement("img");
-	avatar.src = `${lib.assetURL}extension/十周年UI/image/ui/avatar/avatar.jpg`;
+	avatar.src = `${lib.assetURL}extension/十周年UI/image/ui/avatar/avatar_ziyoo.jpg`;
 	avatar.className = "author-avatar";
 
 	let isShowingUpdate = false;
