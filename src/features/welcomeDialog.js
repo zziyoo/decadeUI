@@ -138,7 +138,7 @@ export function createWelcomeDialog() {
 		<p style="margin: 0 0 15px 0; color: lightblue;">
 			⌈……光吗。以前也有人跟我说过类似的话。可她说的是"命运共同体"，最后却是我先松了手。你比她……想得明白。那我，也终于可以，安心地把十周年UI交给你了，子右。⌋
 		</p>
-		<p style="margin: 0 0 15px 0; color: #8e44ad;">
+		<p style="margin: 0 0 15px 0; color: yellow;">
 			至此，十周年UI由子右接手，并且子右也等待着下一任继承者
 		</p>
 	`;

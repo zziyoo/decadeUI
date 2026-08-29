@@ -75,12 +75,32 @@ export const mainpackage = otherInfo => {
 				module.createWelcomeDialog();
 			});
 		},
+		calculateTimeDiff() {
+			const start = new Date(2026, 7, 28, 16, 8, 39).getTime();
+			const diff = Math.max(0, Date.now() - start);
+			const days = Math.floor(diff / 86400000);
+			const hours = Math.floor((diff % 86400000) / 3600000);
+			const seconds = Math.floor((diff % 60000) / 1000);
+			return `想念点点的第${days}天${hours}小时${seconds}秒`;
+		},
+		startTimer() {
+			if (this._timerStarted) return;
+			this._timerStarted = true;
+			const update = () => {
+				const el = document.getElementById("decade-miss-timer");
+				if (el) el.textContent = this.calculateTimeDiff();
+			};
+			update();
+			setInterval(update, 1000);
+		},
 	});
+
+	window.decadeUIWelcome.startTimer();
 
 	Object.defineProperty(pack, "author", {
 		get() {
 			const isDiandian = window.decadeUIWelcome?.mode === "diandian";
-			return `<img src="${lib.assetURL}extension/十周年UI/image/ui/avatar/avatar_${isDiandian ? "diandian" : "ziyoo"}.jpg" class="author-avatar decade-author-avatar" onclick="window.decadeUIWelcome.show()" onmousedown="window.decadeUIWelcome.longPressStart()" onmouseup="window.decadeUIWelcome.longPressEnd()" onmouseleave="window.decadeUIWelcome.longPressEnd()" ontouchstart="window.decadeUIWelcome.longPressStart()" ontouchend="window.decadeUIWelcome.longPressEnd()" ontouchcancel="window.decadeUIWelcome.longPressEnd()" oncontextmenu="return false" style="cursor:pointer;border-radius:50%;width:50px;height:50px;vertical-align:bottom;touch-action:manipulation;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none"><span class="decade-author-name">${isDiandian ? "点点" : "子右"}</span><br>${window.decadeUIDidYouKnow.getHTML()}`;
+			return `<img src="${lib.assetURL}extension/十周年UI/image/ui/avatar/avatar_${isDiandian ? "diandian" : "ziyoo"}.jpg" class="author-avatar decade-author-avatar" onclick="window.decadeUIWelcome.show()" onmousedown="window.decadeUIWelcome.longPressStart()" onmouseup="window.decadeUIWelcome.longPressEnd()" onmouseleave="window.decadeUIWelcome.longPressEnd()" ontouchstart="window.decadeUIWelcome.longPressStart()" ontouchend="window.decadeUIWelcome.longPressEnd()" ontouchcancel="window.decadeUIWelcome.longPressEnd()" oncontextmenu="return false" style="cursor:pointer;border-radius:50%;width:50px;height:50px;vertical-align:bottom;touch-action:manipulation;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none"><span class="decade-author-name">${isDiandian ? "点点" : "子右"}</span><br><span class="decade-miss-timer" id="decade-miss-timer">${window.decadeUIWelcome.calculateTimeDiff()}</span><br>${window.decadeUIDidYouKnow.getHTML()}`;
 		},
 	});
 
