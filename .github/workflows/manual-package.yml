@@ -1,0 +1,67 @@
+name: Manual Package
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    name: Build package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Read version
+        id: version
+        shell: bash
+        run: echo "version=$(node -p \"JSON.parse(require('fs').readFileSync('dist/info.json', 'utf8')).version\")" >> "$GITHUB_OUTPUT"
+
+      - name: Verify build output
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          test -f dist/extension.js
+          test -f dist/info.json
+          test -d dist/src
+          test -d dist/ui
+          node -e "const info = JSON.parse(require('fs').readFileSync('dist/info.json', 'utf8')); if (info.version !== process.env.VERSION) process.exit(1)"
+
+      - name: Create zip package
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          cd dist
+          zip -r -q "../decadeUI-${VERSION}.zip" .
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: decadeUI-${{ steps.version.outputs.version }}
+          path: decadeUI-${{ steps.version.outputs.version }}.zip
+          if-no-files-found: error
+          compression-level: 0
