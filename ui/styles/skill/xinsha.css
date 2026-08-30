@@ -154,15 +154,74 @@
 	filter: grayscale(1);
 }
 
-/* 选中状态 */
-.skill-control > .enable > .skillitem.select,
-.skill-control > .enable > .skillcol > .skillitem.select {
-	animation: skill-select-glow 1.5s ease-in-out infinite;
+/* 选中状态 - 绿色边缘光圈顺时针旋转（每次亮起对面的两条边） */
+.skill-control > .enable > .skillitem.select::before,
+.skill-control > .enable > .skillcol > .skillitem.select::before {
+	content: "";
+	position: absolute;
+	inset: -2px;
+	border-radius: 6px;
+	padding: 2px;
+	background: conic-gradient(
+		from var(--skill-ring-angle),
+		rgba(100, 255, 100, 0.9) 0deg,
+		rgba(100, 255, 100, 0.9) 50deg,
+		rgba(100, 255, 100, 0) 66deg,
+		rgba(100, 255, 100, 0) 114deg,
+		rgba(100, 255, 100, 0.9) 130deg,
+		rgba(100, 255, 100, 0.9) 230deg,
+		rgba(100, 255, 100, 0) 246deg,
+		rgba(100, 255, 100, 0) 294deg,
+		rgba(100, 255, 100, 0.9) 310deg,
+		rgba(100, 255, 100, 0.9) 360deg
+	);
+	-webkit-mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+	mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	mask-composite: exclude;
+	filter: drop-shadow(0 0 4px rgba(100, 255, 100, 0.6));
+	animation: skill-select-glow 2s linear infinite;
+	pointer-events: none;
+	z-index: 2;
 }
 
-.skill-control > .enable > .xiandingji.select,
-.skill-control > .enable > .skillcol > .xiandingji.select {
-	animation: skill-select-glow-xianding 1.5s ease-in-out infinite;
+/* 限定技选中状态 - 红色边缘光圈顺时针旋转（每次亮起对面的两条边） */
+.skill-control > .enable > .xiandingji.select::before,
+.skill-control > .enable > .skillcol > .xiandingji.select::before {
+	content: "";
+	position: absolute;
+	inset: -2px;
+	border-radius: 6px;
+	padding: 2px;
+	background: conic-gradient(
+		from var(--skill-ring-angle),
+		rgba(255, 80, 80, 0.9) 0deg,
+		rgba(255, 80, 80, 0.9) 50deg,
+		rgba(255, 80, 80, 0) 66deg,
+		rgba(255, 80, 80, 0) 114deg,
+		rgba(255, 80, 80, 0.9) 130deg,
+		rgba(255, 80, 80, 0.9) 230deg,
+		rgba(255, 80, 80, 0) 246deg,
+		rgba(255, 80, 80, 0) 294deg,
+		rgba(255, 80, 80, 0.9) 310deg,
+		rgba(255, 80, 80, 0.9) 360deg
+	);
+	-webkit-mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+	mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	mask-composite: exclude;
+	filter: drop-shadow(0 0 4px rgba(255, 80, 80, 0.6));
+	animation: skill-select-glow 2s linear infinite;
+	pointer-events: none;
+	z-index: 2;
 }
 
 /* 不可用状态 */
@@ -296,25 +355,15 @@
 	}
 }
 
-@keyframes skill-select-glow {
-	0%,
-	100% {
-		filter: brightness(1.02) drop-shadow(0 0 2px rgba(100, 255, 100, 0.4));
-	}
-
-	50% {
-		filter: brightness(1.12) drop-shadow(0 0 6px rgba(100, 255, 100, 0.85));
-	}
+@property --skill-ring-angle {
+	syntax: "<angle>";
+	inherits: false;
+	initial-value: 0deg;
 }
 
-@keyframes skill-select-glow-xianding {
-	0%,
-	100% {
-		filter: brightness(1.02) drop-shadow(0 0 2px rgba(255, 80, 80, 0.4));
-	}
-
-	50% {
-		filter: brightness(1.12) drop-shadow(0 0 6px rgba(255, 80, 80, 0.85));
+@keyframes skill-select-glow {
+	to {
+		--skill-ring-angle: 360deg;
 	}
 }
 
@@ -434,10 +483,39 @@
 	animation: fanzhuan 1.5s;
 }
 
-/* 左手模式选中状态 */
-.skill-controlzuoshou > .enable > .skillitem.select,
-.skill-controlzuoshou > .enable > .skillcol > .skillitem.select {
-	animation: skill-select-glow 1.5s ease-in-out infinite;
+/* 左手模式选中状态 - 绿色边缘光圈顺时针旋转 */
+.skill-controlzuoshou > .enable > .skillitem.select::before,
+.skill-controlzuoshou > .enable > .skillcol > .skillitem.select::before {
+	content: "";
+	position: absolute;
+	inset: -2px;
+	border-radius: 6px;
+	padding: 2px;
+	background: conic-gradient(
+		from var(--skill-ring-angle),
+		rgba(100, 255, 100, 0.9) 0deg,
+		rgba(100, 255, 100, 0.9) 50deg,
+		rgba(100, 255, 100, 0) 66deg,
+		rgba(100, 255, 100, 0) 114deg,
+		rgba(100, 255, 100, 0.9) 130deg,
+		rgba(100, 255, 100, 0.9) 230deg,
+		rgba(100, 255, 100, 0) 246deg,
+		rgba(100, 255, 100, 0) 294deg,
+		rgba(100, 255, 100, 0.9) 310deg,
+		rgba(100, 255, 100, 0.9) 360deg
+	);
+	-webkit-mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+	mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	mask-composite: exclude;
+	filter: drop-shadow(0 0 4px rgba(100, 255, 100, 0.6));
+	animation: skill-select-glow 2s linear infinite;
+	pointer-events: none;
+	z-index: 2;
 }
 
 /* 左手模式不可用状态 */
@@ -488,9 +566,39 @@
 	-webkit-filter: grayscale(1);
 }
 
-.skill-controlzuoshou > .enable > .xiandingji.select,
-.skill-controlzuoshou > .enable > .skillcol > .xiandingji.select {
-	animation: skill-select-glow-xianding 1.5s ease-in-out infinite;
+/* 左手模式限定技选中状态 - 红色边缘光圈顺时针旋转 */
+.skill-controlzuoshou > .enable > .xiandingji.select::before,
+.skill-controlzuoshou > .enable > .skillcol > .xiandingji.select::before {
+	content: "";
+	position: absolute;
+	inset: -2px;
+	border-radius: 6px;
+	padding: 2px;
+	background: conic-gradient(
+		from var(--skill-ring-angle),
+		rgba(255, 80, 80, 0.9) 0deg,
+		rgba(255, 80, 80, 0.9) 50deg,
+		rgba(255, 80, 80, 0) 66deg,
+		rgba(255, 80, 80, 0) 114deg,
+		rgba(255, 80, 80, 0.9) 130deg,
+		rgba(255, 80, 80, 0.9) 230deg,
+		rgba(255, 80, 80, 0) 246deg,
+		rgba(255, 80, 80, 0) 294deg,
+		rgba(255, 80, 80, 0.9) 310deg,
+		rgba(255, 80, 80, 0.9) 360deg
+	);
+	-webkit-mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+	mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	mask-composite: exclude;
+	filter: drop-shadow(0 0 4px rgba(255, 80, 80, 0.6));
+	animation: skill-select-glow 2s linear infinite;
+	pointer-events: none;
+	z-index: 2;
 }
 
 .skill-controlzuoshou > .enable > .xiandingji:not(.usable):not(.select),
