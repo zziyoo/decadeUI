@@ -65,4 +65,4 @@ jobs:
           name: 十周年UI-${{ steps.version.outputs.version }}
           path: 十周年UI-${{ steps.version.outputs.version }}.zip
           if-no-files-found: error
-          compression-level: 0
+          archive: false
