@@ -2,13 +2,27 @@ name: Manual Package
 
 on:
   workflow_dispatch:
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: read
 
+concurrency:
+  group: manual-package
+  cancel-in-progress: true
+
 jobs:
   package:
     name: Build package
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event_name == 'issue_comment' &&
+        github.event.action == 'created' &&
+        !github.event.issue.pull_request &&
+        github.event.comment.body == '/package'
+      )
     runs-on: ubuntu-latest
 
     steps:
@@ -61,8 +75,20 @@ jobs:
 
       - name: Upload package
         uses: actions/upload-artifact@v7
+        id: upload
         with:
           name: 十周年UI-${{ steps.version.outputs.version }}
           path: 十周年UI-${{ steps.version.outputs.version }}.zip
           if-no-files-found: error
           archive: false
+
+      - name: Show download link
+        if: success()
+        env:
+          ARTIFACT_URL: ${{ steps.upload.outputs.artifact-url }}
+        run: |
+          {
+            echo "## 十周年UI打包完成"
+            echo
+            echo "[点击下载压缩包](${ARTIFACT_URL})"
+          } >> "$GITHUB_STEP_SUMMARY"
