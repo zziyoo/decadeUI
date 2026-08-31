@@ -26,9 +26,11 @@ export function canRecastCard(card, player) {
 export function isCardDisabledByOthers(card, player) {
 	if (!player) return false;
 
-	const info = get.info(card);
+	// 避免 raw 实体牌 cards 为空导致肃纲等以 card.cards 做存在/引用判断的 mod，误将区间内卡牌判为"被禁用"。
+	const viewAs = get.autoViewAs?.(card) || card;
+	const info = get.info(viewAs);
 	if (info?.enable) {
-		const enableResult = typeof info.enable === "function" ? info.enable(card, player) : info.enable;
+		const enableResult = typeof info.enable === "function" ? info.enable(viewAs, player) : info.enable;
 		if (enableResult === false) return true;
 	}
 
@@ -40,12 +42,15 @@ export function isCardDisabledByOthers(card, player) {
 
 	let disabled = false;
 	try {
-		const modResult = game.checkMod(card, player, _status.event, "unchanged", "cardEnabled", player);
-		if (modResult === false) disabled = true;
-
-		if (!disabled && get.itemtype(card) === "card") {
+		// cardEnabled2 保持对原始实体牌（utils itemtype "card"）判定，
+		// 与lib.filter.cardEnabled 对 cardEnabled2 的处理保持一致。
+		if (get.itemtype(card) === "card") {
 			const modResult2 = game.checkMod(card, player, _status.event, "unchanged", "cardEnabled2", player);
 			if (modResult2 === false) disabled = true;
+		}
+		if (!disabled) {
+			const modResult = game.checkMod(viewAs, player, _status.event, "unchanged", "cardEnabled", player);
+			if (modResult === false) disabled = true;
 		}
 	} finally {
 		if (ourSkill?.mod && originalMod) {
