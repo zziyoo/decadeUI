@@ -240,7 +240,11 @@ export function initRecast() {
 	game.addGlobalSkill("_decadeUI_recastable_enable");
 
 	if (lib.skill._recasting) {
-		lib.skill._recasting.enable = false;
+		const oldFilter = lib.skill._recasting.filter;	//隐藏而不是关掉，不然ai不会重铸
+		lib.skill._recasting.filter = (event, player) => {
+			if (player === game.me) return false;
+			return oldFilter ? oldFilter(event, player) : true;
+		};
 	}
 
 	setupRecastableCards();
