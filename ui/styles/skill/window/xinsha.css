@@ -397,6 +397,11 @@
 }
 
 /* 左手模式技能选中特效 */
+.skill-controlzuoshou > .enable > .skillitem.select,
+.skill-controlzuoshou > .enable > .skillcol > .skillitem.select {
+	animation: skill-select-glow 1.5s ease-in-out infinite;
+}
+
 .skill-controlzuoshou > .enable > .xiandingji.select,
 .skill-controlzuoshou > .enable > .skillcol > .xiandingji.select {
 	animation: skill-select-glow-xianding 1.5s ease-in-out infinite;
@@ -425,10 +430,14 @@
 	}
 }
 
+.skill-control > .enable > .skillitem.select,
+.skill-control > .enable > .skillcol > .skillitem.select,
 .gskill-control > .enable > .skillitem.select {
 	animation: skill-select-glow 1.5s ease-in-out infinite;
 }
 
+.skill-control > .enable > .xiandingji.select,
+.skill-control > .enable > .skillcol > .xiandingji.select,
 .gskill-control > .enable > .xiandingji.select {
 	animation: skill-select-glow-xianding 1.5s ease-in-out infinite;
 }

@@ -39,7 +39,6 @@ export function initSkillDisplay() {
 	const isDisplayableSkill = (skill, player) => {
 		if (!player || player === game.me || !lib.translate?.[skill]) return false;
 		const info = get.info(skill);
-		if (info?.sub && !info.enable && !skill.startsWith("olhedao_tianshu_")) return false;
 		return !info?.nopop || info.enable || skill.startsWith("olhedao_tianshu_");
 	};
 

@@ -154,62 +154,16 @@
 	filter: grayscale(1);
 }
 
-/* 选中状态 - APNG动态光效（按图片实际内容占比缩放，紧贴技能框；最底下的技能使用长条光效） */
-.skill-control > .enable > .skillitem.select::after,
-.skill-control > .enable > .skillcol > .skillitem.select::after {
-	content: "";
-	position: absolute;
-	inset: -2px;
-	background-image: url("../../assets/skill/yijiang/SF_zhuangbei_qingse_2.png");
-	background-size: 190% 150%;
-	background-position: center;
-	background-repeat: no-repeat;
-	pointer-events: none;
-	z-index: 3;
+/* 选中状态 */
+.skill-control > .enable > .skillitem.select,
+.skill-control > .enable > .skillcol > .skillitem.select {
+	animation: skill-select-glow 1.5s ease-in-out infinite;
 }
 
-.skill-control > .enable > .skillitem.select:last-child::after,
-.skill-control > .enable > .skillcol > .skillitem.select:last-child::after {
-	background-image: url("../../assets/skill/yijiang/SF_zhuangbei_qingse.png");
-	background-size: 130% 260%;
-	background-position: -15px -17.8px;
+.skill-control > .enable > .xiandingji.select,
+.skill-control > .enable > .skillcol > .xiandingji.select {
+	animation: skill-select-glow-xianding 1.5s ease-in-out infinite;
 }
-
-/* 限定技选中状态 - 红色边缘光圈顺时针旋转（每次亮起对面的两条边） */
-.skill-control > .enable > .xiandingji.select::before,
-.skill-control > .enable > .skillcol > .xiandingji.select::before {
-	content: "";
-	position: absolute;
-	inset: -2px;
-	border-radius: 6px;
-	padding: 2px;
-	background: conic-gradient(
-		from var(--skill-ring-angle),
-		rgba(255, 80, 80, 0.9) 0deg,
-		rgba(255, 80, 80, 0.9) 50deg,
-		rgba(255, 80, 80, 0) 66deg,
-		rgba(255, 80, 80, 0) 114deg,
-		rgba(255, 80, 80, 0.9) 130deg,
-		rgba(255, 80, 80, 0.9) 230deg,
-		rgba(255, 80, 80, 0) 246deg,
-		rgba(255, 80, 80, 0) 294deg,
-		rgba(255, 80, 80, 0.9) 310deg,
-		rgba(255, 80, 80, 0.9) 360deg
-	);
-	-webkit-mask:
-		linear-gradient(#fff 0 0) content-box,
-		linear-gradient(#fff 0 0);
-	-webkit-mask-composite: xor;
-	mask:
-		linear-gradient(#fff 0 0) content-box,
-		linear-gradient(#fff 0 0);
-	mask-composite: exclude;
-	filter: drop-shadow(0 0 4px rgba(255, 80, 80, 0.6));
-	animation: skill-ring-rotate 2s linear infinite;
-	pointer-events: none;
-	z-index: 2;
-}
-
 
 /* 不可用状态 */
 .skill-control > .enable > .skillitem:not(.usable):not(.select),
@@ -316,15 +270,40 @@
 	animation: skill-activate 0.6s ease-out;
 }
 
-@property --skill-ring-angle {
-	syntax: "<angle>";
-	inherits: false;
-	initial-value: 0deg;
+@keyframes skill-activate {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(245, 215, 142, 0.8);
+		filter: brightness(1);
+	}
+
+	30% {
+		transform: scale(1.15);
+		box-shadow: 0 0 15px 5px rgba(245, 215, 142, 0.9);
+		filter: brightness(1.3);
+	}
+
+	60% {
+		transform: scale(1.05);
+		box-shadow: 0 0 25px 10px rgba(245, 215, 142, 0.4);
+		filter: brightness(1.15);
+	}
+
+	100% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(245, 215, 142, 0);
+		filter: brightness(1);
+	}
 }
 
-@keyframes skill-ring-rotate {
-	to {
-		--skill-ring-angle: 360deg;
+@keyframes skill-select-glow {
+	0%,
+	100% {
+		filter: brightness(1.02) drop-shadow(0 0 2px rgba(100, 255, 100, 0.4));
+	}
+
+	50% {
+		filter: brightness(1.12) drop-shadow(0 0 6px rgba(100, 255, 100, 0.85));
 	}
 }
 
@@ -455,24 +434,10 @@
 	animation: fanzhuan 1.5s;
 }
 
-/* 左手模式选中状态 - APNG动态光效（按图片实际内容占比缩放，紧贴技能框；最底下的技能使用长条光效） */
-.skill-controlzuoshou > .enable > .skillitem.select::after,
-.skill-controlzuoshou > .enable > .skillcol > .skillitem.select::after {
-	content: "";
-	position: absolute;
-	inset: -2px;
-	background-image: url("../../assets/skill/yijiang/SF_zhuangbei_qingse_2.png");
-	background-size: 163% 129%;
-	background-position: center;
-	background-repeat: no-repeat;
-	pointer-events: none;
-	z-index: 3;
-}
-
-.skill-controlzuoshou > .enable > .skillitem.select:last-child::after,
-.skill-controlzuoshou > .enable > .skillcol > .skillitem.select:last-child::after {
-	background-image: url("../../assets/skill/yijiang/SF_zhuangbei_qingse.png");
-	background-size: 111% 145%;
+/* 左手模式选中状态 */
+.skill-controlzuoshou > .enable > .skillitem.select,
+.skill-controlzuoshou > .enable > .skillcol > .skillitem.select {
+	animation: skill-select-glow 1.5s ease-in-out infinite;
 }
 
 /* 左手模式不可用状态 */
@@ -482,39 +447,23 @@
 	-webkit-filter: grayscale(100%);
 }
 
-/* 左手模式限定技选中状态 - 红色边缘光圈顺时针旋转 */
-.skill-controlzuoshou > .enable > .xiandingji.select::before,
-.skill-controlzuoshou > .enable > .skillcol > .xiandingji.select::before {
-	content: "";
-	position: absolute;
-	inset: -2px;
-	border-radius: 6px;
-	padding: 2px;
-	background: conic-gradient(
-		from var(--skill-ring-angle),
-		rgba(255, 80, 80, 0.9) 0deg,
-		rgba(255, 80, 80, 0.9) 50deg,
-		rgba(255, 80, 80, 0) 66deg,
-		rgba(255, 80, 80, 0) 114deg,
-		rgba(255, 80, 80, 0.9) 130deg,
-		rgba(255, 80, 80, 0.9) 230deg,
-		rgba(255, 80, 80, 0) 246deg,
-		rgba(255, 80, 80, 0) 294deg,
-		rgba(255, 80, 80, 0.9) 310deg,
-		rgba(255, 80, 80, 0.9) 360deg
-	);
-	-webkit-mask:
-		linear-gradient(#fff 0 0) content-box,
-		linear-gradient(#fff 0 0);
-	-webkit-mask-composite: xor;
-	mask:
-		linear-gradient(#fff 0 0) content-box,
-		linear-gradient(#fff 0 0);
-	mask-composite: exclude;
-	filter: drop-shadow(0 0 4px rgba(255, 80, 80, 0.6));
-	animation: skill-ring-rotate 2s linear infinite;
-	pointer-events: none;
-	z-index: 2;
+/* 左手模式限定技 */
+.skill-controlzuoshou > .enable > .xiandingji,
+.skill-controlzuoshou > .enable > .skillcol > .xiandingji {
+	margin: 0px 5px;
+	--w: 75px;
+	--h: 38.1px;
+	width: var(--w);
+	height: var(--h);
+	line-height: 42px;
+	text-align: center;
+	font-family: "yuanli";
+	font-weight: 500;
+	color: #f7f5e7;
+	font-size: 25px;
+	background-image: url("../../assets/skill/yijiang/new_btnn4.png");
+	background-size: 100% 100%;
+	position: relative;
 }
 
 .skill-controlzuoshou > .enable > .xiandingji > .xiandingji-mark,
