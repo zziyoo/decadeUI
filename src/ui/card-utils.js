@@ -201,7 +201,7 @@ function handleDefaultTag(card, player, event, decadeUI) {
 		const cardnature = get.nature(event.card);
 
 		// 临时卡牌名称显示
-		if (lib.config.cardtempname !== "off" && (card.name !== cardname || !get.is.sameNature(cardnature, card.nature, true))) {
+		if (lib.config.cardtempname !== "off" && (card.name !== cardname || !get.is.sameNature(cardnature, card.nature, true)) && !(lib.config.card_animation_info && event.throw !== false && event.animate != false)) {
 			if (!card._tempName) card._tempName = ui.create.div(".temp-name", card);
 			let tempname = get.translation(cardname) || "";
 			if (cardnature && cardname === "sha") {

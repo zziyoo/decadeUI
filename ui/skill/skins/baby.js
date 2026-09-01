@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @fileoverview 宝宝杀风格技能插件
  * @description 合并区域布局、技能图标（限定技/觉醒技/转换技）
  */
@@ -100,6 +100,7 @@ export function createBabySkillPlugin(lib, game, ui, get, ai, _status, app) {
 
 				skills = skills.filter(skill => {
 					const info = get.info(skill);
+					if (info?.sub && !info.enable && !skill.startsWith("olhedao_tianshu_")) return false;
 					return !info?.nopop || info.enable || skill.startsWith("olhedao_tianshu_");
 				});
 
