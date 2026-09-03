@@ -25,6 +25,17 @@ export function createContentGain(baseGain) {
 		...baseGain.slice(0, -2),
 		async (event, trigger, player) => {
 			let { cards, gaintag } = event;
+			for (const [key, area] of lib.commonArea) {
+				const list = (_status[area.areaStatusName] || []).filter(card => cards.includes(card));
+				if (event[area.fromName] || list.length) {
+					const next = game.createEvent(`from_${area.fromName}`);
+					next.setContent(area.removeHandeler);
+					next.cards = cards;
+					next.player = player;
+					next.type = event.name;
+					await next;
+				}
+			}
 			const handcards = player.node.handcards1;
 			const fragment = document.createDocumentFragment();
 			for (let i = 0; i < cards.length; i++) {
