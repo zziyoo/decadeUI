@@ -35,17 +35,18 @@ export const baseSkill = {
 
 	/**
 	 * 回复数字显示
-	 * @description 在回复体力时显示数字动画
+	 * @description 在实际回复体力时显示数字动画
 	 */
 	_wjmh_huifushuzi_: {
 		priority: 10,
 		forced: true,
-		trigger: { player: "recoverBegin" },
+		trigger: { player: "changeHp" },
 		filter(event) {
-			return event.num > 0 && event.num <= 9 && lib.config.extension_十周年UI_newDecadeStyle !== "off";
+			const parent = event.getParent?.("recover", true);
+			return !!parent && event.changedHp > 0 && event.changedHp <= 9 && lib.config.extension_十周年UI_newDecadeStyle !== "off";
 		},
 		async content(event, trigger, player) {
-			decadeUI.animation?.playRecoverNumber?.(player, trigger.num);
+			decadeUI.animation?.playRecoverNumber?.(player, trigger.changedHp);
 		},
 	},
 
