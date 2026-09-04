@@ -1,0 +1,328 @@
+
+feilongduofeng.png
+size: 1384,1384
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+feilong/2/feilong_00
+  rotate: true
+  xy: 154, 454
+  size: 232, 162
+  orig: 400, 250
+  offset: 49, 46
+  index: -1
+feilong/2/feilong_01
+  rotate: false
+  xy: 512, 1220
+  size: 233, 162
+  orig: 400, 250
+  offset: 49, 52
+  index: -1
+feilong/2/feilong_02
+  rotate: false
+  xy: 277, 1022
+  size: 234, 164
+  orig: 400, 250
+  offset: 49, 54
+  index: -1
+feilong/2/feilong_03
+  rotate: false
+  xy: 2, 13
+  size: 231, 161
+  orig: 400, 250
+  offset: 52, 58
+  index: -1
+feilong/2/feilong_04
+  rotate: false
+  xy: 2, 1199
+  size: 280, 183
+  orig: 400, 250
+  offset: 75, 30
+  index: -1
+feilong/2/feilong_05
+  rotate: true
+  xy: 2, 916
+  size: 281, 155
+  orig: 400, 250
+  offset: 75, 36
+  index: -1
+feilong/2/feilong_06
+  rotate: true
+  xy: 159, 688
+  size: 278, 153
+  orig: 400, 250
+  offset: 75, 38
+  index: -1
+feilong/2/feilong_07
+  rotate: true
+  xy: 2, 643
+  size: 271, 150
+  orig: 400, 250
+  offset: 75, 42
+  index: -1
+feilong/2/feilong_08
+  rotate: true
+  xy: 2, 389
+  size: 252, 147
+  orig: 400, 250
+  offset: 74, 46
+  index: -1
+feilong/2/feilong_09
+  rotate: false
+  xy: 747, 1236
+  size: 251, 146
+  orig: 400, 250
+  offset: 75, 47
+  index: -1
+feilong/2/feilong_10
+  rotate: false
+  xy: 1000, 1237
+  size: 248, 145
+  orig: 400, 250
+  offset: 78, 47
+  index: -1
+feilong/2/feilong_11
+  rotate: true
+  xy: 1209, 890
+  size: 247, 143
+  orig: 400, 250
+  offset: 79, 48
+  index: -1
+feilong/2/feilong_12
+  rotate: false
+  xy: 1076, 313
+  size: 246, 137
+  orig: 400, 250
+  offset: 79, 50
+  index: -1
+feilong/2/feilong_13
+  rotate: true
+  xy: 1250, 1139
+  size: 243, 132
+  orig: 400, 250
+  offset: 79, 53
+  index: -1
+feilong/2/feilong_14
+  rotate: true
+  xy: 1213, 646
+  size: 242, 129
+  orig: 400, 250
+  offset: 80, 54
+  index: -1
+feilong/2/feilong_15
+  rotate: true
+  xy: 159, 968
+  size: 229, 116
+  orig: 400, 250
+  offset: 92, 55
+  index: -1
+feilong/2/feilong_16
+  rotate: false
+  xy: 314, 708
+  size: 227, 99
+  orig: 400, 250
+  offset: 94, 55
+  index: -1
+feilong/2/feilong_17
+  rotate: false
+  xy: 543, 713
+  size: 228, 94
+  orig: 400, 250
+  offset: 93, 58
+  index: -1
+feilong/2/feilong_18
+  rotate: false
+  xy: 773, 738
+  size: 228, 88
+  orig: 400, 250
+  offset: 92, 63
+  index: -1
+feilong/jianti2_00
+  rotate: false
+  xy: 284, 1188
+  size: 226, 194
+  orig: 400, 400
+  offset: 115, 103
+  index: -1
+feilong/jianti3_00
+  rotate: true
+  xy: 493, 809
+  size: 211, 177
+  orig: 400, 400
+  offset: 124, 111
+  index: -1
+feilong/jianti_00
+  rotate: false
+  xy: 513, 1041
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_01
+  rotate: true
+  xy: 2, 176
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_02
+  rotate: true
+  xy: 181, 241
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_03
+  rotate: true
+  xy: 318, 495
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_04
+  rotate: true
+  xy: 235, 28
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_05
+  rotate: true
+  xy: 360, 282
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_06
+  rotate: true
+  xy: 497, 495
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_07
+  rotate: true
+  xy: 672, 828
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_08
+  rotate: false
+  xy: 726, 1041
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_09
+  rotate: true
+  xy: 414, 69
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_10
+  rotate: true
+  xy: 539, 282
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_11
+  rotate: true
+  xy: 676, 500
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_12
+  rotate: true
+  xy: 851, 828
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_13
+  rotate: false
+  xy: 939, 1057
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_14
+  rotate: true
+  xy: 593, 69
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_15
+  rotate: true
+  xy: 718, 287
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_16
+  rotate: true
+  xy: 855, 525
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_17
+  rotate: true
+  xy: 1030, 844
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_18
+  rotate: true
+  xy: 772, 74
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_19
+  rotate: true
+  xy: 897, 312
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_20
+  rotate: true
+  xy: 1034, 631
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_21
+  rotate: true
+  xy: 951, 99
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_22
+  rotate: false
+  xy: 1076, 452
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_23
+  rotate: false
+  xy: 1130, 134
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1
+feilong/jianti_24
+  rotate: true
+  xy: 314, 809
+  size: 211, 177
+  orig: 400, 400
+  offset: 123, 112
+  index: -1

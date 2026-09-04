@@ -1,0 +1,181 @@
+
+Ss_mgk_fire.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A_00
+  rotate: false
+  xy: 449, 812
+  size: 214, 193
+  orig: 227, 213
+  offset: 6, 2
+  index: -1
+A_01
+  rotate: false
+  xy: 1, 388
+  size: 220, 197
+  orig: 227, 213
+  offset: 3, 4
+  index: -1
+A_02
+  rotate: false
+  xy: 1, 796
+  size: 227, 209
+  orig: 227, 213
+  offset: 0, 0
+  index: -1
+A_03
+  rotate: false
+  xy: 1, 586
+  size: 224, 209
+  orig: 227, 213
+  offset: 2, 3
+  index: -1
+A_04
+  rotate: false
+  xy: 229, 800
+  size: 219, 205
+  orig: 227, 213
+  offset: 4, 8
+  index: -1
+A_05
+  rotate: false
+  xy: 1, 188
+  size: 208, 199
+  orig: 227, 213
+  offset: 8, 12
+  index: -1
+A_06
+  rotate: false
+  xy: 664, 814
+  size: 196, 191
+  orig: 227, 213
+  offset: 13, 17
+  index: -1
+A_07
+  rotate: false
+  xy: 1, 1
+  size: 183, 186
+  orig: 227, 213
+  offset: 19, 22
+  index: -1
+A_08
+  rotate: false
+  xy: 185, 8
+  size: 172, 179
+  orig: 227, 213
+  offset: 24, 29
+  index: -1
+A_09
+  rotate: false
+  xy: 861, 700
+  size: 156, 174
+  orig: 227, 213
+  offset: 31, 30
+  index: -1
+A_10
+  rotate: true
+  xy: 861, 875
+  size: 130, 162
+  orig: 227, 213
+  offset: 43, 29
+  index: -1
+A_11
+  rotate: false
+  xy: 599, 670
+  size: 130, 141
+  orig: 227, 213
+  offset: 43, 29
+  index: -1
+A_12
+  rotate: false
+  xy: 730, 669
+  size: 130, 144
+  orig: 227, 213
+  offset: 43, 30
+  index: -1
+A_13
+  rotate: false
+  xy: 210, 246
+  size: 130, 141
+  orig: 227, 213
+  offset: 42, 31
+  index: -1
+A_14
+  rotate: true
+  xy: 226, 539
+  size: 130, 138
+  orig: 227, 213
+  offset: 41, 31
+  index: -1
+A_15
+  rotate: true
+  xy: 229, 670
+  size: 129, 141
+  orig: 227, 213
+  offset: 41, 31
+  index: -1
+A_16
+  rotate: true
+  xy: 861, 571
+  size: 128, 147
+  orig: 227, 213
+  offset: 40, 30
+  index: -1
+A_17
+  rotate: true
+  xy: 449, 686
+  size: 125, 149
+  orig: 227, 213
+  offset: 40, 30
+  index: -1
+A_18
+  rotate: false
+  xy: 222, 409
+  size: 124, 129
+  orig: 227, 213
+  offset: 40, 30
+  index: -1
+A_19
+  rotate: false
+  xy: 347, 409
+  size: 122, 129
+  orig: 227, 213
+  offset: 41, 31
+  index: -1
+A_20
+  rotate: false
+  xy: 341, 281
+  size: 119, 127
+  orig: 227, 213
+  offset: 42, 33
+  index: -1
+A_21
+  rotate: false
+  xy: 358, 156
+  size: 115, 124
+  orig: 227, 213
+  offset: 46, 35
+  index: -1
+A_22
+  rotate: false
+  xy: 358, 31
+  size: 108, 124
+  orig: 227, 213
+  offset: 53, 35
+  index: -1
+A_23
+  rotate: true
+  xy: 474, 577
+  size: 108, 124
+  orig: 227, 213
+  offset: 53, 35
+  index: -1
+A_24
+  rotate: false
+  xy: 365, 545
+  size: 108, 124
+  orig: 227, 213
+  offset: 53, 35
+  index: -1

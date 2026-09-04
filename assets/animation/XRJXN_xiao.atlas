@@ -1,0 +1,20 @@
+
+XRJXN_xiao.png
+size: 124,85
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+XRJXN_xiao
+  rotate: false
+  xy: 2, 2
+  size: 98, 81
+  orig: 98, 81
+  offset: 0, 0
+  index: -1
+qiangkou
+  rotate: true
+  xy: 102, 36
+  size: 47, 20
+  orig: 48, 21
+  offset: 0, 0
+  index: -1

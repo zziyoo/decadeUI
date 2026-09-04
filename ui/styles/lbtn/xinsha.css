@@ -1,0 +1,449 @@
+/**
+ * 新杀风格 - 按钮控制样式
+ */
+
+.lbtn-controls {
+	--width: 80px;
+	--height: 58.6px;
+	left: 0;
+	bottom: 15%;
+	z-index: 3;
+}
+
+/* 主菜单容器 */
+.buttonyjcm {
+	--w: 56px;
+	--h: calc(var(--w) * 275 / 71);
+	width: var(--w);
+	height: var(--h);
+	overflow-y: scroll;
+	flex-direction: column;
+	align-items: flex-start;
+	white-space: normal;
+	position: fixed;
+	bottom: calc(100% - 280px);
+	left: calc(100% - 110px);
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 菜单按钮 */
+.buttonyjcm > .controls {
+	--w: 56px;
+	--h: calc(var(--w) * 55 / 71);
+	width: var(--w);
+	height: var(--h);
+	background-size: 100% 100%;
+	z-index: 99;
+	position: relative;
+	margin-top: 10px;
+	font-size: 14.5px;
+	font-weight: 1000;
+	font-family: yuanli;
+	color: #ae8e7d;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+#arena:not(.single-handcard):not(.chess).cxy-new-ui > .lbtn-controls ~ #mebg,
+#arena:not(.single-handcard):not(.chess).cxy-new-ui > .lbtn-controls ~ #me {
+	left: 40px !important;
+}
+
+.lbtn-controls ~ #me #handcards1 {
+	--lessw: 40px;
+}
+
+.lbtn-controls > div {
+	display: block;
+	position: relative;
+}
+
+/* 新版小配件 */
+.jiluButton_new {
+	display: block;
+	--w: 56px;
+	--h: 56px;
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	bottom: 1%;
+	left: 1%;
+	background-image: url("../../assets/lbtn/uibutton/new_jilu_new.png");
+	background-size: 100% 100%;
+	border-radius: 1px;
+	z-index: 4;
+	margin-left: 10px;
+}
+
+.huanfuButton_new {
+	display: block;
+	--w: 56px;
+	--h: 56px;
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	bottom: 23%;
+	left: 1%;
+	background-image: url("../../assets/lbtn/uibutton/new_huanfu_new.png");
+	background-size: 100% 100%;
+	z-index: 3;
+	margin-left: 10px;
+}
+
+.xiaolianButton_new {
+	display: block;
+	--w: 56px;
+	--h: 56px;
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	bottom: 12.5%;
+	left: 1%;
+	background-image: url("../../assets/lbtn/uibutton/new_xiaolian_new.png");
+	background-size: 100% 100%;
+	z-index: 3;
+	margin-left: 10px;
+}
+
+.lbtn-confirm:not(.closing).removing {
+	opacity: 1 !important;
+}
+
+.control {
+	--height: 32px;
+	width: auto !important;
+	background: transparent;
+	box-shadow: none;
+	line-height: normal;
+	padding: 0;
+}
+
+.control > div {
+	background-image: url("../../assets/lbtn/uibutton/new_btnn.png");
+	background-size: 100% 100%;
+	line-height: var(--h);
+	padding: 2.6px 23px !important;
+	min-width: 90px !important;
+	max-height: 50px !important;
+	text-align: center;
+	margin-top: 0px !important;
+	margin-bottom: -15px !important;
+	color: #f5d79e;
+	font-family: "BKJT";
+	font-size: 20px;
+}
+
+/* 无懈按钮位置 */
+#arena > #dui-controls > .control.stayleft {
+	left: calc(50% - 420px) !important;
+	margin-bottom: 5px !important;
+	order: 3;
+}
+
+.control > div.primary2 {
+	bottom: 1.8px;
+	color: #f5d79e;
+	font-family: "BKJT";
+	font-size: 20px;
+	line-height: 35px;
+	padding: 2.6px 23px !important;
+	margin-left: 55px !important;
+	margin-right: 0px !important;
+	margin-top: 0px !important;
+	margin-bottom: -15px !important;
+	background-size: 100% 100%;
+	background-image: url("../../assets/lbtn/uibutton/new_btnn.png");
+	overflow: visible;
+	transition: none;
+}
+
+.control > div.primary {
+	color: #f5d79e;
+	font-family: "BKJT";
+	font-size: 20px;
+	line-height: 35px;
+	padding: 2.6px 23px !important;
+	margin-left: 10px !important;
+	margin-right: 10px !important;
+	margin-top: 0px !important;
+	margin-bottom: -15px !important;
+	background-size: 100% 100%;
+	background-image: url("../../assets/lbtn/uibutton/new_btnn.png");
+}
+
+.control > div.disabled:not([data-type="endButton"]) {
+	background-size: 100% 100%;
+	filter: grayscale(100%);
+}
+
+.lbtn-confirm[data-skill] > [data-type="skill2"] {
+	display: none;
+}
+
+/* 手牌显示 */
+.handcardNumber {
+	bottom: 0px;
+	right: 225px;
+	font-family: "yuanli";
+	text-shadow:
+		#f5d78e 0 0 1px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px;
+	color: #f5d78e;
+	z-index: 1;
+}
+
+.handcardNumber > .cardPicture {
+	left: 110px;
+	bottom: 10px;
+	--w: 100px;
+	--h: calc(var(--w) * 92 / 370);
+	width: var(--w);
+	height: var(--h);
+	background-image:
+		linear-gradient(135deg, rgba(111, 78, 55, 0.8) 0%, rgba(111, 78, 55, 0) 100%),
+		linear-gradient(to right, rgba(36, 31, 31, 0.8), rgba(36, 31, 31, 0.8)), url("../../assets/lbtn/uibutton/new_count5.png");
+	background-size: 100% 100%;
+	position: relative;
+	z-index: -1;
+}
+
+.handcardNumber > .cardNumber {
+	left: 120px;
+	bottom: 30px;
+	height: 8px;
+	line-height: 25px;
+	text-align: center;
+	color: #fffcf5;
+	font-size: 18px;
+	white-space: nowrap;
+	letter-spacing: 0.35px;
+}
+
+/* 牌堆显示 */
+.cardRoundNumber {
+	top: 16px;
+	left: 0px;
+	font-weight: 400;
+	font-family: "yuanli";
+	text-shadow:
+		#b4a993 0.2px 0.2px 0.2px,
+		#b4a993 0.2px -0.2px 0.2px;
+}
+
+.cardRoundNumber > .cardPileNumber {
+	left: 20px;
+	top: -15px;
+	--w: 80px;
+	--h: calc(var(--w) * 430 / 360);
+	width: var(--w);
+	height: var(--h);
+	background-image: url("../../assets/lbtn/uibutton/new_cardback3.png");
+	background-size: 100% 100%;
+	background-color: transparent;
+	position: relative;
+	z-index: 2;
+}
+
+.cardRoundNumber > .cardPileNumber > span {
+	left: 12px;
+	top: 15px;
+	width: 100%;
+	display: block;
+	position: absolute;
+	line-height: 20px;
+	text-align: center;
+	color: #a78d72;
+	font-size: 18px;
+}
+
+.cardRoundNumber > .roundNumber,
+.cardRoundNumber > .time {
+	left: 35px;
+	top: 30px;
+	height: 20px;
+	line-height: 16px;
+	font-size: 20px;
+	white-space: nowrap;
+	color: #a78d72;
+	z-index: 3;
+}
+
+.cardRoundNumber > .time {
+	top: 55px;
+	left: 43px;
+	font-size: 16px;
+	color: #a78d72;
+}
+
+/* 托管中图标 */
+#autonode > div:last-child {
+	z-index: 10;
+	margin-bottom: -75px !important;
+	left: calc(50% - 440px);
+	font-size: 0px;
+	text-shadow: none;
+	--w: 400px;
+	--h: calc(var(--w) * 149 / 598);
+	width: var(--w);
+	height: var(--h);
+	background-image: url("../../assets/lbtn/CD/tuoguan2.png");
+	background-size: 100% 100%;
+	-webkit-text-fill-color: transparent;
+	text-shadow: none !important;
+}
+
+/* 身份任务提示 */
+.Tipzhugong,
+.Tipzhongchen,
+.Tipfanzei,
+.Tipneijian,
+.Tipdizhu,
+.Tipnongmin,
+.Tipweiguo,
+.Tipshuguo,
+.Tipwuguo,
+.Tipjinguo,
+.Tipyexinjia,
+.Tipqunxiong,
+.Tipundefined,
+.Tipweizhi {
+	position: fixed;
+	background-color: none;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	--w: 269px;
+	--h: calc(var(--w) * 214 / 600);
+	width: var(--w);
+	height: var(--h);
+	left: calc(100% - 400.5px);
+	bottom: calc(100% - 145px);
+}
+
+.Tipzhugong {
+	background-image: url("../../assets/lbtn/SFTS/Tipzhugong.png") !important;
+}
+
+.Tipzhongchen {
+	background-image: url("../../assets/lbtn/SFTS/Tipzhongchen.png") !important;
+}
+
+.Tipfanzei {
+	background-image: url("../../assets/lbtn/SFTS/Tipfanzei.png") !important;
+}
+
+.Tipneijian {
+	background-image: url("../../assets/lbtn/SFTS/Tipneijian.png") !important;
+}
+
+.Tipdizhu {
+	background-image: url("../../assets/lbtn/SFTS/Tipdizhu.png") !important;
+}
+
+.Tipnongmin {
+	background-image: url("../../assets/lbtn/SFTS/Tipnongmin.png") !important;
+}
+
+.Tipweiguo {
+	background-image: url("../../assets/lbtn/SFTS/Tipweiguo.png") !important;
+}
+
+.Tipshuguo {
+	background-image: url("../../assets/lbtn/SFTS/Tipshuguo.png") !important;
+}
+
+.Tipwuguo {
+	background-image: url("../../assets/lbtn/SFTS/Tipwuguo.png") !important;
+}
+
+.Tipjinguo {
+	background-image: url("../../assets/lbtn/SFTS/Tipjinguo.png") !important;
+}
+
+.Tipyexinjia {
+	background-image: url("../../assets/lbtn/SFTS/Tipye.png") !important;
+}
+
+.Tipqunxiong {
+	background-image: url("../../assets/lbtn/SFTS/Tipqunxiong.png") !important;
+}
+
+.Tipundefined {
+	background-image: url("../../assets/lbtn/SFTS/Tipyinbi.png") !important;
+}
+
+.Tipweizhi {
+	background-image: url("../../assets/lbtn/SFTS/Tipweizhi.png") !important;
+}
+
+/* 背景选择器 */
+.bgdialog {
+	position: absolute;
+	background: url("../../assets/lbtn/OL_line/bg/bgdialog.png");
+	background-size: 100% 100%;
+	width: 70%;
+	height: 90%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.backgroundsbg {
+	width: 100%;
+	height: 82%;
+	top: 11.5%;
+	left: 0.5%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.backgrounds {
+	background-size: 100% 100%;
+	left: 3.55%;
+	width: 29%;
+	height: 34%;
+	position: relative;
+	border: 2px solid #d2b48c;
+	min-width: 200px;
+	object-fit: cover;
+	margin-left: 1%;
+	margin-bottom: 1%;
+	border-radius: 6px;
+}
+
+.buttontext {
+	position: absolute;
+	bottom: 0;
+	height: 20%;
+	background-color: #2e1e10;
+	width: 100%;
+	text-align: center;
+	font-weight: 500;
+	font-family: "yuanli";
+	color: #efdbb6;
+	text-shadow: none;
+	font-size: 25px;
+}
+
+.bgback {
+	width: 80px;
+	height: 40px;
+	top: 5%;
+	right: 8%;
+	background-image: url("../../assets/lbtn/OL_line/uibutton/back.png");
+	background-size: 100% 100%;
+	z-index: 100;
+	position: absolute;
+}
+
+.bgxuanzhong {
+	background: url("../../assets/lbtn/OL_line/bg/gou.png");
+	background-size: 100% 100%;
+	width: 45%;
+	height: 60%;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%, -50%);
+}

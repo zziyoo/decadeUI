@@ -1,0 +1,69 @@
+
+SZN_shuzi.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pub_nums_-
+  rotate: false
+  xy: 714, 2
+  size: 87, 112
+  orig: 87, 112
+  offset: 0, 0
+  index: -1
+pub_nums_2
+  rotate: false
+  xy: 2, 2
+  size: 87, 112
+  orig: 87, 112
+  offset: 0, 0
+  index: -1
+pub_nums_3
+  rotate: false
+  xy: 91, 2
+  size: 87, 112
+  orig: 87, 112
+  offset: 0, 0
+  index: -1
+pub_nums_4
+  rotate: false
+  xy: 180, 2
+  size: 87, 112
+  orig: 87, 112
+  offset: 0, 0
+  index: -1
+pub_nums_5
+  rotate: false
+  xy: 269, 2
+  size: 87, 112
+  orig: 87, 112
+  offset: 0, 0
+  index: -1
+pub_nums_6
+  rotate: false
+  xy: 358, 2
+  size: 87, 112
+  orig: 87, 112
+  offset: 0, 0
+  index: -1
+pub_nums_7
+  rotate: false
+  xy: 447, 2
+  size: 87, 112
+  orig: 87, 112
+  offset: 0, 0
+  index: -1
+pub_nums_8
+  rotate: false
+  xy: 536, 2
+  size: 87, 112
+  orig: 87, 112
+  offset: 0, 0
+  index: -1
+pub_nums_9
+  rotate: false
+  xy: 625, 2
+  size: 87, 112
+  orig: 87, 112
+  offset: 0, 0
+  index: -1

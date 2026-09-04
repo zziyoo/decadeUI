@@ -1,0 +1,111 @@
+
+aar_chupaizhishi.png
+size: 711,711
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01-guang_00
+  rotate: true
+  xy: 422, 102
+  size: 186, 162
+  orig: 360, 360
+  offset: 92, 85
+  index: -1
+01-guang_01
+  rotate: true
+  xy: 220, 294
+  size: 201, 167
+  orig: 360, 360
+  offset: 94, 82
+  index: -1
+01-guang_02
+  rotate: false
+  xy: 211, 106
+  size: 209, 186
+  orig: 360, 360
+  offset: 95, 76
+  index: -1
+01-guang_03
+  rotate: false
+  xy: 2, 294
+  size: 216, 201
+  orig: 360, 360
+  offset: 83, 68
+  index: -1
+01-guang_04
+  rotate: false
+  xy: 450, 290
+  size: 219, 206
+  orig: 360, 360
+  offset: 81, 67
+  index: -1
+01-guang_05
+  rotate: true
+  xy: 2, 71
+  size: 217, 207
+  orig: 360, 360
+  offset: 84, 71
+  index: -1
+01-guang_06
+  rotate: false
+  xy: 227, 497
+  size: 221, 212
+  orig: 360, 360
+  offset: 80, 67
+  index: -1
+01-guang_07
+  rotate: false
+  xy: 450, 498
+  size: 222, 211
+  orig: 360, 360
+  offset: 79, 66
+  index: -1
+01-guang_08
+  rotate: false
+  xy: 2, 497
+  size: 223, 212
+  orig: 360, 360
+  offset: 78, 66
+  index: -1
+01-guang_09
+  rotate: true
+  xy: 211, 5
+  size: 99, 191
+  orig: 360, 360
+  offset: 113, 89
+  index: -1
+01-guang_10
+  rotate: true
+  xy: 2, 6
+  size: 63, 193
+  orig: 360, 360
+  offset: 135, 89
+  index: -1
+01-guang_11
+  rotate: false
+  xy: 674, 548
+  size: 11, 161
+  orig: 360, 360
+  offset: 136, 90
+  index: -1
+01-guang_12
+  rotate: false
+  xy: 687, 550
+  size: 9, 159
+  orig: 360, 360
+  offset: 136, 91
+  index: -1
+J_huangguang_00
+  rotate: false
+  xy: 586, 156
+  size: 123, 132
+  orig: 200, 200
+  offset: 43, 34
+  index: -1
+J_jian_00
+  rotate: false
+  xy: 586, 29
+  size: 111, 125
+  orig: 200, 200
+  offset: 49, 33
+  index: -1

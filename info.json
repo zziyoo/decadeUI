@@ -1,0 +1,16 @@
+{
+	"name": "十周年UI",
+	"intro": "原维护：萌新（转型中）<br>十周年UI原作者：短歌<br>手杀UI原名：界面美化<br>手杀UI原作者：橙续缘",
+	"author": "子右",
+	"diskURL": "https://github.com/zziyoo/decadeUI",
+	"forumURL": "",
+	"version": "1.4.1",
+	"minNonameVersion": "1.11.5",
+	"importConfig": [
+		{
+			"name": "骨骼包",
+			"path": "./",
+			"condition": ["src/skins/dynamicSkin.js"]
+		}
+	]
+}

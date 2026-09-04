@@ -1,0 +1,213 @@
+﻿/**
+ * 十周年UI - 菜单样式
+ * 此文件在游戏界面创建后才加载，不会影响开始菜单
+ */
+
+/** 菜单容器 */
+
+/* 主菜单框体 */
+.menu-container > .menu.main {
+	width: 80%;
+	height: 85%;
+	margin-left: 9%;
+	margin-top: 2%;
+	border: 3px solid #5c4033;
+	background-image: url("../../image/ui/button/background.png");
+	background-size: 100% 100%;
+	transition: all 0.3s;
+	transform-origin: center center;
+}
+
+/* 非触屏布局 */
+.menu-container:not(.phonelayout) > .menu.main {
+	left: calc(50% - 48%);
+	top: calc(50% - 45%);
+	transform-origin: center center;
+}
+
+/* 居中定位 */
+.menu-container > .menu.main.center {
+	top: 12px !important;
+	left: 10px !important;
+}
+
+/** 顶部标签栏 */
+
+.menu.main > .menu-tab {
+	position: relative;
+	height: 40px;
+	width: calc(100% - 30px);
+	left: -60px;
+	top: 16px;
+	padding: 0 15px;
+	text-align: center;
+	border-width: 0;
+	border-style: solid;
+}
+
+/* 隐藏进度条 */
+.menu.main > .menu-tab-bar {
+	display: none;
+}
+
+/* 标签项 */
+.menu.main > .menu-tab > div {
+	display: inline-block;
+	width: 60px;
+	height: 27.5px;
+	margin: 0 5px;
+	left: 35px;
+	padding-top: 0;
+	line-height: 30px;
+	font-size: 20px;
+	font-family: "yuanli";
+	color: #fff;
+	background-image: url("../../image/ui/button/square_light.png");
+	background-size: 100% 100%;
+	transition: color 0.5s;
+}
+
+/* 标签项悬停 */
+.menu.main > .menu-tab > div:hover {
+	background-image: url("../../image/ui/button/square_light.png");
+}
+
+/* 标签项非激活/禁用状态 */
+.menu.main > .menu-tab > div:not(.active):not(*:hover),
+.menu.main > .menu-tab > .disabled {
+	color: #fff;
+	background-image: url("../../image/ui/button/square_drck.png");
+}
+
+/** 菜单内容区 */
+
+.menu.main > .menu-content {
+	position: relative;
+	width: 100%;
+	height: calc(100% - 38px);
+	font-size: 20px;
+	font-family: "yuanli";
+	text-shadow: #333 0 0 3px;
+}
+
+/* 左侧导航栏 */
+.menu.main > .menu-content > div > .left.pane {
+	width: 20%;
+	height: 90%;
+	left: 2%;
+	overflow: scroll;
+}
+
+/* 右侧内容栏 */
+.menu.main > .menu-content > div > .right.pane {
+	width: 70%;
+	height: 90%;
+	left: 22%;
+	top: 3%;
+}
+
+/** 左侧导航项 */
+
+.menu.main > .menu-content > div > .left.pane > div {
+	position: relative;
+	width: calc(100% - 45px);
+	height: 15px;
+	margin-top: -3px;
+	margin-left: 10px;
+	padding-top: 20.5px;
+	top: 25px;
+	line-height: 1px;
+	font-size: 22.5px;
+	font-family: "yuanli";
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	background-image: url("../../image/ui/button/square_light.png") !important;
+	background-size: 100% 100%;
+	box-shadow: none;
+	transition: all 0.3s;
+}
+
+/* 导航项悬停 */
+.menu.main > .menu-content > div > .left.pane > div:hover {
+	background-image: url("../../image/ui/button/square_light.png") !important;
+}
+
+/* 导航项非激活/禁用状态 */
+.menu.main > .menu-content > div > .left.pane > div:not(.active):not(*:hover),
+.menu.main > .menu-content > div > .left.pane > .disabled {
+	color: #fff;
+	background-image: url("../../image/ui/button/square_drck.png") !important;
+}
+
+/* 禁止滚动 */
+.menu.main > .menu-content > div > .left.pane > div.no-scroll {
+	-webkit-overflow-scrolling: disabled;
+	scroll-behavior: block;
+}
+
+/* 导航项图片 */
+.menu.main > .menu-content > div > .left.pane > div img {
+	display: block !important;
+	max-width: 90% !important;
+	max-height: 40px !important;
+	margin: -13px auto 0 !important;
+}
+
+/* 左侧文本（全部开启/恢复默认） */
+.menu.main > .menu-content > div > .left.pane > .lefttext {
+	font-size: 15px;
+	margin-left: 8px;
+}
+
+/** 圆形按钮 */
+
+/* 通用圆形按钮 */
+.menubutton.round {
+	width: 45px;
+	height: 45px;
+	border-radius: 100%;
+	font-size: 15px;
+	line-height: 40px;
+}
+
+/* 菜单内圆形按钮 */
+.menu.main .menu-content div.menubutton.round {
+	position: absolute;
+	left: 92.5%;
+	top: 82.5%;
+	font-size: 35px;
+	text-align: center;
+	background: #5c3000;
+	background-repeat: no-repeat;
+	border: 1px solid #000;
+	transition: color 0.3s;
+}
+
+/** 开关按钮 */
+
+.config.config.toggle > div {
+	--w: 60px;
+	--h: calc(var(--w) * 83 / 158);
+	width: var(--w);
+	height: var(--h);
+	border-radius: 0;
+	background-color: transparent;
+	background-image: url("../../image/ui/button/kg_off.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	box-shadow: none;
+}
+
+/* 开关开启状态 */
+.config.config.toggle.on > div {
+	background-image: url("../../image/ui/button/kg_on.png");
+	box-shadow: none;
+}
+
+/* 隐藏开关内部元素 */
+.config.config.toggle > div > div {
+	visibility: hidden;
+}

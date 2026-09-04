@@ -1,0 +1,265 @@
+
+SS_PaiJu_xunishanghai.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+daoguang/daoguang_00000
+  rotate: false
+  xy: 198, 4
+  size: 96, 141
+  orig: 96, 141
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00001
+  rotate: false
+  xy: 682, 805
+  size: 140, 193
+  orig: 140, 193
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00002
+  rotate: false
+  xy: 2, 539
+  size: 140, 201
+  orig: 140, 201
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00003
+  rotate: false
+  xy: 260, 797
+  size: 140, 201
+  orig: 140, 201
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00004
+  rotate: false
+  xy: 2, 340
+  size: 138, 197
+  orig: 138, 197
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00005
+  rotate: false
+  xy: 402, 801
+  size: 138, 197
+  orig: 138, 197
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00006
+  rotate: false
+  xy: 2, 142
+  size: 138, 196
+  orig: 138, 196
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00007
+  rotate: false
+  xy: 542, 802
+  size: 138, 196
+  orig: 138, 196
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00008
+  rotate: true
+  xy: 824, 860
+  size: 138, 195
+  orig: 138, 195
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00009
+  rotate: false
+  xy: 144, 546
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00010
+  rotate: true
+  xy: 2, 2
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00011
+  rotate: false
+  xy: 284, 601
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00012
+  rotate: false
+  xy: 424, 605
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00013
+  rotate: false
+  xy: 564, 606
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00014
+  rotate: false
+  xy: 704, 609
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00015
+  rotate: false
+  xy: 844, 664
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00016
+  rotate: false
+  xy: 142, 343
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00017
+  rotate: false
+  xy: 142, 147
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00018
+  rotate: false
+  xy: 844, 468
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00019
+  rotate: false
+  xy: 704, 413
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00020
+  rotate: false
+  xy: 564, 410
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00021
+  rotate: false
+  xy: 424, 409
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00022
+  rotate: false
+  xy: 284, 405
+  size: 138, 194
+  orig: 138, 194
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00023
+  rotate: false
+  xy: 282, 213
+  size: 135, 190
+  orig: 135, 190
+  offset: 0, 0
+  index: -1
+daoguang/daoguang_00024
+  rotate: false
+  xy: 296, 23
+  size: 132, 188
+  orig: 132, 188
+  offset: 0, 0
+  index: -1
+light_00001
+  rotate: false
+  xy: 2, 742
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+virtual_hurt_0
+  rotate: true
+  xy: 844, 378
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_1
+  rotate: false
+  xy: 419, 291
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_2
+  rotate: false
+  xy: 509, 295
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_3
+  rotate: false
+  xy: 599, 296
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_4
+  rotate: false
+  xy: 689, 296
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_5
+  rotate: true
+  xy: 779, 288
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_6
+  rotate: false
+  xy: 893, 264
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_7
+  rotate: false
+  xy: 430, 177
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_8
+  rotate: false
+  xy: 430, 63
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_9
+  rotate: false
+  xy: 520, 181
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
+virtual_hurt_jian
+  rotate: false
+  xy: 520, 67
+  size: 88, 112
+  orig: 88, 112
+  offset: 0, 0
+  index: -1
