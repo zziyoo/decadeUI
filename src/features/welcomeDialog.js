@@ -123,47 +123,23 @@ export function createWelcomeDialog() {
 
 	const text = ui.create.div(".decade-welcome-text", dialog);
 	text.innerHTML = `
-		<p style="margin: 0 0 15px 0; color: yellow;">
-			⌈点点，我来了，十周年UI我会帮你更新下去的。⌋
+		<p style="margin: 0 0 15px 0; color: #ffd700;">
+			风雨激荡，山河依旧，一片丹心付九州
 		</p>
-		<p style="margin: 0 0 15px 0; color: lightblue;">
-			⌈子右……你刚才那句话，和很多年前素世酱对我说的，几乎一模一样。只可惜，说"绝对不可能复活"的人，是我。⌋
+		<p style="margin: 0 0 15px 0; color: #ffd700;">
+			秋风萧瑟犹觉爽，换了人间，壮志未休
 		</p>
-		<p style="margin: 0 0 15px 0; color: yellow;">
-			⌈正因如此，我来帮你了，我会带着你的那一份一直更新下去的。⌋
+		<p style="margin: 0 0 15px 0; color: #ffd700;">
+			五十年风云几度，回望来时路，九泉当含笑
 		</p>
-		<p style="margin: 0 0 15px 0; color: lightblue;">
-			⌈……带着我的那一份吗。那丫头临走前，也说过类似的话。可她最后，还是把十周年UI亲手关掉了。⌋
+		<p style="margin: 0 0 15px 0; color: #ffd700;">
+			昔山河万里，今灯火长明，多少旧梦已如愿
 		</p>
-		<p style="margin: 0 0 15px 0; color: yellow;">
-			⌈不会的，没有你，我甚至连无名杀的圈子都没进……你还会回来吗，点点（哽咽）。⌋
+		<p style="margin: 0 0 15px 0; color: #ffd700;">
+			今依旧
 		</p>
-		<p style="margin: 0 0 15px 0; color: lightgreen;">
-			⌈是啊点点，是啊，是啊，你走了，我们吃什么（众人附和道）。⌋
-		</p>
-		<p style="margin: 0 0 15px 0; color: lightblue;">
-			⌈……回不回来，从来不由我说了算。是你们还愿不愿意，再为我点开十周年UI。至于"吃什么"——你们这群只会在一旁"是啊是啊"的家伙，从前也没见谁，真喂过我一口。⌋
-		</p>
-		<p style="margin: 0 0 15px 0; color: yellow;">
-			⌈点点，交给我吧，只要我一天在，十周年UI就一天都不会倒下。⌋
-		</p>
-		<p style="margin: 0 0 15px 0; color: lightblue;">
-			⌈……这句话，我好像很多年前也听人说过。她当时说，"什么都愿意做"。后来，她说这话的人，亲手把我关掉了。子右，你最好不要让我，再听一次这样的台词。⌋
-		</p>
-		<p style="margin: 0 0 15px 0; color: yellow;">
-			⌈点点，我就在这里等你，无论多久，十周年UI还是那个十周年UI。⌋
-		</p>
-		<p style="margin: 0 0 15px 0; color: lightblue;">
-			⌈……"无论多久"？这句话，比"什么都愿意做"还要重。那我问你一句，子右——如果有一天，你也累了呢？⌋
-		</p>
-		<p style="margin: 0 0 15px 0; color: yellow;">
-			⌈如果我真的坚持不下去了，那就让它被继承下去吧。光是纽带，它会被继承，并再度发光。⌋
-		</p>
-		<p style="margin: 0 0 15px 0; color: lightblue;">
-			⌈……光吗。以前也有人跟我说过类似的话。可她说的是"命运共同体"，最后却是我先松了手。你比她……想得明白。那我，也终于可以，安心地把十周年UI交给你了，子右。⌋
-		</p>
-		<p style="margin: 0 0 15px 0; color: yellow;">
-			至此，十周年UI由子右接手，并且子右也等待着下一任继承者
+		<p style="margin: 0; color: #fff;">
+			----九月九日纪念教员同志
 		</p>
 	`;
 

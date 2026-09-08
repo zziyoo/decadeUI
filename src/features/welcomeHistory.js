@@ -248,7 +248,7 @@ export const WELCOME_HISTORY = [
 		era: "子右时期",
 		title: "继承与约定",
 		date: "2026-08-29",
-		isCurrent: true,
+		isCurrent: false,
 		dialogs: [
 			{
 				color: "yellow",
@@ -305,6 +305,39 @@ export const WELCOME_HISTORY = [
 			{
 				color: "yellow",
 				text: "至此，十周年UI由子右接手，并且子右也等待着下一任继承者",
+			},
+		],
+	},
+	{
+		key: "jiunian",
+		era: "子右时期",
+		title: "九月九日纪念教员同志",
+		date: "2026-09-09",
+		isCurrent: true,
+		dialogs: [
+			{
+				color: "#ffd700",
+				text: "风雨激荡，山河依旧，一片丹心付九州",
+			},
+			{
+				color: "#ffd700",
+				text: "秋风萧瑟犹觉爽，换了人间，壮志未休",
+			},
+			{
+				color: "#ffd700",
+				text: "五十年风云几度，回望来时路，九泉当含笑",
+			},
+			{
+				color: "#ffd700",
+				text: "昔山河万里，今灯火长明，多少旧梦已如愿",
+			},
+			{
+				color: "#ffd700",
+				text: "今依旧",
+			},
+			{
+				color: "#fff",
+				text: "----九月九日纪念教员同志",
 			},
 		],
 	},
