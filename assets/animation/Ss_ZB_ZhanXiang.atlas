@@ -1,0 +1,125 @@
+
+Ss_ZB_ZhanXiang.png
+size: 745,745
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+jian
+  rotate: true
+  xy: 555, 2
+  size: 20, 155
+  orig: 20, 155
+  offset: 0, 0
+  index: -1
+zx_09
+  rotate: false
+  xy: 2, 27
+  size: 124, 131
+  orig: 200, 200
+  offset: 27, 33
+  index: -1
+zx_10
+  rotate: true
+  xy: 557, 24
+  size: 174, 180
+  orig: 200, 200
+  offset: 13, 9
+  index: -1
+zx_11
+  rotate: true
+  xy: 188, 181
+  size: 177, 181
+  orig: 200, 200
+  offset: 13, 6
+  index: -1
+zx_12
+  rotate: false
+  xy: 187, 2
+  size: 180, 177
+  orig: 200, 200
+  offset: 13, 4
+  index: -1
+zx_13
+  rotate: false
+  xy: 371, 16
+  size: 182, 178
+  orig: 200, 200
+  offset: 13, 3
+  index: -1
+zx_14
+  rotate: false
+  xy: 373, 377
+  size: 183, 180
+  orig: 200, 200
+  offset: 10, 3
+  index: -1
+zx_15
+  rotate: true
+  xy: 558, 200
+  size: 179, 182
+  orig: 200, 200
+  offset: 8, 4
+  index: -1
+zx_16
+  rotate: true
+  xy: 558, 564
+  size: 179, 185
+  orig: 200, 200
+  offset: 6, 3
+  index: -1
+zx_17
+  rotate: false
+  xy: 188, 360
+  size: 181, 189
+  orig: 200, 200
+  offset: 5, 2
+  index: -1
+zx_18
+  rotate: false
+  xy: 188, 551
+  size: 183, 192
+  orig: 200, 200
+  offset: 4, 2
+  index: -1
+zx_19
+  rotate: false
+  xy: 373, 559
+  size: 183, 184
+  orig: 200, 200
+  offset: 4, 13
+  index: -1
+zx_20
+  rotate: false
+  xy: 2, 160
+  size: 183, 191
+  orig: 200, 200
+  offset: 4, 8
+  index: -1
+zx_21
+  rotate: false
+  xy: 2, 548
+  size: 184, 195
+  orig: 200, 200
+  offset: 4, 4
+  index: -1
+zx_22
+  rotate: false
+  xy: 2, 353
+  size: 184, 193
+  orig: 200, 200
+  offset: 4, 1
+  index: -1
+zx_23
+  rotate: false
+  xy: 371, 196
+  size: 184, 179
+  orig: 200, 200
+  offset: 4, 0
+  index: -1
+zx_24
+  rotate: false
+  xy: 558, 381
+  size: 184, 181
+  orig: 200, 200
+  offset: 4, 0
+  index: -1

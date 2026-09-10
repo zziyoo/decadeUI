@@ -1,0 +1,805 @@
+﻿/**
+ * 十周年UI - 布局样式
+ */
+
+@import "dialog.css";
+@import "component.css";
+@import "card.css";
+@import "icon.css";
+@import "effect.css";
+
+/** 基础样式 */
+
+html {
+	background: rgb(60, 60, 60);
+}
+
+body > .background {
+	animation: anime-opacity 1s ease-in-out;
+}
+
+@keyframes anime-opacity {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+/** 画布层 */
+
+#decadeUI-canvas,
+#decadeUI-canvas-background {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 7;
+}
+
+#decadeUI-canvas-background {
+	z-index: -1;
+}
+
+#decadeUI-canvas-arena {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	z-index: 4;
+}
+
+#decadeUI-body-sensor {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+/** 画布 */
+
+#arena {
+	left: 22px;
+	right: 25px;
+	top: 10%;
+	bottom: 1%;
+	width: auto;
+	height: auto;
+	transition-property: opacity;
+}
+
+#arena.phone {
+	top: 2%;
+}
+
+#window.leftbar #arena:not(.chess) {
+	width: auto;
+	left: calc(2% + 50px);
+}
+
+#window.rightbar #arena:not(.chess) {
+	width: auto;
+	right: calc(2% + 50px);
+}
+
+#arena:not(.chess).decadeUI > #mebg {
+	display: none;
+}
+
+/* 自动节点 */
+#arena.decadeUI:not(.single-handcard):not(.chess) > #autonode {
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	left: -2% !important;
+	right: -2% !important;
+	bottom: -2% !important;
+	width: auto !important;
+	height: calc(2% + 180px);
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+}
+
+#autonode > div {
+	position: static;
+	text-shadow: 0 0 20px red;
+}
+
+#shortcut.hidden {
+	z-index: -1;
+}
+
+/* 时间显示 */
+#window > #time {
+	left: 50px;
+	right: 50px;
+	font-family: xinwei;
+	color: rgb(250, 250, 200);
+	text-shadow:
+		0 0 1px black,
+		0 0 1px black,
+		0 0 1px black,
+		0 0 1px black;
+}
+
+#arena > .dialog {
+	z-index: 7;
+}
+
+/** 手牌区 */
+
+#arena > .hand-wrap,
+#arena > .hand-back {
+	left: 300px;
+	right: 225px;
+	bottom: 1%;
+	width: auto;
+	height: 150px;
+	transition: none;
+	z-index: 3;
+}
+
+/* 右手布局 */
+#arena[data-right-layout="on"] > .hand-wrap,
+#arena[data-right-layout="on"] > .hand-back {
+	left: 230px;
+	right: 320px;
+	bottom: 0;
+}
+
+#arena[data-new-decade-style="onlineUI"][data-right-layout="on"] > .hand-wrap,
+#arena[data-new-decade-style="onlineUI"][data-right-layout="on"] > .hand-back {
+	left: 230px;
+	right: 390px;
+	bottom: 0;
+}
+
+#arena[data-new-decade-style="codename"][data-right-layout="on"] > .hand-wrap,
+#arena[data-new-decade-style="codename"][data-right-layout="on"] > .hand-back,
+#arena[data-phonelayout="off"][data-right-layout="on"] > .hand-wrap,
+#arena[data-phonelayout="off"][data-right-layout="on"] > .hand-back {
+	left: 220px;
+}
+
+/* 非单独装备栏 - 左手布局 */
+#arena[data-alone-equip="off"][data-right-layout="off"] > .hand-wrap,
+#arena[data-alone-equip="off"][data-right-layout="off"] > .hand-back {
+	left: 300px;
+	right: 95px;
+	bottom: 1%;
+}
+
+/* 非单独装备栏 - 右手布局 */
+#arena[data-alone-equip="off"][data-right-layout="on"] > .hand-wrap,
+#arena[data-alone-equip="off"][data-right-layout="on"] > .hand-back {
+	left: 95px;
+	right: 320px;
+	bottom: 0;
+}
+
+#arena[data-new-decade-style="onlineUI"][data-alone-equip="off"][data-right-layout="on"] > .hand-wrap,
+#arena[data-new-decade-style="onlineUI"][data-alone-equip="off"][data-right-layout="on"] > .hand-back {
+	right: 390px !important;
+}
+
+.discard-zone {
+	width: 100%;
+	height: 10%;
+}
+
+/* 挑战模式小头像 */
+.hand-wrap > .fakeme.avatar {
+	left: -270px;
+	top: auto;
+	right: auto;
+	bottom: 0;
+	width: 120px;
+	height: 130px;
+	border-radius: 8px;
+	background-size: cover;
+}
+
+#arena[data-right-layout="on"] > .hand-wrap > .fakeme.avatar {
+	left: auto;
+	right: -320px;
+}
+
+/** 手牌 */
+
+.hand-cards {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	transition: none;
+	z-index: 3;
+}
+
+.hand-cards > .handcards {
+	display: inline-block;
+	width: 100%;
+	height: calc(100% - 30px);
+	min-width: 100%;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	transition: none;
+}
+
+.hand-cards > .handcards > .card {
+	position: absolute;
+	width: 108px;
+	height: 150px;
+	margin: 0;
+	transition-property: transform, opacity, left, top;
+	z-index: 1;
+}
+
+.hand-cards > .handcards > .card.display-none {
+	display: none;
+	transition: none;
+}
+
+.hand-cards > .handcards > .card.selected,
+.hand-cards > .handcards > .card.selectable {
+	border-radius: 2px;
+}
+
+.hand-cards > .handcards > .card.selectable {
+	cursor: pointer;
+}
+
+/* 特殊手牌区 */
+.hand-special {
+	left: auto;
+	right: calc(-1% + 3px);
+	bottom: calc(1% + 150px);
+	width: auto;
+	height: 75px;
+	min-width: 150px;
+	background: rgba(0, 0, 0, 0.4);
+	box-shadow: 0 0 6px rgb(200, 150, 80) inset;
+}
+
+.hand-special > .cards {
+	display: flex;
+	flex-direction: row-reverse;
+	position: relative;
+	left: 0;
+	top: 0;
+	width: auto;
+	height: auto;
+	zoom: 0.5;
+}
+
+.hand-special > .cards > .card {
+	margin: 0;
+	transform: none !important;
+}
+
+.hand-special > .cards > .card::after {
+	border-radius: inherit !important;
+	box-shadow:
+		0px -1px 2px yellow,
+		0px -1px 5px yellow,
+		0px 0px 15px yellow;
+	transition: opacity 0.5s;
+}
+
+/** 卡牌基础样式 */
+
+#arena > .card,
+#arena.oblongcard:not(.chess) > .card,
+#arena.oblongcard:not(.chess) .handcards > .card {
+	width: 108px;
+	height: 150px;
+}
+
+.button.card {
+	width: 108px;
+	height: 150px;
+	background-size: 100% 100%;
+	z-index: 1;
+}
+
+.dialog.addNewRow .button.card {
+	zoom: 0.7;
+}
+
+.card,
+#window:not(*[data-radius_size=""]) .card {
+	border-radius: 2px;
+}
+
+.card {
+	width: 108px;
+	height: 150px;
+	border-radius: 2px;
+	box-shadow: 0 1px 4px black;
+	background-repeat: no-repeat !important;
+	background-size: 100% 100% !important;
+	-moz-background-size: 100% 100% !important;
+	transition: all 0.46s;
+}
+
+.dui-mobile .card {
+	box-shadow: 0 1px 2px black;
+}
+
+/* 选择状态 */
+#arena.decadeUI.selecting:not(.video) > .dialog:not(.noselect) .buttons > .card.button:not(.selectable):not(.noclick):not(.replaceButton) {
+	opacity: 1;
+}
+
+#arena.decadeUI.selecting:not(.video) > .dialog:not(.noselect) .buttons > .card.button:not(.selected):not(.selectable) > .card-mask {
+	opacity: 1;
+}
+
+/* 卡牌背景 */
+.card > .background,
+.card.button > .background {
+	top: auto;
+	bottom: 8%;
+	font-size: 80px;
+	line-height: 80px;
+	padding-top: 0;
+}
+
+.card.mark > .background {
+	line-height: 100%;
+}
+
+/* 卡牌顶部名称 */
+.card > .top-name {
+	left: 30%;
+	top: 7%;
+	width: 70%;
+	font-size: 28px;
+	font-family: "HYZLSJ" !important;
+	line-height: 22px;
+	color: black;
+	text-align: center;
+	text-shadow:
+		0.3px 0 1.8px white,
+		0.3px 0 1.8px white,
+		0.3px 0 1.8px white;
+	z-index: 1;
+}
+
+.card:not(.fullskin) > .top-name {
+	left: 7.5px;
+	top: 40%;
+	width: calc(100% - 15px);
+	font-size: 20px;
+	font-family: "yuanli" !important;
+	color: #f7f5e7;
+	text-align: center;
+	text-shadow:
+		0.3px 0 1.8px #332c18,
+		0.3px 0 1.8px #332c18,
+		0.3px 0 1.8px #332c18,
+		0.3px 0 1.8px #332c18,
+		0.3px 0 1.8px #332c18,
+		0.3px 0 1.8px #332c18,
+		0.3px 0 1.8px #332c18,
+		0.3px 0 1.8px #332c18,
+		0.3px 0 1.8px #332c18,
+		0.3px 0 1.8px #332c18;
+}
+
+.card.decade-card > .top-name {
+	display: none;
+}
+
+/* 卡牌图片 */
+.card.decade-card > .image {
+	display: none;
+	visibility: hidden !important;
+}
+
+.card > .image,
+#arena:not(.chess) > .card > .image,
+#arena:not(.chess) .handcards > .card > .image,
+#arena.oblongcard:not(.chess) > .card > .image,
+#arena.oblongcard:not(.chess) .handcards > .card > .image {
+	position: absolute;
+	left: 0;
+	top: auto;
+	right: 0;
+	bottom: 8%;
+	width: 108px;
+	height: 108px;
+	background-position-x: 0;
+}
+
+/* 花色点数 */
+.card > .suit-num {
+	top: 10px;
+	left: 5px;
+	width: 25px;
+	height: auto;
+	font-size: 25px;
+	line-height: 20px;
+	color: black;
+	text-align: center;
+	text-shadow:
+		0 0 3px #fff,
+		0 0 8px #fff;
+	letter-spacing: -1px;
+	transform-origin: 0 0;
+	-webkit-text-size-adjust: none;
+	z-index: 1;
+}
+
+.dui-mobile .card > .suit-num > .suit {
+	font-size: 16px;
+}
+
+.card[data-suit="heart"] > .suit-num,
+.card[data-suit="diamond"] > .suit-num {
+	color: red;
+}
+
+/* 攻击范围 */
+.card > .range {
+	right: 5px;
+	bottom: 5px;
+	font-size: 14px;
+	font-family: shousha;
+	font-weight: bold;
+	line-height: 14px;
+	color: black;
+	text-shadow:
+		0 0 1px white,
+		0 0 3px white;
+	border: 1px solid black;
+	border-radius: 2px;
+}
+
+.card > .range:empty {
+	display: none;
+}
+
+.card > .range.card-tag {
+	left: 4px;
+	top: calc(50% + 8px);
+	right: 4px;
+	bottom: auto;
+	width: auto;
+	font-size: 16px;
+	line-height: 24px;
+	color: #181818;
+	text-align: center;
+	text-shadow: none;
+	white-space: normal;
+	background: rgba(230, 210, 166, 0.8);
+}
+
+/* 卡牌遮罩 */
+.card > .card-mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: inherit;
+	opacity: 0;
+	transition: opacity 0.1s linear;
+	pointer-events: none;
+	z-index: 8;
+}
+
+.card.invalided > .card-mask,
+#arena.selecting:not(.video) .handcards > .card:not(.selectable) > .card-mask,
+#arena.thrownhighlight > .card.thrown:not(.thrownhighlight):not(.drawingcard),
+#arena.thrownhighlight > .card.thrown:not(.thrownhighlight):not(.drawingcard) > .card-mask {
+	opacity: 1;
+}
+
+.transition-none {
+	transition: none !important;
+}
+
+#arena > .card > .judge-mark {
+	visibility: hidden;
+}
+
+/** 信息显示 */
+
+.touchinfo {
+	top: 10%;
+	font-family: xinwei;
+	color: rgb(250, 250, 200);
+	text-shadow:
+		rgb(51, 51, 51) 1px 0 0,
+		rgb(51, 51, 51) 0 1px 0,
+		rgb(51, 51, 51) -1px 0 0,
+		rgb(51, 51, 51) 0 -1px 0;
+	z-index: 4;
+}
+
+.touchinfo.left {
+	left: 3%;
+}
+
+.touchinfo.right {
+	right: 2%;
+}
+
+#window.leftbar > .touchinfo.left {
+	left: calc(2% + 50px);
+}
+
+#window.rightbar > .touchinfo.right {
+	right: calc(2% + 50px);
+}
+
+/** 控制按钮 */
+
+#arena > #dui-controls {
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap-reverse;
+	align-items: center;
+	align-content: flex-start;
+	justify-content: center;
+	top: auto;
+	left: 143px;
+	right: 150px;
+	bottom: calc(20% + 40px);
+	width: auto;
+	height: 42px;
+	font-size: 23px;
+	font-family: xinwei;
+	transition: opacity 0.3s;
+	pointer-events: none;
+	z-index: 8;
+}
+
+#arena > #dui-controls > * {
+	height: 44px;
+	font-size: 24px;
+	overflow: inherit;
+	pointer-events: auto;
+}
+
+#arena > #dui-controls.bosslist,
+#arena.choose-character > #dui-controls {
+	left: -5px;
+	right: -5px;
+	bottom: 20px;
+}
+
+#arena.dui-mobile:not(.choose-character) > #dui-controls {
+	display: flex;
+	flex-wrap: wrap !important;
+	left: 10px;
+	right: 10px;
+	bottom: calc(23% + 60px);
+}
+
+#arena > #dui-controls > .control {
+	display: flex;
+	flex: 0 0 auto;
+	align-items: center;
+	justify-content: center;
+	position: static;
+	height: calc(100% - 4px);
+	margin-top: 25px;
+	font-size: inherit;
+	line-height: normal;
+	text-shadow: none;
+	overflow: visible;
+	cursor: pointer;
+}
+
+#arena > #dui-controls > .control.stayleft {
+	position: absolute;
+	left: -25px;
+	order: 0;
+}
+
+#arena.decadeUI.dui-mobile > #dui-controls > .control.stayleft {
+	position: absolute;
+	left: 120px !important;
+	order: 0;
+}
+
+#arena > #dui-controls > .control > div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: static;
+	height: 95%;
+	margin: 0 15px !important;
+	padding: 0;
+	opacity: 1;
+}
+
+#arena > #dui-controls > .control > div:only-child {
+	position: static;
+	padding: 0;
+}
+
+#arena > #dui-controls > .control.combo-control {
+	flex-direction: row;
+	padding: 0;
+	background: none;
+	box-shadow: none;
+}
+
+#arena > #dui-controls > .control.combo-control > div {
+	font-size: inherit;
+}
+
+#arena > #dui-controls > .control:not(.disabled) > div:active,
+#arena > #dui-controls > .control:not(.disabled):not(.combo-control):active {
+	transform: scale(0.96);
+}
+
+/* 暂停记录栏 */
+.pausedbg > #sidebar {
+	width: auto;
+}
+
+/** 角色选择按钮 */
+
+.dialog .buttons > .button.character.decadeUI,
+.button.character.longcharacter.decadeUI {
+	width: 90px;
+	height: 120px;
+	background-position: 666px 666px;
+	background-size: 0 0 !important;
+}
+
+.button.character {
+	position: relative;
+	width: 90px;
+	height: 120px;
+	margin: 6px;
+}
+
+.button.character::before {
+	left: -15px;
+	top: -15px;
+	width: calc(100% + 30px);
+	height: calc(100% + 30px);
+	border-width: 15px;
+	border-style: solid;
+	border-color: transparent;
+	border-image-source: url("../../image/ui/effects/glow_orange.png");
+	border-image-slice: 42 46 32 46 fill;
+	box-sizing: border-box;
+	box-shadow: none;
+}
+
+.button.character.selected::before {
+	opacity: 1;
+}
+
+.button.character::after {
+	display: none;
+}
+
+.button.character > .showintro.rarity {
+	left: calc(50% - 25px);
+	top: auto;
+	bottom: -25px;
+	width: 50px;
+	height: 50px;
+	font-size: 16px;
+	font-family: yuanli;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.button.character > .character {
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	background-image: inherit;
+	background-position: top;
+	background-size: cover;
+	transition: none;
+	pointer-events: none;
+}
+
+/* 露头高度 - 十周年 */
+#arena[data-outcrop-skin="shizhounian"] .button.character > .character.has-outcrop {
+	height: 128px;
+	clip-path: url(#solo-clip);
+	-webkit-clip-path: url(#solo-clip);
+}
+
+/* 露头高度 - 手杀 */
+#arena[data-outcrop-skin="shousha"] .button.character > .character.has-outcrop {
+	height: 140px;
+	clip-path: url(#soloss-clip);
+	-webkit-clip-path: url(#soloss-clip);
+}
+
+.buttons.smallzoom > .button.character,
+.buttons.smallzoom > .button.card {
+	zoom: 0.7;
+}
+
+/** babysha 样式 */
+
+/* 龙框尺寸 */
+body[data-style="babysha"] .player > .long {
+	--w: 60px;
+	--h: calc(var(--w) * 110 / 60);
+	width: var(--w);
+	height: var(--h);
+	right: -18px;
+	top: -25px;
+	z-index: 63;
+}
+
+body[data-style="babysha"] .player > .wei {
+	--w: 80px;
+	--h: calc(var(--w) * 40 / 80);
+	width: var(--w);
+	height: var(--h);
+	right: -9px;
+	bottom: -10px;
+}
+
+/* 手牌区位置 */
+body[data-style="babysha"] #arena[data-right-layout="on"] > .hand-wrap,
+body[data-style="babysha"] #arena[data-right-layout="on"] > .hand-back {
+	left: 230px;
+	right: 380px;
+	bottom: 0;
+}
+
+body[data-style="babysha"] #arena[data-alone-equip="off"][data-right-layout="on"] > .hand-wrap,
+body[data-style="babysha"] #arena[data-alone-equip="off"][data-right-layout="on"] > .hand-back {
+	left: 95px;
+	right: 380px;
+	bottom: 0;
+}
+
+/* 信息位置 */
+body[data-style="babysha"] .touchinfo {
+	top: 1%;
+}
+
+body[data-style="babysha"] .touchinfo.left {
+	left: 84%;
+	top: 15%;
+}
+
+body[data-style="babysha"] .touchinfo.right {
+	right: 2%;
+}
+
+/* 手牌样式 */
+body[data-style="babysha"] .hand-cards > .handcards > .card {
+	left: 20px;
+	/* 不设置 border，保留 cardStyles.js 的边框设置 */
+}
+
+/* 龙尾背景图 */
+body[data-style="onlineUI"] #arena[data-long-level="three"] > .player > .wei,
+body[data-style="babysha"] #arena[data-long-level="three"] > .player > .wei {
+	background-image: url("../../image/ui/frame/long_yu2.png");
+}
+
+body[data-style="onlineUI"] #arena[data-long-level="five"] > .player > .wei,
+body[data-style="babysha"] #arena[data-long-level="five"] > .player > .wei {
+	background-image: url("../../image/ui/frame/long_yan2.png");
+}

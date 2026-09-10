@@ -1,0 +1,97 @@
+
+RWJGD_xiao.png
+size: 942,136
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+RWJGD
+  rotate: true
+  xy: 599, 48
+  size: 86, 83
+  orig: 86, 85
+  offset: 0, 1
+  index: -1
+guangbo_00000
+  rotate: false
+  xy: 2, 16
+  size: 118, 118
+  orig: 126, 126
+  offset: 4, 4
+  index: -1
+guangbo_00001
+  rotate: false
+  xy: 122, 16
+  size: 118, 118
+  orig: 126, 126
+  offset: 4, 4
+  index: -1
+guangbo_00002
+  rotate: false
+  xy: 242, 16
+  size: 118, 118
+  orig: 126, 126
+  offset: 4, 4
+  index: -1
+guangbo_00003
+  rotate: false
+  xy: 362, 16
+  size: 118, 118
+  orig: 126, 126
+  offset: 4, 4
+  index: -1
+liangdian
+  rotate: false
+  xy: 669, 20
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+liuguang_00004
+  rotate: true
+  xy: 599, 2
+  size: 44, 68
+  orig: 94, 94
+  offset: 1, 1
+  index: -1
+liuguang_00005
+  rotate: true
+  xy: 856, 2
+  size: 63, 82
+  orig: 94, 94
+  offset: 1, 1
+  index: -1
+liuguang_00006
+  rotate: false
+  xy: 777, 44
+  size: 77, 90
+  orig: 94, 94
+  offset: 3, 1
+  index: -1
+liuguang_00007
+  rotate: true
+  xy: 684, 56
+  size: 78, 91
+  orig: 94, 94
+  offset: 12, 2
+  index: -1
+liuguang_00008
+  rotate: true
+  xy: 856, 67
+  size: 67, 84
+  orig: 94, 94
+  offset: 26, 9
+  index: -1
+liuguang_00009
+  rotate: true
+  xy: 697, 5
+  size: 49, 70
+  orig: 94, 94
+  offset: 44, 23
+  index: -1
+qipao_00000
+  rotate: false
+  xy: 482, 19
+  size: 115, 115
+  orig: 115, 115
+  offset: 0, 0
+  index: -1

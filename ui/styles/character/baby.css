@@ -1,0 +1,492 @@
+/**
+ * 宝宝杀风格 - 角色信息弹窗样式
+ * 使用独立容器类名 .baby-character-dialog
+ */
+
+.button.character,
+#arena > .player.xplayer {
+	--width: 120px;
+}
+
+.popup-container > .baby-character-dialog {
+	top: calc(50% - var(--h) / 2 + var(--bt));
+	left: calc(50% - var(--w) / 2 + var(--bl));
+}
+
+/* 基础弹窗 */
+.baby-character-dialog {
+	--w: 850px;
+	--h: 450px;
+	--bt: calc(var(--h) * 15 / 290);
+	--bl: calc(var(--w) * 38 / 497);
+	--bb: calc(var(--h) * 17 / 290);
+	--dw: calc(var(--w) - 2 * var(--bl));
+	--dh: calc(var(--h) - var(--bt) - var(--bb));
+	width: var(--dw);
+	height: var(--dh);
+	position: absolute;
+	box-sizing: border-box;
+	padding: 10px;
+	z-index: 13;
+}
+
+.baby-character-dialog > .blackBg {
+	padding: 10px 25px;
+	position: relative;
+	width: 100%;
+	height: 115px;
+	top: 0;
+	left: -25px;
+}
+
+.baby-character-dialog .blackBg.two {
+	margin-top: 8px;
+	height: 218px;
+}
+
+.baby-character-dialog.dialog2 {
+	--bt: calc(var(--h) * 10 / 280);
+	--bl: calc(var(--w) * 12 / 287);
+	--bb: calc(var(--h) * 20 / 280);
+}
+
+.baby-character-dialog.popped {
+	animation: dialog_start2 0.3s;
+}
+
+.baby-character-dialog::before {
+	content: "";
+	top: calc(0% - var(--bt));
+	left: calc(0% - var(--bl));
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	background-image: url("../../assets/character/baby/wujianjiemian.png");
+	background-size: 100% 100%;
+}
+
+.baby-character-dialog > div {
+	top: 0;
+	height: 100%;
+	position: absolute;
+}
+
+/* 武将框 */
+.baby-character-dialog > .blackBg.one > div.biankuang3 {
+	width: 198px;
+	height: 260px;
+	top: -2px;
+	left: 68px;
+	background-size: 100% 100%;
+	z-index: 60;
+	position: absolute;
+}
+
+.baby-character-dialog > .blackBg.one > div.biankuang2 {
+	width: 230px;
+	height: 255px;
+	top: 5px;
+	left: 40px;
+	background-size: 100% 100%;
+	z-index: 60;
+	position: absolute;
+}
+
+/* 势力 */
+.baby-character-dialog .biankuang4 {
+	width: 35px;
+	height: 35px;
+	top: 8px;
+	left: 78px;
+	background-size: 100% 100%;
+	z-index: 60;
+	position: absolute;
+}
+
+/* 武将名字 */
+.baby-character-dialog > .name {
+	position: absolute;
+	width: 22px;
+	left: 68px;
+	top: 70px;
+	font-size: 22px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 120px;
+	line-height: 26px;
+	white-space: normal;
+	font-family: "heiti";
+	z-index: 99;
+	color: rgb(170, 170, 170);
+	text-shadow: none !important;
+	font-weight: bold;
+}
+
+.baby-character-dialog > div.name[data-camp="wei"] {
+	color: rgb(66, 79, 98);
+}
+
+.baby-character-dialog > div.name[data-camp="shu"] {
+	color: rgb(125, 45, 34);
+}
+
+.baby-character-dialog > div.name[data-camp="Han"] {
+	color: rgb(255, 100, 100);
+}
+
+.baby-character-dialog > div.name[data-camp="qin"] {
+	color: rgb(255, 100, 100);
+}
+
+.baby-character-dialog > div.name[data-camp="wu"] {
+	color: rgb(64, 110, 81);
+}
+
+.baby-character-dialog > div.name[data-camp="qun"] {
+	color: rgb(94, 88, 92);
+}
+
+.baby-character-dialog > div.name[data-camp="shen"] {
+	color: rgb(255, 200, 0);
+}
+
+.baby-character-dialog > div.name[data-camp="ta"] {
+	color: rgb(255, 200, 0);
+}
+
+.baby-character-dialog > div.name[data-camp="ye"],
+.baby-character-dialog > div.name[data-camp="jin"] {
+	color: rgb(153, 127, 228);
+}
+
+/* 星星 */
+.baby-character-dialog .xingxing {
+	width: 110px;
+	height: 25px;
+	top: 2px;
+	left: 43px;
+	background-size: 100% 100%;
+	z-index: 70;
+	position: absolute;
+}
+
+/* 吊坠 */
+.baby-character-dialog .diaozhui {
+	width: 50px;
+	height: 140px;
+	top: -37px;
+	left: 668px;
+	background-size: 100% 100%;
+	z-index: 60;
+	position: absolute;
+}
+
+/* 人物信息 */
+.baby-character-dialog .wjxin {
+	top: 228px;
+	left: -13px;
+	width: 305px;
+	height: 200px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 60;
+	position: absolute;
+}
+
+/* 官阶 */
+.baby-character-dialog .guanjie {
+	background-size: 100% 100%;
+	left: 195px;
+	z-index: 78;
+	width: 110px;
+	height: 98px;
+	top: 280px;
+}
+
+.baby-character-dialog .guanjiewenzi {
+	font-size: 18px;
+	font-weight: bold;
+	font-family: "heiti";
+	color: #778899;
+	z-index: 80;
+	text-shadow: none;
+	bottom: -330px;
+	left: 195px;
+	width: 104px;
+}
+
+/* 玩家头像 */
+.baby-character-dialog .minixingxiang {
+	opacity: 1;
+	z-index: 78;
+	left: 5px;
+	width: 70px;
+	height: 70px;
+	top: 70px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+/* 玩家vip框 */
+.baby-character-dialog .minikuang {
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	left: 0px;
+	z-index: 78;
+	width: 80px;
+	height: 80px;
+	top: -10px;
+}
+
+/* 玩家名称 */
+.baby-character-dialog .nameX {
+	font-size: 20px;
+	left: 110px;
+	top: 12px;
+	width: 300px;
+	font-family: "heiti";
+	font-weight: bold;
+	color: #778899;
+	z-index: 80;
+	text-shadow: none;
+	position: relative;
+}
+
+/* 分包 */
+.baby-character-dialog .pack {
+	font-size: 17px;
+	font-weight: bold;
+	font-family: "heiti";
+	color: #997fe4;
+	text-align: center;
+	width: 300px;
+	z-index: 80;
+	text-shadow: none;
+	left: -10px;
+	top: 290px;
+}
+
+/* 副官阶文字 */
+.baby-character-dialog .guanjiewenziX {
+	font-size: 18px;
+	font-weight: bold;
+	font-family: "heiti";
+	color: #ffffff;
+	text-align: center;
+	width: 110px;
+	z-index: 80;
+	text-shadow: none;
+	left: 75px;
+	top: 338px;
+}
+
+/* VIP等级框 */
+.baby-character-dialog .viptp {
+	background-size: 100% 100%;
+	left: 0px;
+	z-index: 78;
+	width: 40px;
+	height: 35px;
+	top: 10px;
+}
+
+/* 官阶对话框 */
+.baby-character-dialog .duihuak {
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	left: 210px;
+	z-index: 78;
+	width: 75px;
+	height: 20px;
+	top: 345px;
+}
+
+/* 玩家等级 */
+.baby-character-dialog .dengjiX {
+	top: 8px;
+	left: 8px;
+	font-size: 14px;
+	font-family: "heiti";
+	color: #ffffff;
+	text-shadow: none;
+	z-index: 80;
+	font-weight: 700;
+}
+
+/* 性别 */
+.baby-character-dialog .xingbie {
+	left: 75px;
+	top: 312px;
+	height: 22px;
+	width: 22px;
+	background-size: 100% 100%;
+	z-index: 80;
+}
+
+/* 武将牌不露头 */
+.baby-character-dialog .biankuang2 > div.left2 {
+	left: 19%;
+	top: auto;
+	bottom: 2%;
+	width: 78.5%;
+	height: 96%;
+	opacity: 1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 7px;
+	transition-property: opacity, transform;
+	z-index: 69;
+}
+
+/* 技能窗口 */
+.baby-character-dialog div.right {
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	position: absolute;
+}
+
+.baby-character-dialog.single div.right {
+	top: -60%;
+	left: 37%;
+	width: calc(98% - 270px);
+	height: calc(120% - 20px);
+}
+
+.baby-character-dialog div.right > div {
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/* 技能项内部元素定位 */
+.baby-character-dialog div.right div {
+	position: relative;
+}
+
+/* 技能项基础样式 */
+.baby-character-dialog div.right .xskill {
+	width: 100%;
+	bottom: 0%;
+}
+
+/* 技能描述缩进（与图标对齐） */
+.baby-character-dialog div.right .xskill > div:not([data-color]) {
+	margin-left: 17px;
+	text-indent: 0;
+}
+
+/* 装备区域强制取消缩进 */
+.baby-character-dialog div.right .xskill.equip-skill > div:not([data-color]) {
+	margin-left: 0 !important;
+}
+
+/* 装备区域强制隐藏图标 */
+.baby-character-dialog div.right .xskill.equip-skill > div::before {
+	display: none !important;
+}
+
+/* 技能标题 */
+.baby-character-dialog div.right .xcaption {
+	background-image: url("../../assets/character/baby/jinengkuangs.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 90%;
+	height: 60px;
+	min-width: 50px;
+	color: #f0f0f0;
+	opacity: 0.7;
+	font-size: 22px;
+	font-weight: bold;
+	font-family: "heiti";
+	position: relative;
+	top: 5px;
+	left: 0px;
+	display: flex;
+	align-items: center;
+	padding-left: 18px;
+}
+
+/* 技能描述 */
+.baby-character-dialog div.right .xskill > div {
+	display: block;
+	color: #778899;
+	text-shadow: none;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: "heiti";
+}
+
+.baby-character-dialog div.right .xskill > div[data-color]::before {
+	content: "";
+	background-image: url("../../assets/character/baby/kuang.png");
+	background-size: contain;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+.baby-character-dialog div.right .xskill > div[data-color="red"],
+.baby-character-dialog div.right .xskill > div[data-color="black"] {
+	color: #ffffff;
+	text-shadow: none;
+}
+
+.baby-character-dialog div.right .xskill + .xskill {
+	margin-top: 3px;
+}
+
+/* 自动发动/点击发动按钮 */
+.baby-character-dialog div.right .underlinenode {
+	display: inline-block;
+	padding: 3px 8px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	cursor: pointer;
+	pointer-events: auto;
+	z-index: 1000;
+	font-size: 14px;
+	color: #778899;
+}
+
+.baby-character-dialog div.right .underlinenode.on {
+	border-color: rgb(0, 133, 255);
+}
+
+.baby-character-dialog div.right .underlinenode.gray:not(.on) {
+	border-color: rgb(133, 133, 133);
+	opacity: 0.5;
+}
+
+.baby-character-dialog div.right .menubutton.skillbutton {
+	display: inline-block;
+	padding: 5px 15px;
+	background: linear-gradient(to bottom, #5a4a3a, #3a2a1a);
+	border: 1px solid #8a7a6a;
+	border-radius: 5px;
+	color: rgba(255, 203, 0, 1);
+	cursor: pointer;
+	pointer-events: auto;
+	z-index: 1000;
+	font-size: 14px;
+	font-family: "heiti";
+}
+
+.baby-character-dialog div.right .menubutton.skillbutton:hover {
+	background: linear-gradient(to bottom, #6a5a4a, #4a3a2a);
+}
+
+.baby-character-dialog div.right .menubutton.skillbutton.disabled {
+	cursor: not-allowed;
+	pointer-events: none;
+}

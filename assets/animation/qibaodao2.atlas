@@ -1,0 +1,132 @@
+
+qibaodao2.png
+size: 3281,3197
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0
+  rotate: false
+  xy: 2, 2558
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+1
+  rotate: false
+  xy: 2, 1919
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+10
+  rotate: true
+  xy: 2642, 2317
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+11
+  rotate: false
+  xy: 2, 2
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+12
+  rotate: false
+  xy: 882, 641
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+13
+  rotate: false
+  xy: 1762, 1280
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+14
+  rotate: true
+  xy: 2642, 1437
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+15
+  rotate: false
+  xy: 882, 2
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+16
+  rotate: false
+  xy: 1762, 641
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+17
+  rotate: false
+  xy: 1762, 2
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+2
+  rotate: false
+  xy: 882, 2558
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 2, 1280
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 882, 1919
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 1762, 2558
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+6
+  rotate: false
+  xy: 2, 641
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+7
+  rotate: false
+  xy: 882, 1280
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+8
+  rotate: false
+  xy: 1762, 1919
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1
+9
+  rotate: true
+  xy: 2642, 557
+  size: 878, 637
+  orig: 878, 637
+  offset: 0, 0
+  index: -1

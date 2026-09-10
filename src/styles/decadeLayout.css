@@ -1,0 +1,788 @@
+﻿/**
+ * 十周年UI - 布局样式
+ */
+
+/** 角色选择按钮 */
+
+.menu > .button.character {
+	border-radius: 0;
+}
+
+.menu > .button.character > .name {
+	left: auto;
+	top: auto !important;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	height: auto;
+}
+
+.menu > .button.character > .fakeplayer {
+	width: 26px;
+	height: 32px;
+}
+
+.menu > .button.character > .fakeplayer:nth-child(2) {
+	left: 0;
+	top: auto;
+	bottom: 0;
+}
+
+/* 手杀布局 */
+.menu > .button.character.long2 > .fakeplayer:nth-child(3) {
+	left: 0;
+	top: 5%;
+}
+
+.menu > .button.character.long2 > .fakeplayer:nth-child(4) {
+	left: calc(50% - 13px);
+	top: 0;
+	bottom: 0;
+}
+
+.menu > .button.character.long2 > .fakeplayer:nth-child(5) {
+	right: 0;
+	top: 5%;
+}
+
+/* 新版布局 */
+.menu > .button.character.nova > .fakeplayer:nth-child(3) {
+	left: 0;
+	top: 15%;
+}
+
+.menu > .button.character.nova > .fakeplayer:nth-child(4) {
+	left: calc(50% - 13px);
+	top: 0;
+	bottom: 0;
+}
+
+.menu > .button.character.nova > .fakeplayer:nth-child(5) {
+	right: 0;
+	top: 15%;
+}
+
+#arena[data-layout="nova"]:not(*[data-player_height=""]) > .player {
+	width: 120px;
+	height: 180px;
+}
+
+/** 玩家宽度变量 */
+
+#arena[data-new-decade-style="on"] > .player {
+	--w: 120px !important;
+}
+
+#arena[data-new-decade-style="off"] > .player {
+	--w: 128px !important;
+}
+
+#arena[data-new-decade-style="othersOff"] > .player {
+	--w: 128px !important;
+}
+
+#arena[data-new-decade-style="onlineUI"] > .player {
+	--w: 128px !important;
+}
+
+#arena[data-new-decade-style="babysha"] > .player {
+	--w: 128px !important;
+}
+
+#arena[data-new-decade-style="codename"] > .player {
+	--w: 120px !important;
+}
+
+/** 默认布局 (mobile) */
+
+/* 8人座 */
+#arena[data-layout="mobile"][data-number="8"] > .player[data-position="1"] {
+	left: auto;
+	top: calc(50% - 90px);
+	right: 0;
+}
+
+#arena[data-layout="mobile"][data-number="8"] > .player[data-position="2"] {
+	left: auto;
+	top: 22px;
+	right: 0;
+}
+
+#arena[data-layout="mobile"][data-number="8"] > .player[data-position="3"] {
+	left: auto;
+	top: 9px;
+	right: calc(28% - 60px);
+}
+
+#arena[data-layout="mobile"][data-number="8"] > .player[data-position="4"] {
+	left: calc(50% - 60px);
+	top: 3px;
+}
+
+#arena[data-layout="mobile"][data-number="8"] > .player[data-position="5"] {
+	left: calc(28% - 60px);
+	top: 9px;
+}
+
+#arena[data-layout="mobile"][data-number="8"] > .player[data-position="6"] {
+	left: 0;
+	top: 22px;
+}
+
+#arena[data-layout="mobile"][data-number="8"] > .player[data-position="7"] {
+	left: 0;
+	top: calc(50% - 90px);
+}
+
+/* 7人座 */
+#arena[data-layout="mobile"][data-number="7"] > .player[data-position="1"] {
+	left: auto;
+	top: calc(50% - 90px);
+	right: 0;
+}
+
+#arena[data-layout="mobile"][data-number="7"] > .player[data-position="2"] {
+	left: auto;
+	top: 22px;
+	right: 0;
+}
+
+#arena[data-layout="mobile"][data-number="7"] > .player[data-position="3"] {
+	left: auto;
+	top: 9px;
+	right: calc(35.5% - 60px);
+}
+
+#arena[data-layout="mobile"][data-number="7"] > .player[data-position="4"] {
+	left: calc(35.5% - 60px);
+	top: 9px;
+}
+
+#arena[data-layout="mobile"][data-number="7"] > .player[data-position="5"] {
+	left: 0;
+	top: 22px;
+}
+
+#arena[data-layout="mobile"][data-number="7"] > .player[data-position="6"] {
+	left: 0;
+	top: calc(50% - 90px);
+}
+
+/* 6人座 */
+#arena[data-layout="mobile"][data-number="6"] > .player[data-position="1"] {
+	left: auto;
+	top: 18%;
+	right: 0;
+}
+
+#arena[data-layout="mobile"][data-number="6"] > .player[data-position="2"] {
+	left: auto;
+	top: 22px;
+	right: calc(27.5% - 60px);
+}
+
+#arena[data-layout="mobile"][data-number="6"] > .player[data-position="3"] {
+	left: calc(50% - 60px);
+	top: 9px;
+}
+
+#arena[data-layout="mobile"][data-number="6"] > .player[data-position="4"] {
+	left: calc(27.5% - 60px);
+	top: 22px;
+}
+
+#arena[data-layout="mobile"][data-number="6"] > .player[data-position="5"] {
+	left: 0;
+	top: 18%;
+}
+
+/* 5人座 */
+#arena[data-layout="mobile"][data-number="5"] > .player[data-position="1"] {
+	left: auto;
+	top: 18%;
+	right: 0;
+}
+
+#arena[data-layout="mobile"][data-number="5"] > .player[data-position="2"] {
+	left: auto;
+	top: 9px;
+	right: calc(35% - 60px);
+}
+
+#arena[data-layout="mobile"][data-number="5"] > .player[data-position="3"] {
+	left: calc(35% - 60px);
+	top: 9px;
+}
+
+#arena[data-layout="mobile"][data-number="5"] > .player[data-position="4"] {
+	left: 0;
+	top: 18%;
+}
+
+/* 4人座 */
+#arena[data-layout="mobile"][data-number="4"] > .player[data-position="1"] {
+	left: auto;
+	top: 18%;
+	right: 0;
+}
+
+#arena[data-layout="mobile"][data-number="4"] > .player[data-position="2"] {
+	left: calc(50% - 60px);
+	top: 9px;
+}
+
+#arena[data-layout="mobile"][data-number="4"] > .player[data-position="3"] {
+	left: 0;
+	top: 18%;
+}
+
+/* 3人座 */
+#arena[data-layout="mobile"][data-number="3"] > .player[data-position="1"] {
+	left: auto;
+	top: 9px;
+	right: calc(32.5% - 60px);
+}
+
+#arena[data-layout="mobile"][data-number="3"] > .player[data-position="2"] {
+	left: calc(32.5% - 60px);
+	top: 9px;
+}
+
+/* 2人座 */
+#arena[data-layout="mobile"][data-number="2"] > .player[data-position="1"] {
+	left: calc(50% - 60px);
+	top: 9px;
+}
+
+/** 新版布局 (nova) */
+
+/* 8人座 */
+#arena[data-layout="nova"][data-number="8"] > .player[data-position="1"] {
+	left: auto;
+	top: 19%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-number="8"] > .player[data-position="2"] {
+	left: auto;
+	top: 9px;
+	right: calc(22% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-number="8"] > .player[data-position="3"] {
+	left: auto;
+	top: 9px;
+	right: calc(36% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-number="8"] > .player[data-position="4"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-number="8"] > .player[data-position="5"] {
+	left: calc(36% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-number="8"] > .player[data-position="6"] {
+	left: calc(22% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-number="8"] > .player[data-position="7"] {
+	left: 25px;
+	top: 19%;
+}
+
+/* 7人座 */
+#arena[data-layout="nova"][data-number="7"] > .player[data-position="1"] {
+	left: auto;
+	top: 19%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-number="7"] > .player[data-position="2"] {
+	left: auto;
+	top: 9px;
+	right: calc(24.8% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-number="7"] > .player[data-position="3"] {
+	left: auto;
+	top: 9px;
+	right: calc(41.6% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-number="7"] > .player[data-position="4"] {
+	left: calc(41.6% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-number="7"] > .player[data-position="5"] {
+	left: calc(24.8% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-number="7"] > .player[data-position="6"] {
+	left: 25px;
+	top: 19%;
+}
+
+/* 6人座 */
+#arena[data-layout="nova"][data-number="6"] > .player[data-position="1"] {
+	left: auto;
+	top: 19%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-number="6"] > .player[data-position="2"] {
+	left: auto;
+	top: 9px;
+	right: calc(28% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-number="6"] > .player[data-position="3"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-number="6"] > .player[data-position="4"] {
+	left: calc(28% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-number="6"] > .player[data-position="5"] {
+	left: 25px;
+	top: 19%;
+}
+
+/* 5人座 */
+#arena[data-layout="nova"][data-number="5"] > .player[data-position="1"] {
+	left: auto;
+	top: 19%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-number="5"] > .player[data-position="2"] {
+	left: auto;
+	top: 9px;
+	right: calc(35% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-number="5"] > .player[data-position="3"] {
+	left: calc(35% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-number="5"] > .player[data-position="4"] {
+	left: 25px;
+	top: 19%;
+}
+
+/* 4人座 */
+#arena[data-layout="nova"][data-number="4"] > .player[data-position="1"] {
+	left: auto;
+	top: 19%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-number="4"] > .player[data-position="2"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-number="4"] > .player[data-position="3"] {
+	left: 25px;
+	top: 19%;
+}
+
+/* 3人座 */
+#arena[data-layout="nova"][data-number="3"] > .player[data-position="1"] {
+	left: auto;
+	top: 9px;
+	right: calc(32.5% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-number="3"] > .player[data-position="2"] {
+	left: calc(32.5% - (var(--w) / 2));
+	top: 9px;
+}
+
+/* 2人座 */
+#arena[data-layout="nova"][data-number="2"] > .player[data-position="1"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+/** nova布局 - decade-layout关闭 */
+
+/* 8人座 */
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="8"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="8"] > .player[data-position="2"] {
+	left: auto;
+	top: 50px;
+	right: calc(22% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="8"] > .player[data-position="3"] {
+	left: auto;
+	top: 9px;
+	right: calc(36% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="8"] > .player[data-position="4"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="8"] > .player[data-position="5"] {
+	left: calc(36% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="8"] > .player[data-position="6"] {
+	left: calc(22% - (var(--w) / 2));
+	top: 50px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="8"] > .player[data-position="7"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 7人座 */
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="7"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="7"] > .player[data-position="2"] {
+	left: auto;
+	top: 50px;
+	right: calc(24.8% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="7"] > .player[data-position="3"] {
+	left: auto;
+	top: 9px;
+	right: calc(41.6% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="7"] > .player[data-position="4"] {
+	left: calc(41.6% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="7"] > .player[data-position="5"] {
+	left: calc(24.8% - (var(--w) / 2));
+	top: 50px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="7"] > .player[data-position="6"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 6人座 */
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="6"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="6"] > .player[data-position="2"] {
+	left: auto;
+	top: 50px;
+	right: calc(28% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="6"] > .player[data-position="3"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="6"] > .player[data-position="4"] {
+	left: calc(28% - (var(--w) / 2));
+	top: 50px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="6"] > .player[data-position="5"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 5人座 */
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="5"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="5"] > .player[data-position="2"] {
+	left: auto;
+	top: 9px;
+	right: calc(35% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="5"] > .player[data-position="3"] {
+	left: calc(35% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="5"] > .player[data-position="4"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 4人座 */
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="4"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="4"] > .player[data-position="2"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="4"] > .player[data-position="3"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 3人座 */
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="3"] > .player[data-position="1"] {
+	left: auto;
+	top: 9px;
+	right: calc(32.5% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-decade-layout="off"][data-number="3"] > .player[data-position="2"] {
+	left: calc(32.5% - (var(--w) / 2));
+	top: 9px;
+}
+
+/** nova布局 - 特殊样式 (onlineUI/babysha/othersOff) */
+
+/* 8人座 */
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="8"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="8"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="8"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="8"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="8"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="8"] > .player[data-position="2"] {
+	left: auto;
+	top: 50px;
+	right: calc(22% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="8"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="8"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="8"] > .player[data-position="3"] {
+	left: auto;
+	top: 9px;
+	right: calc(36% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="8"] > .player[data-position="4"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="8"] > .player[data-position="4"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="8"] > .player[data-position="4"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="8"] > .player[data-position="5"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="8"] > .player[data-position="5"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="8"] > .player[data-position="5"] {
+	left: calc(36% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="8"] > .player[data-position="6"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="8"] > .player[data-position="6"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="8"] > .player[data-position="6"] {
+	left: calc(22% - (var(--w) / 2));
+	top: 50px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="8"] > .player[data-position="7"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="8"] > .player[data-position="7"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="8"] > .player[data-position="7"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 7人座 */
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="7"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="7"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="7"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="7"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="7"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="7"] > .player[data-position="2"] {
+	left: auto;
+	top: 50px;
+	right: calc(24.8% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="7"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="7"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="7"] > .player[data-position="3"] {
+	left: auto;
+	top: 9px;
+	right: calc(41.6% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="7"] > .player[data-position="4"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="7"] > .player[data-position="4"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="7"] > .player[data-position="4"] {
+	left: calc(41.6% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="7"] > .player[data-position="5"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="7"] > .player[data-position="5"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="7"] > .player[data-position="5"] {
+	left: calc(24.8% - (var(--w) / 2));
+	top: 50px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="7"] > .player[data-position="6"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="7"] > .player[data-position="6"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="7"] > .player[data-position="6"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 6人座 */
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="6"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="6"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="6"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="6"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="6"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="6"] > .player[data-position="2"] {
+	left: auto;
+	top: 50px;
+	right: calc(28% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="6"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="6"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="6"] > .player[data-position="3"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="6"] > .player[data-position="4"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="6"] > .player[data-position="4"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="6"] > .player[data-position="4"] {
+	left: calc(28% - (var(--w) / 2));
+	top: 50px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="6"] > .player[data-position="5"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="6"] > .player[data-position="5"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="6"] > .player[data-position="5"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 5人座 */
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="5"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="5"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="5"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="5"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="5"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="5"] > .player[data-position="2"] {
+	left: auto;
+	top: 9px;
+	right: calc(35% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="5"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="5"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="5"] > .player[data-position="3"] {
+	left: calc(35% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="5"] > .player[data-position="4"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="5"] > .player[data-position="4"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="5"] > .player[data-position="4"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 4人座 */
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="4"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="4"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="4"] > .player[data-position="1"] {
+	left: auto;
+	top: 23%;
+	right: 25px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="4"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="4"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="4"] > .player[data-position="2"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="4"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="4"] > .player[data-position="3"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="4"] > .player[data-position="3"] {
+	left: 25px;
+	top: 23%;
+}
+
+/* 3人座 */
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="3"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="3"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="3"] > .player[data-position="1"] {
+	left: auto;
+	top: 9px;
+	right: calc(37% - (var(--w) / 2));
+}
+
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="3"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="3"] > .player[data-position="2"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="3"] > .player[data-position="2"] {
+	left: calc(37% - (var(--w) / 2));
+	top: 9px;
+}
+
+/* 2人座 */
+#arena[data-layout="nova"][data-new-decade-style="onlineUI"][data-number="2"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="babysha"][data-number="2"] > .player[data-position="1"],
+#arena[data-layout="nova"][data-new-decade-style="othersOff"][data-number="2"] > .player[data-position="1"] {
+	left: calc(50% - (var(--w) / 2));
+	top: 9px;
+}

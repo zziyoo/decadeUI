@@ -1,0 +1,280 @@
+/**
+ * 十周年风格 - 角色信息弹窗样式
+ */
+
+.button.character,
+#arena > .player.xplayer {
+	--width: 120px;
+}
+
+.popup-container > .shizhounian-character-dialog {
+	top: calc(55% - var(--h) / 2 + var(--bt));
+	left: calc(60% - var(--w) / 2 + var(--bl));
+}
+
+/* 基础弹窗 */
+.shizhounian-character-dialog {
+	--w: 536px;
+	--h: 305px;
+	--bt: calc(var(--h) * 40 / 290);
+	--bl: calc(var(--w) * 38 / 497);
+	--bb: calc(var(--h) * 17 / 290);
+	--dw: calc(var(--w) - 2 * var(--bl));
+	--dh: calc(var(--h) - var(--bt) - var(--bb));
+	width: var(--dw);
+	height: var(--dh);
+	position: absolute;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.shizhounian-character-dialog.dialog2 {
+	--bt: calc(var(--h) * 10 / 280);
+	--bl: calc(var(--w) * 12 / 287);
+	--bb: calc(var(--h) * 20 / 280);
+}
+
+.shizhounian-character-dialog.popped {
+	animation: dialog_start2 0.3s;
+}
+
+.shizhounian-character-dialog::before {
+	content: "";
+	top: calc(0% - var(--bt));
+	left: calc(0% - var(--bl));
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	background-size: 100% 100%;
+}
+
+.shizhounian-character-dialog.dialog2::before {
+	background-image: url("../../assets/character/shizhounian/dialog3.png");
+}
+
+.shizhounian-character-dialog > div {
+	top: 0;
+	height: 100%;
+	position: absolute;
+}
+
+/* 立绘区域 */
+.shizhounian-character-dialog > div.skin1 {
+	left: -230px;
+	top: -50px;
+	width: 250px;
+	height: 295px;
+	background-size: cover;
+	position: relative;
+	background-repeat: no-repeat;
+	-webkit-mask: radial-gradient(115px 160px at 125px 160px, #000 70%, transparent 100%);
+}
+
+.shizhounian-character-dialog > div.skin2 {
+	left: -550px;
+	top: -40px;
+	width: 150px;
+	height: 177px;
+	background-size: cover;
+	position: relative;
+	background-repeat: no-repeat;
+	-webkit-mask: radial-gradient(closest-side, #000 70%, transparent 100%);
+}
+
+.shizhounian-character-dialog > div.pe1 {
+	left: -190px;
+	top: -180px;
+	width: 120px;
+	height: 120px;
+	background-size: cover;
+	position: relative;
+	background-repeat: no-repeat;
+}
+
+/* 武将名 */
+.shizhounian-character-dialog > div.name {
+	position: relative;
+	left: 55px;
+	top: -415px;
+	width: 500px;
+	height: 23px;
+	color: white;
+	font-size: 23px;
+	font-family: yuanli;
+	letter-spacing: 1.5px;
+	text-shadow:
+		0 0 2px rgb(170, 170, 170),
+		0 0 3px rgb(170, 170, 170),
+		0 0 4px rgb(170, 170, 170);
+}
+
+.shizhounian-character-dialog > div.name[data-camp="wei"] {
+	text-shadow:
+		0 0 2px rgb(94, 135, 238),
+		0 0 3px rgb(94, 135, 238),
+		0 0 4px rgb(94, 135, 238);
+}
+
+.shizhounian-character-dialog > div.name[data-camp="shu"] {
+	text-shadow:
+		0 0 2px rgb(255, 100, 100),
+		0 0 3px rgb(255, 50, 50);
+}
+
+.shizhounian-character-dialog > div.name[data-camp="wu"] {
+	text-shadow:
+		0 0 1px rgb(100, 233, 100),
+		0 0 2px rgba(50, 255, 50, 0.789);
+}
+
+.shizhounian-character-dialog > div.name[data-camp="qun"] {
+	text-shadow:
+		0 0 2px rgb(170, 170, 170),
+		0 0 3px rgb(170, 170, 170);
+}
+
+.shizhounian-character-dialog > div.name[data-camp="shen"] {
+	text-shadow:
+		0 0 2px rgb(255, 200, 0),
+		0 0 5px rgb(255, 200, 0);
+}
+
+.shizhounian-character-dialog > div.name[data-camp="ye"],
+.shizhounian-character-dialog > div.name[data-camp="jin"] {
+	text-shadow:
+		0 0 2px rgb(203, 72, 223),
+		0 0 5px rgb(195, 28, 237);
+}
+
+/* 分包 */
+.shizhounian-character-dialog > div.pack {
+	position: relative;
+	right: 25px;
+	top: -436px;
+	width: max-content;
+	height: 20px;
+	color: rgba(255, 201, 1, 1);
+	font-size: 20px;
+	font-family: yuanli;
+	letter-spacing: 1px;
+	float: right;
+}
+
+/* 左右面板 */
+.shizhounian-character-dialog > div.left {
+	left: 0;
+	width: 50%;
+}
+
+.shizhounian-character-dialog.single > div.left {
+	width: calc(50% - 105px);
+}
+
+.shizhounian-character-dialog > div.right {
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 60px 20px 20px 29px;
+	overflow: hidden;
+}
+
+.shizhounian-character-dialog.single > div.right {
+	left: calc(0% - 105px);
+	width: calc(50% + 105px);
+}
+
+.shizhounian-character-dialog > div.left > div {
+	top: 50%;
+	right: 15px;
+	width: 210px;
+	text-align: center;
+	transform: translateY(-50%);
+	white-space: nowrap;
+}
+
+.shizhounian-character-dialog.single > div.left > div {
+	width: 105px;
+}
+
+.shizhounian-character-dialog > div.right > div {
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.shizhounian-character-dialog > div.right div {
+	position: relative;
+}
+
+/* 技能标题 */
+.shizhounian-character-dialog > div.right .xcaption {
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px 0;
+	font-family: "yuanli";
+}
+
+/* 技能描述 */
+.shizhounian-character-dialog > div.right .xskill > div {
+	display: inline;
+	color: #f7f3e0;
+	text-shadow: none;
+	font-size: 16px;
+	font-family: "yuanli";
+	font-weight: 500;
+	line-height: 1em;
+	margin-top: 30px;
+}
+
+.shizhounian-character-dialog > div.right .xskill > div[data-color] {
+	color: #00e13b;
+}
+
+.shizhounian-character-dialog > div.right .xskill + .xskill {
+	margin-top: 15px;
+}
+
+/* 样式区 */
+.pn1 {
+	left: 10px;
+	top: 110px;
+	width: 200px;
+	height: 24.5px;
+	font-family: "heiti";
+	text-indent: 1em;
+	font-size: 14px;
+	position: relative;
+	line-height: 1.5em;
+	color: #f7f3e0;
+	background-size: contain;
+	background-position: left;
+	background-repeat: no-repeat;
+}
+
+/* 滚动条样式 */
+.shizhounian-character-dialog > div.right > div::-webkit-scrollbar {
+	width: 8px;
+}
+
+.shizhounian-character-dialog > div.right > div::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
+}
+
+.shizhounian-character-dialog > div.right > div::-webkit-scrollbar-thumb {
+	background: rgba(255, 201, 1, 0.8);
+	border-radius: 4px;
+	border: 1px solid rgba(255, 201, 1, 0.3);
+}
+
+.shizhounian-character-dialog > div.right > div::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 201, 1, 1);
+}
+
+.shizhounian-character-dialog > div.right > div {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 201, 1, 0.8) rgba(0, 0, 0, 0.3);
+}

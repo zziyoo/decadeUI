@@ -1,0 +1,279 @@
+
+effect_youxikaishi.png
+size: 1596,1596
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+youxikaishi_di
+  rotate: false
+  xy: 2, 852
+  size: 842, 448
+  orig: 1600, 900
+  offset: 383, 297
+  index: -1
+youxikaishi_tx1
+  rotate: false
+  xy: 2, 1302
+  size: 1014, 292
+  orig: 1600, 900
+  offset: 334, 315
+  index: -1
+youxikaishi_zi
+  rotate: true
+  xy: 320, 13
+  size: 515, 159
+  orig: 1600, 900
+  offset: 557, 373
+  index: -1
+youxikaishi_zi_glow1_00
+  rotate: false
+  xy: 1016, 947
+  size: 539, 177
+  orig: 1600, 900
+  offset: 541, 371
+  index: -1
+youxikaishi_zi_saoguang_00
+  rotate: true
+  xy: 1000, 10
+  size: 41, 52
+  orig: 1600, 900
+  offset: 678, 438
+  index: -1
+youxikaishi_zi_saoguang_01
+  rotate: false
+  xy: 1180, 21
+  size: 58, 59
+  orig: 1600, 900
+  offset: 678, 432
+  index: -1
+youxikaishi_zi_saoguang_02
+  rotate: true
+  xy: 642, 129
+  size: 69, 62
+  orig: 1600, 900
+  offset: 678, 429
+  index: -1
+youxikaishi_zi_saoguang_03
+  rotate: true
+  xy: 1193, 718
+  size: 69, 62
+  orig: 1600, 900
+  offset: 678, 429
+  index: -1
+youxikaishi_zi_saoguang_04
+  rotate: true
+  xy: 759, 118
+  size: 104, 70
+  orig: 1600, 900
+  offset: 679, 421
+  index: -1
+youxikaishi_zi_saoguang_05
+  rotate: false
+  xy: 1084, 717
+  size: 107, 70
+  orig: 1600, 900
+  offset: 683, 421
+  index: -1
+youxikaishi_zi_saoguang_06
+  rotate: true
+  xy: 581, 727
+  size: 123, 70
+  orig: 1600, 900
+  offset: 687, 421
+  index: -1
+youxikaishi_zi_saoguang_07
+  rotate: false
+  xy: 724, 783
+  size: 119, 67
+  orig: 1600, 900
+  offset: 698, 421
+  index: -1
+youxikaishi_zi_saoguang_08
+  rotate: false
+  xy: 724, 714
+  size: 119, 67
+  orig: 1600, 900
+  offset: 721, 421
+  index: -1
+youxikaishi_zi_saoguang_09
+  rotate: true
+  xy: 511, 724
+  size: 126, 68
+  orig: 1600, 900
+  offset: 728, 420
+  index: -1
+youxikaishi_zi_saoguang_10
+  rotate: true
+  xy: 713, 10
+  size: 106, 69
+  orig: 1600, 900
+  offset: 756, 419
+  index: -1
+youxikaishi_zi_saoguang_11
+  rotate: true
+  xy: 765, 224
+  size: 116, 69
+  orig: 1600, 900
+  offset: 770, 419
+  index: -1
+youxikaishi_zi_saoguang_12
+  rotate: true
+  xy: 653, 727
+  size: 123, 69
+  orig: 1600, 900
+  offset: 781, 419
+  index: -1
+youxikaishi_zi_saoguang_13
+  rotate: true
+  xy: 642, 2
+  size: 114, 69
+  orig: 1600, 900
+  offset: 796, 419
+  index: -1
+youxikaishi_zi_saoguang_14
+  rotate: false
+  xy: 642, 271
+  size: 121, 69
+  orig: 1600, 900
+  offset: 802, 419
+  index: -1
+youxikaishi_zi_saoguang_15
+  rotate: false
+  xy: 642, 200
+  size: 115, 69
+  orig: 1600, 900
+  offset: 815, 419
+  index: -1
+youxikaishi_zi_saoguang_16
+  rotate: false
+  xy: 1257, 720
+  size: 92, 67
+  orig: 1600, 900
+  offset: 840, 421
+  index: -1
+youxikaishi_zi_saoguang_17
+  rotate: true
+  xy: 1016, 702
+  size: 85, 66
+  orig: 1600, 900
+  offset: 847, 421
+  index: -1
+youxikaishi_zi_saoguang_18
+  rotate: false
+  xy: 1351, 721
+  size: 62, 66
+  orig: 1600, 900
+  offset: 870, 421
+  index: -1
+youxikaishi_zi_saoguang_19
+  rotate: false
+  xy: 1357, 666
+  size: 54, 53
+  orig: 1600, 900
+  offset: 878, 421
+  index: -1
+youxikaishi_zi_tx2_00
+  rotate: true
+  xy: 2, 24
+  size: 672, 171
+  orig: 1600, 900
+  offset: 514, 360
+  index: -1
+youxikaishi_zi_tx2_02
+  rotate: false
+  xy: 175, 530
+  size: 659, 174
+  orig: 1600, 900
+  offset: 541, 360
+  index: -1
+youxikaishi_zi_tx2_04
+  rotate: true
+  xy: 836, 40
+  size: 656, 162
+  orig: 1600, 900
+  offset: 544, 373
+  index: -1
+youxikaishi_zi_tx2_06
+  rotate: true
+  xy: 1180, 82
+  size: 633, 175
+  orig: 1600, 900
+  offset: 567, 360
+  index: -1
+youxikaishi_zi_tx2_08
+  rotate: true
+  xy: 1000, 53
+  size: 643, 178
+  orig: 1600, 900
+  offset: 557, 359
+  index: -1
+youxikaishi_zi_tx2_10
+  rotate: true
+  xy: 1415, 169
+  size: 618, 172
+  orig: 1600, 900
+  offset: 582, 365
+  index: -1
+youxikaishi_zi_tx2_12
+  rotate: true
+  xy: 846, 698
+  size: 602, 168
+  orig: 1600, 900
+  offset: 598, 369
+  index: -1
+youxikaishi_zi_tx2_14
+  rotate: false
+  xy: 1018, 1435
+  size: 571, 159
+  orig: 1600, 900
+  offset: 629, 376
+  index: -1
+youxikaishi_zi_tx2_16
+  rotate: false
+  xy: 1016, 1126
+  size: 559, 152
+  orig: 1600, 900
+  offset: 641, 378
+  index: -1
+youxikaishi_zi_tx2_18
+  rotate: false
+  xy: 1018, 1280
+  size: 563, 153
+  orig: 1600, 900
+  offset: 637, 377
+  index: -1
+youxikaishi_zi_tx2_20
+  rotate: false
+  xy: 1016, 789
+  size: 539, 156
+  orig: 1600, 900
+  offset: 661, 369
+  index: -1
+youxikaishi_zi_tx2_22
+  rotate: true
+  xy: 175, 11
+  size: 517, 143
+  orig: 1600, 900
+  offset: 683, 380
+  index: -1
+youxikaishi_zi_tx2_24
+  rotate: false
+  xy: 2, 706
+  size: 507, 144
+  orig: 1600, 900
+  offset: 693, 379
+  index: -1
+youxikaishi_zi_tx2_26
+  rotate: true
+  xy: 481, 43
+  size: 485, 159
+  orig: 1600, 900
+  offset: 715, 367
+  index: -1
+youxikaishi_zi_tx3_00
+  rotate: true
+  xy: 642, 342
+  size: 186, 192
+  orig: 186, 192
+  offset: 0, 0
+  index: -1
