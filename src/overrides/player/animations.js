@@ -55,6 +55,15 @@ export function playerDamagepop(num, nature = "soil", font, nobroadcast) {
 		container.style.width = `${player.offsetWidth}px`;
 		container.style.zIndex = "9999";
 
+		// 含 HTML 标签的字符串（如 <span data-nature="woodmm">丰田</span>）需由 innerHTML 解析
+		if (/<\/?[a-z][^>]*>/i.test(num)) {
+			const wrapper = document.createElement("div");
+			wrapper.innerHTML = num;
+			container.appendChild(wrapper);
+			setTimeout(() => container.delete(), 1500);
+			return;
+		}
+
 		const chars = num.split("");
 		const midIndex = Math.ceil(chars.length / 2);
 
