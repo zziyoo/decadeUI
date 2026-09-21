@@ -63,7 +63,7 @@ function wrapFilter(event, filter, includeS) {
 		if (includeS && get.position(card) === "s" && get.itemtype(card) === "card" && !card.hasGaintag(GAINTAG)) {
 			return false;
 		}
-		return filter.call(this, real, player);
+		return filter ? filter.call(this, real, player) : true;
 	};
 }
 
@@ -170,6 +170,11 @@ function cleanup(event, player) {
 
 	restoreFilter(event);
 
+	if (event._equipCopyOriginalPosition !== undefined) {
+		event.position = event._equipCopyOriginalPosition;
+		delete event._equipCopyOriginalPosition;
+	}
+
 	event.copyCards = false;
 	if (player === game.me) ui.updatehl();
 }
@@ -180,6 +185,7 @@ function cleanup(event, player) {
 export function setupEquipCopy() {
 	lib.hooks.checkBegin.add(async event => {
 		if (!lib.config["extension_十周年UI_enableEquipCopy"] || lib.config["extension_十周年UI_aloneEquip"]) return;
+		if (event.player !== game.me) return;
 
 		const player = event.player;
 		const valid = event.position?.includes("e") && player.countCards("e") && !event.copyCards && VALID_EVENTS.includes(event.name);
@@ -193,11 +199,9 @@ export function setupEquipCopy() {
 		if (includeS) event.position += "s";
 
 		const copies = player.getCards("e").map(createCopy);
-		const filtered = event.filterCard ? copies.filter(c => event.filterCard.call(event, c.relatedCard || c, player)) : [];
+		const filtered = typeof event.filterCard === "function" ? copies.filter(c => event.filterCard.call(event, c.relatedCard || c, player)) : copies.slice();
 
-		if (event.filterCard) {
-			event.filterCard = wrapFilter(event, event.filterCard, includeS);
-		}
+		event.filterCard = wrapFilter(event, event.filterCard, includeS);
 
 		const toGive = processMultiSelect(event, player, copies, filtered);
 		if (toGive.length) player.directgains(toGive, null, GAINTAG);
@@ -234,8 +238,6 @@ export function setupEquipCopy() {
 
 	lib.hooks.uncheckBegin.add(async (event, args) => {
 		if (!lib.config["extension_十周年UI_enableEquipCopy"] || lib.config["extension_十周年UI_aloneEquip"]) return;
-
-		const shouldCleanup = args.includes("card") && event.copyCards && (event.result || (["chooseToUse", "chooseToRespond"].includes(event.name) && !event.result));
-		if (shouldCleanup) cleanup(event, event.player);
+		if (args.includes("card") && event.copyCards) cleanup(event, event.player);
 	});
 }
