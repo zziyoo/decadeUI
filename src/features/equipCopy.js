@@ -3,7 +3,6 @@
  */
 
 import { lib, game, ui, get, _status } from "noname";
-import { wrapBefore } from "../utils/safeOverride.js";
 
 const GAINTAG = "equipHand";
 const VALID_EVENTS = ["chooseCard", "chooseToUse", "chooseToRespond", "chooseToDiscard", "chooseCardTarget", "chooseToGive"];
@@ -287,23 +286,17 @@ export function setupEquipCopy() {
 
 	lib.hooks.uncheckBegin.add(async (event, args) => {
 		if (!lib.config["extension_十周年UI_enableEquipCopy"] || lib.config["extension_十周年UI_aloneEquip"]) return;
-		if (args.includes("card") && event.copyCards) cleanup(event, event.player);
+
+		// ba493a80 的生命周期判定：chooseCard 系事件仅在结算后（有 result）收尾，
+		// 中间态重检不拆除上下文；chooseToUse/Respond 每次 card uncheck 都收尾重建。
+		const shouldCleanup =
+			args.includes("card") &&
+			event.copyCards &&
+			(
+				event.result ||
+				(["chooseToUse", "chooseToRespond"].includes(event.name) && !event.result)
+			);
+
+		if (shouldCleanup) cleanup(event, event.player);
 	});
-
-	// skillbutton 本体只执行 clickable（ui/click/index.js:4445），不 uncheck/check，
-	// 取代选牌事件后没人收尾，副本会以僵尸牌留在手牌。在 clickable 前只 cleanup：
-	// 不补 game.check（checkBegin 会立刻重建副本），不补 uncheck（会清掉可选标记且无后续 check
-	// 兜底），副本仍需要时由玩家下一次选牌的 game.check() 经 checkBegin 自愈重建。
-	if (!ui.click.skillbutton?._equipCopy) {
-		wrapBefore(ui.click, "skillbutton", function () {
-			if (!lib.config["extension_十周年UI_enableEquipCopy"] || lib.config["extension_十周年UI_aloneEquip"]) {
-				return;
-			}
-
-			const event = copyOwnerEvent;
-			if (event?.copyCards) cleanup(event, event.player);
-		});
-		// 值为 2，供控制台确认新版包装已加载（旧半成品是 true）
-		ui.click.skillbutton._equipCopy = 2;
-	}
 }
