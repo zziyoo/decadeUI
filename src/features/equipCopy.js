@@ -3,10 +3,20 @@
  */
 
 import { lib, game, ui, get, _status } from "noname";
+import { wrapBefore } from "../utils/safeOverride.js";
 
 const GAINTAG = "equipHand";
 const VALID_EVENTS = ["chooseCard", "chooseToUse", "chooseToRespond", "chooseToDiscard", "chooseCardTarget", "chooseToGive"];
 const originalFilters = new WeakMap();
+
+/** content.js 保证单次初始化，这里再防意外二次调用导致的 hook 重复注册 */
+let equipCopyInitialized = false;
+
+/**
+ * 建副本时的事件引用。uncheckBegin 只能拿到 _status.event，收不到已被顶掉的旧事件，
+ * 所以必须留住旧事件引用，不能靠事件栈反推。
+ */
+let copyOwnerEvent = null;
 
 /**
  * 创建装备牌副本
@@ -147,6 +157,7 @@ function sortCards(cards) {
  */
 function cleanup(event, player) {
 	if (!player) return;
+	if (copyOwnerEvent === event) copyOwnerEvent = null;
 
 	const cards = event.result?.cards;
 	if (cards) {
@@ -183,8 +194,19 @@ function cleanup(event, player) {
  * 初始化手牌化模式
  */
 export function setupEquipCopy() {
+	if (equipCopyInitialized) return;
+	equipCopyInitialized = true;
+
 	lib.hooks.checkBegin.add(async event => {
 		if (!lib.config["extension_十周年UI_enableEquipCopy"] || lib.config["extension_十周年UI_aloneEquip"]) return;
+
+		// 通用收尾：正在呈现的事件已不是建副本事件（被取消/被顶掉/主阶段推进）。
+		// 这类切换多数不走 card 类 uncheck，只能在这里统一收；被挂起的旧事件若恢复交互，
+		// 下一次 check 会经 checkBegin 自愈重建。
+		if (copyOwnerEvent !== null && copyOwnerEvent !== event && copyOwnerEvent.copyCards) {
+			cleanup(copyOwnerEvent, copyOwnerEvent.player);
+		}
+
 		if (event.player !== game.me) return;
 
 		const player = event.player;
@@ -192,11 +214,38 @@ export function setupEquipCopy() {
 		if (!valid) return;
 
 		event.copyCards = true;
+		copyOwnerEvent = event;
 		const includeS = !event.position.includes("s");
 
 		event._equipCopyOriginalPosition = event.position;
 		event.position = event.position.replace("e", "");
 		if (includeS) event.position += "s";
+
+		// 本体 backup/restore 会快照/还原 position、filterCard（gameEvent.js:708/842），而 cancel 的
+		// 顺序是 restore→uncheck→check：cleanup 晚于 restore 执行会用过期 stash 覆盖本体刚恢复的
+		// 状态，checkBegin 随即重建副本（技能取消后残留主阶段的根源）。
+		// 故在两者真正执行前先收掉副本上下文；另 backup 是覆盖式快照，保留首次快照为基础态，
+		// restore 退出技能（delete skill）时校正回去，避免还原出无技能却带技能 position 的混合态。
+		if (!event._equipCopyPatched) {
+			event._equipCopyPatched = true;
+			for (const key of ["backup", "restore"]) {
+				const original = event[key];
+				event[key] = function (...args) {
+					if (key === "backup") {
+						if (this.copyCards) cleanup(this, this.player);
+						if (this._backup && !this._equipCopyBaseBackup) this._equipCopyBaseBackup = this._backup;
+					} else if (this.copyCards) {
+						cleanup(this, this.player);
+					}
+					const result = original.apply(this, args);
+					if (key === "restore" && !this.skill && this._equipCopyBaseBackup) {
+						this.position = this._equipCopyBaseBackup.position;
+						this.filterCard = this._equipCopyBaseBackup.filterCard;
+					}
+					return result;
+				};
+			}
+		}
 
 		const copies = player.getCards("e").map(createCopy);
 		const filtered = typeof event.filterCard === "function" ? copies.filter(c => event.filterCard.call(event, c.relatedCard || c, player)) : copies.slice();
@@ -240,4 +289,21 @@ export function setupEquipCopy() {
 		if (!lib.config["extension_十周年UI_enableEquipCopy"] || lib.config["extension_十周年UI_aloneEquip"]) return;
 		if (args.includes("card") && event.copyCards) cleanup(event, event.player);
 	});
+
+	// skillbutton 本体只执行 clickable（ui/click/index.js:4445），不 uncheck/check，
+	// 取代选牌事件后没人收尾，副本会以僵尸牌留在手牌。在 clickable 前只 cleanup：
+	// 不补 game.check（checkBegin 会立刻重建副本），不补 uncheck（会清掉可选标记且无后续 check
+	// 兜底），副本仍需要时由玩家下一次选牌的 game.check() 经 checkBegin 自愈重建。
+	if (!ui.click.skillbutton?._equipCopy) {
+		wrapBefore(ui.click, "skillbutton", function () {
+			if (!lib.config["extension_十周年UI_enableEquipCopy"] || lib.config["extension_十周年UI_aloneEquip"]) {
+				return;
+			}
+
+			const event = copyOwnerEvent;
+			if (event?.copyCards) cleanup(event, event.player);
+		});
+		// 值为 2，供控制台确认新版包装已加载（旧半成品是 true）
+		ui.click.skillbutton._equipCopy = 2;
+	}
 }
