@@ -191,12 +191,25 @@ function handleJudgeTag(card, event, decadeUI) {
  * @returns {string} 标签文本
  */
 function handleDefaultTag(card, player, event, decadeUI) {
-	const evt = _status.event;
-	_status.event = event;
-	let text = get.cardsetion?.(player) || "";
-	_status.event = evt;
+	// 只有卡牌使用/响应事件才需要卡牌使用信息。
+	// get.cardsetion() 会沿父事件链上溯，遇到 useSkill 时执行 get.sourceSkillFor(evt.skill)；
+	// 技能自身的 content 事件（例如 dcsbquzhou）不是卡牌使用事件，
+	// 其事件链上的 evt.skill 可能为 undefined，此时 Core 会抛出 TypeError。
+	const isCardUseEvent = ["useCard", "respond"].includes(event.name);
 
-	if (["useCard", "respond"].includes(event.name)) {
+	let text = "";
+	if (isCardUseEvent) {
+		// 无论 get.cardsetion() 是否正常返回，都必须还原进入前的当前事件。
+		const evt = _status.event;
+		try {
+			_status.event = event;
+			text = get.cardsetion?.(player) || "";
+		} finally {
+			_status.event = evt;
+		}
+	}
+
+	if (isCardUseEvent) {
 		const cardname = event.card.name;
 		const cardnature = get.nature(event.card);
 
