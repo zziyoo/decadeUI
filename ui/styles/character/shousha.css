@@ -1,0 +1,857 @@
+/**
+ * 手杀风格 - 角色信息弹窗样式
+ */
+
+.button.character,
+#arena > .player.xplayer {
+	--width: 120px;
+}
+
+.popup-container > .shousha-character-dialog {
+	top: calc(50% - var(--h) / 2 + var(--bt));
+	left: calc(50% - var(--w) / 2 + var(--bl));
+}
+
+/* 基础玩家信息弹窗 */
+.shousha-character-dialog {
+	--w: 700px;
+	--h: 450px;
+	--bt: calc(var(--h) * 15 / 290);
+	--bl: calc(var(--w) * 38 / 497);
+	--bb: calc(var(--h) * 17 / 290);
+	--dw: calc(var(--w) - 2 * var(--bl));
+	--dh: calc(var(--h) - var(--bt) - var(--bb));
+	width: var(--dw);
+	height: var(--dh);
+	position: absolute;
+	box-sizing: border-box;
+	padding: 10px;
+	z-index: 13;
+}
+
+.shousha-character-dialog > .blackBg {
+	padding: 10px 25px;
+	position: relative;
+	width: 100%;
+	height: 115px;
+	top: 0;
+	left: -25px;
+	background-color: #00000052;
+	clip-path: polygon(
+		10px 0%,
+		calc(100% - 10px) 0%,
+		100% 10px,
+		100% calc(100% - 10px),
+		calc(100% - 10px) 100%,
+		10px 100%,
+		0 calc(100% - 10px),
+		0 10px
+	);
+}
+
+.blackBg.two {
+	margin-top: 8px;
+	height: 218px;
+}
+
+.shousha-character-dialog .basicInfo {
+	position: relative;
+	height: 35px;
+	display: block;
+	margin-left: 20px;
+}
+
+.shousha-character-dialog .basicInfo .mingcheng {
+	position: relative;
+	font-size: 20px;
+	color: rgb(75, 59, 48);
+	filter: blur(0.3px);
+	margin-top: 4px;
+	text-shadow: none;
+	font-weight: bold;
+	font-family: shousha;
+	z-index: 68;
+}
+
+.shousha-character-dialog .basicInfo .dengji {
+	position: relative;
+	font-size: 20px;
+	color: #fbce08;
+	text-shadow: none;
+	filter: blur(0.3px);
+	font-weight: normal;
+	font-family: shousha;
+	z-index: 68;
+	margin-left: 20px;
+}
+
+/* 官阶 */
+.shousha-character-dialog .offical-bg {
+	position: relative;
+	height: 35px;
+	width: 280px;
+	background-image: url("../../assets/character/shousha/pub_red_bg1.png");
+	background-size: 100% 100%;
+	margin: 5px 0 8px 23px;
+}
+
+.shousha-character-dialog .offical-bg .offical-icon {
+	position: absolute;
+	top: -18px;
+	left: -20px;
+	height: 70px;
+	width: 70px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.shousha-character-dialog .offical-bg .offical-text {
+	position: absolute;
+	left: 60px;
+	height: 100%;
+	line-height: 35px;
+	font-family: "shousha";
+	font-size: 26px;
+	color: #f4ba16;
+	filter: blur(0.3px);
+	text-shadow: black 0 0 0px;
+}
+
+/* 对局信息 */
+.shousha-character-dialog .fight-bg {
+	position: relative;
+	height: 35px;
+	width: 100%;
+	margin-left: 15px;
+}
+
+.shousha-character-dialog .fight-bg > .shenglv {
+	position: relative;
+	font-size: 22px;
+	font-family: "shousha";
+	color: #efdbb6;
+	margin-right: 120px;
+}
+
+/* 查看名片 */
+.viewBusinessCard {
+	position: absolute;
+	width: 120px;
+	height: 45px;
+	top: 40%;
+	right: 5%;
+	background-image: url("../../assets/character/shousha/useless1.png");
+	background-size: 100% 100%;
+	font-family: "shousha";
+	font-size: 17px;
+	line-height: 44px;
+	color: #e6e6e6;
+	text-align: center;
+	text-shadow: 0.1px 0.1px 0.25px rgba(0, 0, 0, 0.1);
+}
+
+.shousha-character-dialog.popped {
+	animation: dialog_start2 0.3s;
+}
+
+.shousha-character-dialog::before {
+	content: "";
+	top: calc(0% - var(--bt));
+	left: calc(0% - var(--bl));
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	background-image: url("../../assets/character/shousha/dialogx1.png");
+	background-size: 100% 100%;
+}
+
+/* 武将边框 */
+.shousha-character-dialog > .blackBg.two > div.biankuang,
+.shousha-character-dialog > .blackBg.two > div.biankuang2 {
+	width: 120px;
+	height: 160px;
+	top: calc(50% - 73px);
+	background-size: 100% 100%;
+	z-index: 68;
+	position: absolute;
+}
+
+.shousha-character-dialog > .blackBg.two > div.biankuang {
+	left: 30px;
+}
+
+.shousha-character-dialog > .blackBg.two > div.biankuang2 {
+	left: 150px;
+}
+
+/* 星级 */
+.xing {
+	position: absolute;
+	width: 15px;
+	height: 100%;
+	left: 1%;
+	bottom: 6%;
+	z-index: 99;
+	display: inline-flex;
+	flex-direction: column-reverse;
+}
+
+.xing > .item {
+	position: relative;
+	background: url("../../assets/character/shousha/pubui_starm.png");
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+	margin-bottom: -5px;
+	z-index: 99;
+}
+
+.xing > .item.huixing {
+	background: url("../../assets/character/shousha/pubui_starm.png");
+	filter: grayscale(100%);
+	background-size: cover;
+}
+
+/* 武将名字 */
+.shousha-character-dialog .biankuang > div.biankuangname,
+.shousha-character-dialog .biankuang2 > div.biankuangname2 {
+	position: absolute;
+	line-height: 14px;
+	width: 15px;
+	left: 2.5%;
+	top: 12%;
+	font-size: 16px;
+	letter-spacing: -2px;
+	white-space: nowrap;
+	writing-mode: vertical-rl;
+	-webkit-writing-mode: vertical-rl;
+	-webkit-text-stroke: 0.1px rgba(43, 31, 25, 0.4);
+	text-shadow:
+		2px 0px 3px rgba(0, 0, 0, 0.3),
+		2px 0px 3px rgba(0, 0, 0, 0.3);
+	font-family: shousha;
+	z-index: 99;
+}
+
+/* 武将牌不露头 */
+.shousha-character-dialog .biankuang > div.left,
+.shousha-character-dialog .biankuang2 > div.left {
+	left: 18%;
+	top: auto;
+	bottom: 1.5%;
+	width: 80%;
+	height: 96%;
+	opacity: 1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 8px;
+	transition-property: opacity, transform;
+	z-index: 69;
+}
+
+/* 武将牌手杀露头 */
+.shousha-character-dialog .biankuang > div.left2,
+.shousha-character-dialog .biankuang2 > div.left2 {
+	left: 19%;
+	top: auto;
+	bottom: 1.5%;
+	width: 78.5%;
+	height: 110%;
+	opacity: 1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 8px;
+	-webkit-clip-path: url(#solo-clip);
+	transition-property: opacity, transform;
+	z-index: 69;
+}
+
+/* 武将牌十周年露头 */
+.shousha-character-dialog .biankuang > div.left3,
+.shousha-character-dialog .biankuang2 > div.left3 {
+	left: 20.5px;
+	top: auto;
+	bottom: 1.5%;
+	width: 81%;
+	height: 103%;
+	opacity: 1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 8px;
+	-webkit-clip-path: url(#solo-clip);
+	transition-property: opacity, transform;
+	z-index: 69;
+}
+
+/* 右侧技能区域 */
+.shousha-character-dialog div.right {
+	left: 50%;
+	width: 50%;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+.shousha-character-dialog.single div.right {
+	left: 173px;
+	width: calc(100% - 193px);
+	height: calc(100% - 20px);
+}
+
+.shousha-character-dialog > div.left > div {
+	top: 65%;
+	right: 30px;
+	width: 210px;
+	text-align: center;
+	transform: translateY(-50%);
+	position: absolute;
+	white-space: nowrap;
+}
+
+.shousha-character-dialog.single > div.left > div {
+	width: 105px;
+	position: absolute;
+}
+
+.shousha-character-dialog div.right > div {
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.shousha-character-dialog div.right div {
+	position: relative;
+}
+
+.shousha-character-dialog div.right .xcaption {
+	width: 100%;
+	bottom: 0%;
+	color: #bdaf91;
+	text-align: center;
+	font-size: 18px;
+	filter: blur(0.3px);
+	-webkit-filter: blur(0.3px);
+	font-weight: bold;
+	padding: 10px 0;
+	font-family: "shousha";
+}
+
+.shousha-character-dialog div.right .xskill {
+	width: 100%;
+	bottom: 0%;
+}
+
+.shousha-character-dialog div.right .xskill > div {
+	display: inline;
+	color: #52432d;
+	text-shadow: none;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "shousha";
+}
+
+.shousha-character-dialog div.right .xskill > div[data-color] {
+	color: #e0c03c;
+}
+
+.shousha-character-dialog div.right .xskill > div[data-color="red"] {
+	color: #e0c03c;
+}
+
+.shousha-character-dialog div.right .xskill > div[data-color="black"] {
+	color: #e0c03c;
+}
+
+.shousha-character-dialog div.right .xskill + .xskill {
+	margin-top: 5px;
+}
+
+/* 大资料主页容器 */
+.bigdialog {
+	--scale: 0.6;
+	--w: calc(1467px * var(--scale));
+	--h: calc(856px * var(--scale));
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 99;
+	box-sizing: border-box;
+	overflow: hidden;
+	background: url("../../assets/character/shousha/bigdialog.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+/* 擅长武将展示区域 */
+.shanchangdialog {
+	background-size: 100% 100%;
+	z-index: 77;
+	width: 62%;
+	height: 32%;
+	bottom: 20%;
+	left: 28.5%;
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* 单个擅长武将容器 */
+.shanchang {
+	flex: 1;
+	height: 90%;
+	width: 22%;
+	margin: 0 1%;
+	opacity: 1;
+	border-radius: 10px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: top;
+	transition-property: opacity, transform;
+	z-index: 69;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 武将边框 */
+.shanchang .kuang {
+	width: 120px;
+	height: 160px;
+	top: calc(50% - 73px);
+	background-size: 100% 100%;
+	z-index: 68;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	border-radius: 10px;
+	visibility: visible;
+}
+
+/* 武将名字 */
+.shanchang .kuang .biankuangname {
+	position: absolute;
+	line-height: 14px;
+	width: 15px;
+	left: 2.5%;
+	top: 12%;
+	font-size: 16px;
+	letter-spacing: -2px;
+	white-space: nowrap;
+	writing-mode: vertical-rl;
+	-webkit-writing-mode: vertical-rl;
+	-webkit-text-stroke: 0.1px rgba(43, 31, 25, 0.4);
+	text-shadow:
+		2px 0px 3px rgba(0, 0, 0, 0.3),
+		2px 0px 3px rgba(0, 0, 0, 0.3);
+	font-family: shousha;
+	z-index: 99;
+}
+
+/* 星级区域 */
+.shanchang .kuang .xing {
+	position: absolute;
+	width: 15px;
+	height: 100%;
+	left: 1%;
+	bottom: 6%;
+	z-index: 99;
+	display: inline-flex;
+	flex-direction: column-reverse;
+}
+
+.shanchang .kuang .xing > .item {
+	position: relative;
+	background: url("../../assets/character/shousha/pubui_starm.png");
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+	margin-bottom: -5px;
+	z-index: 99;
+}
+
+.shanchang .kuang .xing > .item.huixing {
+	background: url("../../assets/character/shousha/pubui_starm.png");
+	filter: grayscale(100%);
+	background-size: cover;
+}
+
+/* 武将头像区域 */
+.shanchang .kuang > .left {
+	left: 18%;
+	top: auto;
+	bottom: 1.5%;
+	width: 80%;
+	height: 96%;
+	opacity: 1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 8px;
+	transition-property: opacity, transform;
+	z-index: 69;
+	position: absolute;
+}
+
+.shanchang .kuang > .left2 {
+	left: 19%;
+	top: auto;
+	bottom: 1.5%;
+	width: 78.5%;
+	height: 110%;
+	opacity: 1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 8px;
+	-webkit-clip-path: url(#solo-clip);
+	transition-property: opacity, transform;
+	z-index: 69;
+	position: absolute;
+}
+
+.shanchang .kuang > .left3 {
+	left: 20.5px;
+	top: auto;
+	bottom: 1.5%;
+	width: 81%;
+	height: 103%;
+	opacity: 1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 8px;
+	-webkit-clip-path: url(#solo-clip);
+	transition-property: opacity, transform;
+	z-index: 69;
+	position: absolute;
+}
+
+/* 换肤按钮 */
+.shanchang .huanfu {
+	width: 40px;
+	height: 40px;
+	background-image: url("../../assets/character/shousha/personui_change_skin_btn.png");
+	background-size: 100% 100%;
+	z-index: 99;
+	right: -10px;
+	top: -10%;
+	position: absolute;
+}
+
+/* 玩家头像 */
+.minixingxiang {
+	opacity: 1;
+	left: 7.7%;
+	top: 10.8%;
+	height: 34.5%;
+	width: 11%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 5px;
+	transition-property: opacity, transform;
+	z-index: 69;
+	text-align: center;
+}
+
+/* 头像底座 */
+.minixingxiangdi {
+	opacity: 1;
+	left: 6.6%;
+	top: 13.3%;
+	height: 33.9%;
+	width: 13.2%;
+	background-image: url("../../assets/character/shousha/skinFrm1_rare.png");
+	background-size: 100% 100%;
+	z-index: 60;
+	text-align: center;
+}
+
+/* 性别图标 */
+.xingbie {
+	left: -8%;
+	top: 96%;
+	height: 22.5px;
+	width: 23.5px;
+	background-size: 100% 100%;
+	z-index: 69;
+}
+
+/* 官阶图标 */
+.guanjie {
+	background-size: 100% 100%;
+	left: 18.8%;
+	z-index: 78;
+	--scale: 0.7;
+	--w: calc(153px * var(--scale));
+	--h: calc(170px * var(--scale));
+	width: var(--w);
+	height: var(--h);
+	top: 15.5%;
+	position: absolute;
+}
+
+.guanjieInfo {
+	background-size: 100% 100%;
+	left: 20.5%;
+	z-index: 78;
+	--scale: 0.75;
+	--w: calc(106px * var(--scale));
+	--h: calc(35px * var(--scale));
+	width: var(--w);
+	height: var(--h);
+	top: 35.2%;
+	position: absolute;
+}
+
+/* 排位底图 */
+.paiweiditu {
+	background-size: 100% 100%;
+	right: 77.25%;
+	z-index: 78;
+	width: 19.5%;
+	height: 48%;
+	top: 47.2%;
+	position: absolute;
+}
+
+/* 段位图标 */
+.duanwei {
+	background-size: 100% 100%;
+	z-index: 82;
+	width: 90px;
+	height: 90px;
+	left: 52%;
+	top: 39%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+}
+
+/* 段位文字 */
+.duanweishuzi {
+	font-size: 14px;
+	font-family: "shousha";
+	color: #ffdd55;
+	bottom: 39.2%;
+	left: 25.2%;
+	text-align: center;
+	white-space: pre-wrap;
+	filter: blur(0.3px);
+	-webkit-filter: blur(0.3px);
+	z-index: 81;
+	padding: 0px 10px;
+	width: 42%;
+	font-weight: 500;
+	position: absolute;
+}
+
+.paiweiType {
+	font-size: 17px;
+	font-family: "shousha";
+	color: white;
+	filter: blur(0.3px);
+	-webkit-filter: blur(0.3px);
+	top: 18.5%;
+	left: 37.5%;
+	z-index: 83;
+}
+
+/* 进度条 */
+.typeleft {
+	left: 43%;
+	background: url("../../assets/character/shousha/dengjie/left.png");
+	background-size: 100% 100%;
+	background-color: black;
+	border-radius: 3px;
+	height: 18px;
+	width: 75px;
+	top: 12.7%;
+	position: absolute;
+}
+
+.typeright {
+	left: 42.5%;
+	background: url("../../assets/character/shousha/dengjie/right.png");
+	background-size: 100% 100%;
+	height: 18px;
+	top: 12.7%;
+	position: absolute;
+}
+
+/* 玩家信息文字 */
+.nameX {
+	font-size: 16.5px;
+	font-family: "shousha";
+	color: rgba(255, 255, 255, 0.9);
+	filter: blur(0.3px);
+	-webkit-filter: blur(0.3px);
+	position: absolute;
+	top: 102.5%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 81;
+	font-weight: 300;
+	white-space: nowrap;
+	text-shadow: none;
+}
+
+/* 玩家称号 */
+.wanjiachenghao {
+	top: 36%;
+	left: 31%;
+	font-size: 17px;
+	font-family: "shousha";
+	color: #ffdd55;
+	filter: blur(0.3px);
+	-webkit-filter: blur(0.3px);
+	white-space: pre-wrap;
+	z-index: 81;
+	padding: 0px 10px;
+	width: 42%;
+	font-weight: 500;
+	position: absolute;
+}
+
+/* 公会信息 */
+.gonghui {
+	font-size: 16px;
+	font-family: "shousha";
+	color: rgba(255, 255, 255, 0.4);
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 81;
+	font-weight: 300;
+	white-space: nowrap;
+	text-shadow: none;
+}
+
+/* 功能按钮样式 */
+.useless1,
+.useless2,
+.useless3,
+.useless4 {
+	height: 8.3%;
+	width: 12.7%;
+	background-size: 100% 100%;
+	z-index: 89;
+	font-family: "shousha";
+	font-size: 16px;
+	color: #e6e6e6;
+	text-align: center;
+	text-shadow: 0.1px 0.1px 0.25px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+}
+
+.useless1 {
+	left: 45.5%;
+	top: 83%;
+}
+
+.useless2 {
+	left: 61%;
+	top: 83%;
+}
+
+.useless3 {
+	left: 30%;
+	top: 83%;
+}
+
+.useless4 {
+	left: 76.5%;
+	top: 83%;
+}
+
+/* 资料页关闭按钮 */
+.guanbi {
+	width: 160px;
+	height: 131px;
+	top: 0%;
+	right: 0%;
+	background-image: url("../../assets/character/shousha/dengjie/diaozhui.png");
+	background-size: 100% 100%;
+	z-index: 100;
+	position: absolute;
+	cursor: pointer;
+}
+
+/* 数据展示文字 */
+.dengjiX {
+	font-size: 14px;
+	font-family: "shousha";
+	color: rgba(255, 255, 255, 0.9);
+	filter: blur(0.3px);
+	-webkit-filter: blur(0.3px);
+	top: 13.2%;
+	left: 38.5%;
+	text-align: center;
+	white-space: pre-wrap;
+	z-index: 81;
+	padding: 0px 10px;
+	width: 42%;
+	font-weight: 500;
+	position: absolute;
+}
+
+/* 会员等级 */
+.huiyuanX {
+	font-size: 17px;
+	font-family: "shousha";
+	color: #ffdd55;
+	filter: blur(0.3px);
+	-webkit-filter: blur(0.3px);
+	top: 12.7%;
+	left: 0.5%;
+	text-align: center;
+	white-space: pre-wrap;
+	z-index: 81;
+	padding: 0px 10px;
+	width: 42%;
+	font-weight: 500;
+	position: absolute;
+}
+
+/* 信誉分 */
+.xinyufen {
+	font-size: 16px;
+	font-family: "shousha";
+	color: #efdbb6;
+	filter: blur(0.3px);
+	-webkit-filter: blur(0.3px);
+	bottom: 21%;
+	left: 32%;
+	line-height: 1;
+	white-space: pre-wrap;
+	position: absolute;
+}
+
+/* 人气值 */
+.renqizhi {
+	font-size: 16px;
+	font-family: "shousha";
+	color: #efdbb6;
+	filter: blur(0.3px);
+	-webkit-filter: blur(0.3px);
+	bottom: 21%;
+	left: 72%;
+	line-height: 1;
+	white-space: pre-wrap;
+	position: absolute;
+}

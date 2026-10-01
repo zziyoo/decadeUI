@@ -1,0 +1,701 @@
+﻿/**
+ * 十周年UI - 对话框样式
+ */
+
+/** 基本对话框 */
+
+#arena.decadeUI > .dialog {
+	bottom: calc(20% + 85px);
+}
+
+#arena.decadeUI.dui-mobile > .dialog {
+	bottom: calc(23% + 86px);
+}
+
+#arena.decadeUI[data-loading-style="othersOn"] > .dialog {
+	bottom: calc(23% + 86px);
+	font-family: "shousha" !important;
+	color: rgb(255, 255, 150);
+}
+
+/* Boss列表 */
+#bosslist > .player > .identity {
+	position: absolute;
+	height: 100%;
+	z-index: 9999;
+}
+
+#bosslist > .player > .identity > div {
+	text-align: left;
+}
+
+/** 选项节点样式 */
+
+/* 样式A: on/othersOff/onlineUI */
+#arena.decadeUI[data-loading-style="on"] > .dialog .tdnode,
+#arena.decadeUI[data-loading-style="othersOff"] > .dialog .tdnode,
+#arena.decadeUI[data-loading-style="onlineUI"] > .dialog .tdnode {
+	--h: 30px;
+	--w: calc(var(--h) * 77 / 44);
+	width: auto;
+	height: auto;
+	min-width: var(--w);
+	min-height: var(--h);
+	padding: 0 !important;
+	border-radius: 0 !important;
+	background-image: url("../../image/ui/tnode/tnode-A1.png");
+	background-size: 100% 100%;
+	line-height: var(--h);
+	text-align: center;
+}
+
+#arena.decadeUI[data-loading-style="on"] > .dialog .tdnode.bluebg,
+#arena.decadeUI[data-loading-style="othersOff"] > .dialog .tdnode.bluebg,
+#arena.decadeUI[data-loading-style="onlineUI"] > .dialog .tdnode.bluebg {
+	background-image: url("../../image/ui/tnode/tnode-A2.png") !important;
+}
+
+/* 样式B: On */
+#arena.decadeUI[data-loading-style="On"] > .dialog .tdnode {
+	--h: 35px;
+	--w: calc(var(--h) * 100 / 70);
+	width: auto;
+	height: auto;
+	min-width: var(--w);
+	min-height: var(--h);
+	padding: 0 !important;
+	border-radius: 3px !important;
+	background-image: url("../../image/ui/tnode/tnode-B1.png");
+	background-size: 110% 115% !important;
+	background-position: center;
+	line-height: var(--h);
+	text-align: center;
+}
+
+#arena.decadeUI[data-loading-style="On"] > .dialog .tdnode.bluebg {
+	background-image: url("../../image/ui/tnode/tnode-B3.png") !important;
+}
+
+/* 样式C: othersOn */
+#arena.decadeUI[data-loading-style="othersOn"] > .dialog .tdnode {
+	--h: 30px;
+	--w: calc(var(--h) * 77 / 44);
+	width: auto;
+	height: auto;
+	min-width: var(--w);
+	min-height: var(--h);
+	padding: 0 !important;
+	border-radius: 0 !important;
+	background-image: url("../../image/ui/tnode/tnode-C1.png");
+	background-size: 100% 100%;
+	line-height: var(--h);
+	text-align: center;
+}
+
+#arena.decadeUI[data-loading-style="othersOn"] > .dialog .tdnode.bluebg {
+	background-image: url("../../image/ui/tnode/tnode-C2.png") !important;
+}
+
+/** 选项框背景 */
+
+#arena.decadeUI[data-loading-style="On"] > .dialog.scroll1:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="On"] > .dialog.scroll2:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="On"] > .dialog.addNewRow:not(.dclieqiong) {
+	background-image: url("../../image/ui/dialog/dialog1.png") !important;
+	background-size: 100% 100% !important;
+	background-position: center;
+	background-repeat: no-repeat !important;
+	background: none;
+	box-shadow: none !important;
+}
+
+#arena.decadeUI[data-loading-style="on"] > .dialog.scroll1:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="on"] > .dialog.scroll2:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="on"] > .dialog.addNewRow:not(.dclieqiong) {
+	background-image: url("../../image/ui/dialog/dialog2.png") !important;
+	background-size: 100% 100% !important;
+	background-position: center;
+	background-repeat: no-repeat !important;
+	background: none;
+	box-shadow: none !important;
+}
+
+#arena.decadeUI[data-loading-style="othersOn"] > .dialog.scroll1:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="othersOn"] > .dialog.scroll2:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="othersOn"] > .dialog.addNewRow:not(.dclieqiong) {
+	width: 900px !important;
+	height: 200px;
+	left: calc(50% - 450px) !important;
+	white-space: normal;
+	background-image: url("../../image/ui/dialog/dialog3.png") !important;
+	background-size: 102% 100% !important;
+	background-position: center;
+	background-repeat: no-repeat !important;
+	background: none;
+	box-shadow: none !important;
+}
+
+#arena.decadeUI[data-loading-style="othersOff"] > .dialog.scroll1:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="othersOff"] > .dialog.scroll2:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="othersOff"] > .dialog.addNewRow:not(.dclieqiong) {
+	width: 900px !important;
+	height: 200px;
+	left: calc(50% - 450px) !important;
+	white-space: normal;
+	background-image: url("../../image/ui/dialog/dialog4.png") !important;
+	background-size: 100% 100% !important;
+	background-position: center;
+	background-repeat: no-repeat !important;
+	background: none;
+	box-shadow: none !important;
+}
+
+#arena.decadeUI[data-loading-style="onlineUI"] > .dialog.scroll1:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="onlineUI"] > .dialog.scroll2:not(.dclieqiong),
+#arena.decadeUI[data-loading-style="onlineUI"] > .dialog.addNewRow:not(.dclieqiong) {
+	width: 900px !important;
+	height: 200px;
+	left: calc(50% - 450px) !important;
+	white-space: normal;
+	background-image: url("../../image/ui/dialog/dialog5.png") !important;
+	background-size: 100% 100% !important;
+	background-position: center;
+	background-repeat: no-repeat !important;
+	background: none;
+	box-shadow: none !important;
+}
+
+.dialog.addNewRow .item-container {
+	height: 100%;
+}
+
+/** 选将界面 */
+
+#arena.decadeUI.choose-character > .dialog,
+#arena.decadeUI.choose-character.dui-mobile > .dialog {
+	bottom: 70px;
+}
+
+#window > .dialog.bosscharacter {
+	bottom: calc(1% + 70px);
+}
+
+.dialog.dclieqiong {
+	height: 65% !important;
+}
+
+/** 出牌提示 */
+
+#arena > .hand-tip {
+	left: 150px;
+	right: 150px;
+	bottom: calc(20% + 14px);
+	height: 20px;
+	line-height: 20px;
+	font-size: 20px;
+	font-family: shousha;
+	color: white;
+	text-align: center;
+	text-shadow: none;
+	transition: opacity 0.1s linear;
+	pointer-events: none;
+	z-index: 6;
+}
+
+#arena.dui-mobile > .hand-tip {
+	bottom: calc(23% + 18px);
+}
+
+#arena > .hand-tip::before {
+	content: attr(data-text);
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	color: transparent;
+	white-space: pre-wrap;
+	-webkit-text-stroke: 3px rgb(65, 52, 25);
+	z-index: -1;
+}
+
+/* 提示文字颜色 */
+#arena > .hand-tip > span[data-type="phase"] {
+	color: rgb(245, 145, 5);
+}
+
+#arena > .hand-tip > span[data-type="player"] {
+	color: rgb(200, 140, 75);
+}
+
+#arena > .hand-tip > span[data-type="number"] {
+	color: rgb(255, 155, 0);
+}
+
+#arena > .hand-tip > span[data-type="card"] {
+	color: rgb(255, 150, 0);
+}
+
+/* 提示信息栏 */
+#arena > .hand-tip-info {
+	left: 150px;
+	right: 150px;
+	bottom: calc(20% + 85px);
+	height: auto;
+	margin: 0;
+	padding: 3px 0;
+	font-family: shousha;
+	color: rgb(250, 250, 200);
+	text-align: center;
+	text-shadow:
+		0 0 1px black,
+		0 0 1px black,
+		0 0 1px rgb(51, 51, 51);
+	background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.2) 10%, rgba(0, 0, 0, 0.2) 90%, transparent 100%);
+	transition: opacity 0.1s linear;
+	pointer-events: none;
+	z-index: 6;
+}
+
+#arena.dui-mobile > .hand-tip-info {
+	bottom: calc(23% + 86px);
+}
+
+#arena > .hand-tip-info:empty {
+	visibility: hidden;
+}
+
+/** 界面文本提示框 */
+
+#arena.decadeUI > .dialog.prompt {
+	top: auto;
+	height: auto;
+	bottom: calc(23% + 75px);
+	background: none;
+	box-shadow: none;
+	transform: none;
+}
+
+#arena.decadeUI > .dialog.prompt > .content-container,
+#arena.decadeUI > .dialog.prompt > .content-container > .content {
+	position: relative;
+}
+
+#arena.decadeUI > .dialog.prompt:not(.addNewRow) > .content-container > .content > .caption {
+	height: auto;
+	margin: 0;
+	padding: 3px 0;
+	bottom: 0;
+	font-family: shousha;
+	color: rgb(250, 250, 200);
+	text-shadow:
+		rgb(51, 51, 51) 1px 0 0,
+		rgb(51, 51, 51) 0 1px 0,
+		rgb(51, 51, 51) -1px 0 0,
+		rgb(51, 51, 51) 0 -1px 0;
+	background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.2) 10%, rgba(0, 0, 0, 0.2) 90%, transparent 100%);
+	border: none;
+}
+
+.player .tipContainer > .tip {
+	width: 100%;
+	left: 0;
+}
+
+/** 技能对话框 */
+
+.skill-dialog {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: auto;
+	height: auto;
+	border-width: 46px 59px 28px 59px;
+	border-style: solid;
+	border-color: transparent;
+	border-image-source: url("../../image/styles/decade/dialog.png");
+	border-image-slice: 46 59 28 59 fill;
+	transition:
+		opacity 0.5s,
+		background 0.5s,
+		transform 0.5s;
+	z-index: 6;
+}
+
+#arena > .skill-dialog {
+	left: 18%;
+	top: auto;
+	right: 18%;
+	bottom: calc(20% + 85px);
+}
+
+#arena.dui-mobile > .skill-dialog {
+	bottom: calc(23% + 86px);
+}
+
+.skill-dialog > .caption {
+	position: absolute;
+	top: -45px;
+	left: auto;
+	width: 100%;
+	height: 36px;
+	padding-top: 0;
+	line-height: 36px;
+	font-size: 20px;
+	font-family: shousha;
+	color: rgb(255, 255, 200);
+	text-align: center;
+	pointer-events: auto;
+}
+
+.skill-dialog > div {
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+.skill-dialog > .content {
+	flex-grow: 1;
+}
+
+.skill-dialog > .content > div {
+	margin: 0;
+	flex: 0 0 auto;
+}
+
+.skill-dialog > .tip:not(:empty) {
+	height: 24px;
+	line-height: 24px;
+	font-size: 20px;
+	font-family: shousha;
+	color: rgb(50, 25, 0);
+	text-align: center;
+	text-shadow: none;
+}
+
+/* 控制按钮 */
+.skill-dialog > .controls {
+	display: flex;
+	justify-content: center;
+	height: 40px;
+}
+
+.skill-dialog > .controls:empty {
+	display: none;
+}
+
+.skill-dialog > .controls > .control-button {
+	position: static;
+	line-height: 28px;
+	font-size: 28px;
+	font-family: xingkai;
+	color: rgb(40, 30, 20);
+	text-align: center;
+	text-shadow: none;
+	white-space: nowrap;
+	border-width: 6px 36px;
+	border-style: solid;
+	border-color: transparent;
+	border-image-source: url("../../image/styles/decade/button.png");
+	border-image-slice: 6 36 6 36 fill;
+	border-radius: 0;
+	box-shadow: none;
+	cursor: pointer;
+	transition:
+		opacity 0.5s,
+		background 0.5s,
+		transform 0.5s;
+}
+
+.skill-dialog > .controls > .control-button.disable {
+	cursor: default;
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+}
+
+.skill-dialog > .controls > .control-button:not(.disable):hover {
+	filter: brightness(1.1);
+	-webkit-filter: brightness(1.1);
+}
+
+.skill-dialog > .controls > .control-button:not(.disable):active {
+	filter: brightness(0.8);
+	-webkit-filter: brightness(0.8);
+}
+
+/** 拼点框 */
+
+.skill-dialog.compare > .content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.skill-dialog.compare > .content > div {
+	position: relative;
+	margin: 0 4px;
+}
+
+/* 玩家头像 */
+.skill-dialog.compare > .content > .player-character {
+	width: 120px;
+	height: 180px;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 8px;
+	box-shadow:
+		0px -1px 5px black,
+		0px 3px 15px black;
+}
+
+.skill-dialog.compare > .content > .player-character.player1 {
+	order: 1;
+	margin-left: 6px;
+}
+
+.skill-dialog.compare > .content > .player-character.player2 {
+	order: 5;
+	margin-right: 6px;
+}
+
+.skill-dialog.compare > .content > .player-character > .image {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: top;
+	background-repeat: no-repeat;
+	border-radius: 8px;
+}
+
+/* 露头高度 */
+#arena[data-outcrop-skin="shizhounian"] > .skill-dialog.compare > .content > .player-character > .image {
+	height: 192px;
+	clip-path: url(#solo-clip);
+	-webkit-clip-path: url(#solo-clip);
+}
+
+#arena[data-outcrop-skin="shousha"] > .skill-dialog.compare > .content > .player-character > .image {
+	height: 207px;
+	clip-path: url(#soloss-clip);
+	-webkit-clip-path: url(#soloss-clip);
+}
+
+/* VS图标 */
+.skill-dialog.compare > .content > .vs {
+	order: 3;
+	width: 70px;
+	height: 70px;
+	margin: 0;
+	background: url("../../image/styles/decade/vs.png");
+}
+
+/* 拼点卡牌 */
+.skill-dialog.compare > .content > .player-card {
+	order: 2;
+}
+
+.skill-dialog.compare > .content > .target-card {
+	order: 4;
+}
+
+.skill-dialog.compare > .content > .player-card,
+.skill-dialog.compare > .content > .target-card {
+	width: 108px;
+	height: 150px;
+	background: rgb(141, 125, 103);
+	box-shadow: 1px 1px 4px rgb(66, 66, 66) inset;
+}
+
+.skill-dialog.compare > .content > .player-card > div,
+.skill-dialog.compare > .content > .target-card > div {
+	margin: 0;
+}
+
+.skill-dialog.compare > .content > .player-card::before,
+.skill-dialog.compare > .content > .target-card::before {
+	content: attr(data-text);
+	position: absolute;
+	left: 0;
+	top: calc(50% + 80px);
+	width: 100%;
+	height: auto;
+	font-size: 20px;
+	font-family: xingkai;
+	color: red;
+	text-align: center;
+	text-shadow: none;
+}
+
+.skill-dialog.compare > .content > .player-card::after {
+	content: attr(data-result);
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	line-height: 60px;
+	font-size: 66px;
+	font-family: xingkai;
+	color: red;
+	text-align: center;
+	text-shadow:
+		0 0 5px black,
+		0 0 7px black,
+		0 0 10px black;
+}
+
+.skill-dialog.compare > .content > .player-card[data-result="赢"]::after {
+	color: red;
+	animation: open 0.2s;
+}
+
+.skill-dialog.compare > .content > .player-card[data-result="没赢"]::after {
+	color: white;
+	animation: open 0.2s;
+}
+
+/** 确认框 */
+
+.confirm-box {
+	display: block;
+	position: absolute;
+	left: 12%;
+	top: 10%;
+	right: 12%;
+	width: auto;
+	height: auto;
+	min-height: 100px;
+	border-width: 46px 59px 28px 59px;
+	border-style: solid;
+	border-color: transparent;
+	border-image-source: url("../../image/styles/decade/dialog.png");
+	border-image-slice: 46 61 28 59 fill;
+	pointer-events: auto;
+	animation: player-died 0.5s linear forwards;
+	-webkit-animation: open 0.4s;
+	z-index: 5;
+}
+
+.confirm-box > .caption {
+	position: absolute;
+	top: -45px;
+	left: auto;
+	width: 100%;
+	height: 36px;
+	padding-top: 0;
+	line-height: 36px;
+	font-size: 20px;
+	font-family: shousha;
+	color: rgb(255, 255, 200);
+	text-align: center;
+	pointer-events: auto;
+}
+
+.confirm-box > .tip {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	line-height: 24px;
+	font-size: 20px;
+	font-family: shousha;
+	color: rgb(50, 25, 0);
+	text-align: center;
+	text-shadow: none;
+	pointer-events: auto;
+}
+
+/** 观星框 */
+
+.confirm-box.guan-xing > .button.ok {
+	position: relative;
+	left: calc(50% - 66px);
+	bottom: -2px;
+	width: 60px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 30px;
+	font-family: shousha;
+	color: rgb(40, 30, 20);
+	text-align: center;
+	text-shadow: none;
+	white-space: nowrap;
+	background: rgb(150, 150, 100);
+	border-width: 6px 36px;
+	border-style: solid;
+	border-color: transparent;
+	border-image-source: url("../../image/styles/decade/button.png");
+	border-image-slice: 6 36 6 36 fill;
+	border-radius: 0;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.confirm-box.guan-xing.ok-disable > .button.ok {
+	cursor: default;
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+}
+
+.confirm-box.guan-xing:not(.ok-disable) > .button.ok:hover {
+	color: white;
+}
+
+.confirm-box.guan-xing > .content {
+	position: relative;
+	width: 100%;
+	height: 80%;
+	background: linear-gradient(
+		rgb(145, 125, 106),
+		rgb(145, 125, 106) 149px,
+		rgb(224, 197, 161) 150px,
+		rgb(224, 197, 161) 159px,
+		rgb(145, 125, 106) 160px,
+		rgb(145, 125, 106)
+	);
+	transition: none;
+}
+
+.confirm-box.guan-xing > .content > .card {
+	position: absolute;
+	left: 35px;
+	width: 108px;
+	margin: 0;
+	cursor: pointer;
+}
+
+.confirm-box.guan-xing > .content > .header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	width: 30px;
+	height: 150px;
+	margin: 0;
+	font-size: 22px;
+	font-family: shousha;
+	font-weight: bold;
+	color: rgb(50, 25, 0);
+	text-align: center;
+	text-shadow: none;
+	background: rgb(194, 164, 131);
+}
+
+.confirm-box.guan-xing > .content > .header:last-of-type {
+	bottom: 0;
+}
+
+.confirm-box.guan-xing > .content > .card.selected::after {
+	opacity: 0;
+}
+
+.confirm-box.guan-xing > .content > .card.selected > .card-mask {
+	display: block !important;
+	opacity: 1;
+}

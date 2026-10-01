@@ -1,0 +1,174 @@
+
+SF_xuanzhong_eff_weijiangjun.png
+size: 955,955
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1/jiang_00
+  rotate: false
+  xy: 2, 631
+  size: 331, 322
+  orig: 450, 450
+  offset: 57, 73
+  index: -1
+1/jiang_03
+  rotate: true
+  xy: 246, 374
+  size: 196, 218
+  orig: 450, 450
+  offset: 127, 127
+  index: -1
+1/jiang_06
+  rotate: false
+  xy: 2, 127
+  size: 232, 246
+  orig: 450, 450
+  offset: 109, 114
+  index: -1
+1/jiang_09
+  rotate: false
+  xy: 2, 375
+  size: 242, 254
+  orig: 450, 450
+  offset: 104, 111
+  index: -1
+1/jiang_12
+  rotate: false
+  xy: 644, 540
+  size: 259, 205
+  orig: 450, 450
+  offset: 98, 123
+  index: -1
+1/jiang_15
+  rotate: false
+  xy: 335, 743
+  size: 271, 210
+  orig: 450, 450
+  offset: 93, 120
+  index: -1
+1/jiang_18
+  rotate: false
+  xy: 608, 747
+  size: 271, 206
+  orig: 450, 450
+  offset: 89, 122
+  index: -1
+bx_tishi3_00
+  rotate: false
+  xy: 246, 591
+  size: 48, 38
+  orig: 48, 38
+  offset: 0, 0
+  index: -1
+guang01
+  rotate: false
+  xy: 335, 572
+  size: 307, 169
+  orig: 307, 169
+  offset: 0, 0
+  index: -1
+lizi/1_00055
+  rotate: true
+  xy: 881, 867
+  size: 86, 64
+  orig: 204, 158
+  offset: 58, 54
+  index: -1
+lizi/1_00057
+  rotate: false
+  xy: 729, 40
+  size: 135, 111
+  orig: 204, 158
+  offset: 36, 32
+  index: -1
+lizi/1_00059
+  rotate: true
+  xy: 800, 383
+  size: 155, 114
+  orig: 204, 158
+  offset: 27, 21
+  index: -1
+lizi/1_00062
+  rotate: false
+  xy: 620, 263
+  size: 173, 132
+  orig: 204, 158
+  offset: 18, 10
+  index: -1
+lizi/1_00064
+  rotate: true
+  xy: 425, 2
+  size: 179, 132
+  orig: 204, 158
+  offset: 15, 13
+  index: -1
+lizi/1_00066
+  rotate: true
+  xy: 482, 196
+  size: 183, 136
+  orig: 204, 158
+  offset: 13, 11
+  index: -1
+lizi/1_00069
+  rotate: false
+  xy: 236, 2
+  size: 187, 140
+  orig: 204, 158
+  offset: 11, 8
+  index: -1
+lizi/1_00071
+  rotate: true
+  xy: 466, 381
+  size: 189, 141
+  orig: 204, 158
+  offset: 10, 8
+  index: -1
+lizi/1_00073
+  rotate: false
+  xy: 609, 397
+  size: 189, 141
+  orig: 204, 158
+  offset: 10, 8
+  index: -1
+lizi/1_00076
+  rotate: false
+  xy: 2, 16
+  size: 189, 109
+  orig: 204, 158
+  offset: 10, 40
+  index: -1
+lizi/1_00078
+  rotate: true
+  xy: 371, 183
+  size: 189, 109
+  orig: 204, 158
+  offset: 10, 40
+  index: -1
+lizi/1_00080
+  rotate: false
+  xy: 620, 153
+  size: 173, 108
+  orig: 204, 158
+  offset: 12, 40
+  index: -1
+lizi/1_00083
+  rotate: true
+  xy: 795, 212
+  size: 169, 89
+  orig: 204, 158
+  offset: 12, 40
+  index: -1
+lizi/1_00085
+  rotate: false
+  xy: 559, 62
+  size: 168, 89
+  orig: 204, 158
+  offset: 13, 40
+  index: -1
+weijiangjun
+  rotate: false
+  xy: 236, 144
+  size: 133, 228
+  orig: 250, 250
+  offset: 96, 3
+  index: -1
