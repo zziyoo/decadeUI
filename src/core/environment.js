@@ -26,13 +26,7 @@ export function patchGlobalMethods(ctx) {
 	if (!window.get) return;
 
 	if (typeof window.get.cardsetion === "function") {
-		// Core 的 cardsetion() 有两类已知边界失败，命中时降级为「本次不显示卡牌使用信息」，
-		// 其余异常一律继续抛出，不静默吞掉：
-		// - indexOf：Core 内部对 undefined 调用 indexOf；
-		// - sourceSkill：Core sourceSkillFor(undefined) 读取 skill["sourceSkill"] 时抛出 TypeError
-		//   （noname/get/index.js:1379）。技能派生的 useCard 事件链上存在 skill 为空的 useSkill 事件，
-		//   例如经 xwjqiexie 获得 dcsbquzhou 后趋舟亮出并使用杀
-		//   （useCard ← chooseUseTarget ← dcsbquzhou ← useSkill）。
+		// Core的cardsetion()有两类已知边界失败，命中时降级为「本次不显示卡牌使用信息」，其余异常一律继续抛出，不静默吞掉：
 		const tolerated = ["indexOf", "sourceSkill"];
 		const original = window.get.cardsetion;
 		window.get.cardsetion = (...args) => {
