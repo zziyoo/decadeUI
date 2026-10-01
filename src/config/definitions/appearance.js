@@ -167,6 +167,16 @@ export const killEffect = {
 };
 
 /**
+ * 角色互动大字配置
+ * @type {Object}
+ */
+export const actionText = {
+	name: "角色互动大字",
+	intro: "显示武将牌附近的技能名、卡牌名及“不质疑”等互动文字。关闭后不影响伤害/治疗动画、游戏日志、语音及技能全屏特效，仅影响本地显示。",
+	init: true,
+};
+
+/**
  * 整体外观折叠结束标记
  * @type {Object}
  */
@@ -190,5 +200,6 @@ export const appearanceConfigs = {
 	dynamicSkin,
 	dynamicSkinOutcrop,
 	killEffect,
+	actionText,
 	outward_title_end,
 };

@@ -152,7 +152,8 @@ function loadConfigs(container, tabId) {
 			toggle.appendChild(slider);
 
 			toggle.onclick = function () {
-				const newValue = !lib.config[configKey];
+				const currentValue = lib.config[configKey];
+				const newValue = !(currentValue !== undefined ? currentValue : configDef.init);
 				game.saveConfig(configKey, newValue);
 
 				toggle.className = `decade-config-toggle ${newValue ? "on" : "off"}`;
@@ -287,6 +288,7 @@ function getConfigsByTab(tabId) {
 			{ key: "dynamicSkin", name: "动态皮肤", type: "toggle" },
 			{ key: "dynamicSkinOutcrop", name: "动皮露头", type: "toggle" },
 			{ key: "killEffect", name: "击杀特效", type: "toggle" },
+			{ key: "actionText", name: "角色互动大字", type: "toggle" },
 		],
 		card: [
 			{ isTitle: true, name: "卡牌效果" },
