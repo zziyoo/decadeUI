@@ -1,4 +1,4 @@
-﻿@import "animation.css";
+@import "animation.css";
 
 /** 基础样式 */
 .player {
@@ -1086,7 +1086,7 @@
 	left: 0;
 	right: auto;
 	top: auto;
-	bottom: -1%;
+	bottom: calc(-1% - 8px);
 	width: auto;
 	height: 0;
 	padding-bottom: 0;

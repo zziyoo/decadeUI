@@ -4,8 +4,8 @@
 	"author": "子右",
 	"diskURL": "https://github.com/zziyoo/decadeUI",
 	"forumURL": "",
-	"version": "1.4.2",
-	"minNonameVersion": "1.11.5.2",
+	"version": "1.5.0",
+	"minNonameVersion": "1.11.6",
 	"importConfig": [
 		{
 			"name": "骨骼包",
