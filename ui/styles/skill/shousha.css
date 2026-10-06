@@ -1,0 +1,796 @@
+/**
+ * 手杀风格 - 技能按钮样式
+ * 对应原 shoushaUI/skill/main1.css
+ */
+
+.skill-control {
+	max-width: 181px;
+	bottom: 30px;
+	right: 160px;
+	z-index: 6;
+}
+
+.skill-control div {
+	position: relative;
+	height: 40px;
+	width: 75px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.skill-control .trigger,
+.skill-control .enable {
+	height: auto;
+	width: auto;
+	justify-content: right;
+}
+
+.skill-control {
+	float: right;
+	white-space: nowrap;
+	font-family: "HYZLSJ";
+	color: yellow;
+	text-shadow:
+		#f5d78e 0 0 2px,
+		black 0 0 3px;
+	font-size: 24px;
+}
+
+.skill-control > div {
+	display: flex;
+	flex-wrap: wrap-reverse;
+	flex-direction: row-reverse;
+}
+
+.skill-control > div::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.skill-control > .enable {
+	margin: 0 0 0 auto;
+	font-size: 20.5px;
+	font-weight: 500;
+	font-family: "HYZLSJ";
+}
+
+/* 被动技描边 */
+.skill-control > .trigger > * .skillitem-child {
+	position: absolute;
+	-webkit-text-stroke: 4.3px #102030;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+.skill-control > .enable > * .skillitem-child {
+	position: absolute;
+	-webkit-text-stroke: 4.3px rgba(2, 3, 2);
+	opacity: 0.35;
+	z-index: -1;
+}
+
+/* 被动技 */
+.skill-control > .trigger > div {
+	margin: -6px 2px;
+	font-family: "HYZLSJ";
+	text-align: center;
+	-webkit-text-stroke: 0px rgba(38, 37, 34, 0.5);
+	text-shadow: none;
+	background-image: linear-gradient(180deg, #f0d775 30%, #ab8c31 57%, #b0a04d 67%);
+	font-weight: lighter;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	font-size: 22px;
+	width: auto;
+}
+
+/* 主动技 */
+.skill-control > .enable > * {
+	background-size: 100% 100%;
+	background-image: linear-gradient(180deg, #f0d775 30%, #ab8c31 57%, #b0a04d 67%);
+	-webkit-text-stroke: 0.1px #3e362a;
+	text-shadow: none;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	position: relative;
+	font-size: 22px;
+	white-space: nowrap;
+	margin: 1px 9px;
+	margin-top: 3px;
+	index: 4;
+}
+
+/* 主动技按钮背景 */
+.skill-control > .enable > .skillitem::before {
+	z-index: -1;
+	content: "";
+	--w: auto;
+	--h: calc(var(--w) * 1045 / 669);
+	line-height: var(--h);
+	text-align: center;
+	display: block;
+	position: absolute;
+	margin: 1px 12px;
+	width: 147%;
+	height: 170%;
+	font-family: "HYZLSJ";
+	background-image: url("../../assets/skill/shousha/btn0.png");
+	background-size: 100% 100%;
+}
+
+/* 司马徽特殊按钮 - 连环 */
+.skill-control > .enable > .skillitem_smh_lianhuan::before {
+	z-index: -1;
+	content: "";
+	text-align: center;
+	display: block;
+	position: absolute;
+	margin: 1px 12px;
+	width: 147%;
+	height: 170%;
+	font-family: "HYZLSJ";
+	background-image: url("../../assets/skill/shousha/feng.png");
+	background-size: 100% 100%;
+}
+
+.skill-control > .enable > .skillitem_smh_lianhuan:not(.usable):not(.select)::before {
+	background-image: url("../../assets/skill/shousha/feng_no.png");
+}
+
+/* 司马徽特殊按钮 - 火计 */
+.skill-control > .enable > .skillitem_smh_huoji::before {
+	z-index: -1;
+	content: "";
+	text-align: center;
+	display: block;
+	position: absolute;
+	margin: 1px 12px;
+	width: 147%;
+	height: 170%;
+	font-family: "HYZLSJ";
+	background-image: url("../../assets/skill/shousha/long.png");
+	background-size: 100% 100%;
+}
+
+.skill-control > .enable > .skillitem_smh_huoji:not(.usable):not(.select)::before {
+	background-image: url("../../assets/skill/shousha/long_no.png");
+}
+
+/* 司马徽特殊按钮 - 业炎 */
+.skill-control > .enable > .skillitem_smh_yeyan::before {
+	z-index: -1;
+	content: "";
+	--w: auto;
+	--h: calc(var(--w) * 1045 / 669);
+	line-height: var(--h);
+	text-align: center;
+	display: block;
+	position: absolute;
+	margin: 1px 12px;
+	width: 147%;
+	height: 170%;
+	font-family: "HYZLSJ";
+	background-image: url("../../assets/skill/shousha/longfeng.png");
+	background-size: 100% 100%;
+}
+
+.skill-control > .enable > .skillitem_smh_yeyan:not(.usable):not(.select)::before {
+	background-image: url("../../assets/skill/shousha/longfeng_no.png");
+}
+
+.skill-control
+	> .enable
+	> *.select:not(.skillitem_smh_yeyan):not(.skillitem_smh_huoji):not(.skillitem_smh_lianhuan):not([data-gskill="true"])::before {
+	background-image: url("../../assets/skill/shousha/btn1.png");
+}
+
+/* 技能失效按钮变灰 */
+.skill-control > .enable > .skillitem.shixiao::before,
+.skill-control > .enable > .skillitem:not(.usable):not(.select)::before {
+	background-image: url("../../assets/skill/shousha/btn2.png");
+}
+
+/* 技能标记 */
+.skillMarks {
+	max-height: 80px;
+	overflow-y: auto;
+	left: 98px;
+	top: 30px;
+	z-index: 101 !important;
+	justify-content: center;
+	align-items: center;
+}
+
+.skillMarks > .skillMarkItem {
+	--h: 19px;
+	width: 34px;
+	height: 20px;
+	right: 0px;
+	line-height: 20.5px;
+	text-align: center;
+	display: block;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	letter-spacing: -0.5px;
+	white-space: nowrap;
+	border-radius: 50%;
+	font-family: "HYZLSJ";
+	font-size: 16px;
+}
+
+/* 限定技标记 */
+.skillMarkItem.xiandingji {
+	background-image: url("../../assets/skill/shousha/xianding.png");
+	background-size: 100% 100%;
+	text-shadow: none;
+	font-family: "HYZLSJ";
+	font-weight: 500;
+	text-shadow: 0 0 2px #996633;
+	--w: 36px;
+	font-size: 16px;
+	--h: calc(var(--w) * 13 / 22);
+	width: var(--w);
+	height: var(--h);
+	left: 2px;
+	filter: blur(0.2px);
+}
+
+/* 转换技 */
+.skillMarkItem.zhuanhuanji {
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	text-shadow: 0 0 1.3px #3c3c3c;
+	--w: 48px;
+	font-size: 15px;
+	font-family: "FZLBJW";
+	font-weight: bold;
+	--h: calc(var(--w) * 34 / 63);
+	width: var(--w);
+	height: var(--h);
+}
+
+.skillMarkItem.xiandingji.used {
+	position: relative;
+	--w: 36px;
+	font-size: 16px;
+	--h: calc(var(--w) * 13 / 22);
+	width: var(--w);
+	height: var(--h);
+	left: 2px;
+	background-image: url("../../assets/skill/shousha/used.png");
+	background-size: 100% 100%;
+	text-shadow: none;
+	font-family: "HYZLSJ";
+	font-weight: 500;
+	text-shadow: 0 0 1.2px #404040;
+	filter: blur(0.2px);
+}
+
+.skillMarkItem.xiandingji.used::before {
+	content: "";
+	z-index: 102;
+	display: block;
+	position: absolute;
+	--w: 38px;
+	--h: calc(var(--w) * 34 / 55);
+	width: var(--w);
+	height: var(--h);
+	background-image: url("../../assets/skill/shousha/noxianding.png");
+	background-size: 100% 100%;
+	right: -1px;
+	top: -3px;
+	pointer-events: none;
+}
+
+/* 觉醒技标记 */
+.skillMarkItem.juexingji {
+	background-image: url("../../assets/skill/shousha/juexing.png");
+	background-size: 100% 100%;
+	--w: 36px;
+	font-size: 16px;
+	--h: calc(var(--w) * 13 / 22);
+	width: var(--w);
+	height: var(--h);
+	left: 2px;
+	text-shadow: none;
+	font-family: "HYZLSJ";
+	font-weight: 500;
+	text-shadow: 0 0 1.2px #483d8b;
+	filter: blur(0.2px);
+}
+
+/* 使命技标记 */
+.skillMarkItem.duty {
+	background-image: url("../../assets/skill/shousha/duty.png");
+	background-size: 100% 100%;
+	--w: 36px;
+	font-size: 16px;
+	--h: calc(var(--w) * 13 / 22);
+	width: var(--w);
+	height: var(--h);
+	left: 2px;
+	text-shadow: none;
+	font-family: "HYZLSJ";
+	font-weight: 500;
+	text-shadow: 0 0 1.2px #dc143c;
+	filter: blur(0.2px);
+}
+
+.skillMarkItem.duty.fail {
+	position: relative;
+	--w: 36px;
+	font-size: 16px;
+	--h: calc(var(--w) * 13 / 22);
+	width: var(--w);
+	height: var(--h);
+	left: 2px;
+	background-image: url("../../assets/skill/shousha/used.png");
+	background-size: 100% 100%;
+	text-shadow: none;
+	font-family: "HYZLSJ";
+	font-weight: 500;
+	text-shadow: 0 0 1.2px #404040;
+	filter: blur(0.2px);
+}
+
+.skillMarkItem.duty.fail::before {
+	content: "";
+	z-index: 102;
+	display: block;
+	position: absolute;
+	--w: 38px;
+	--h: calc(var(--w) * 1 / 2);
+	width: var(--w);
+	height: var(--h) !important;
+	background-image: url("../../assets/skill/shousha/noxianding.png");
+	background-size: 100% 100%;
+	right: -1px;
+	top: -3px;
+	pointer-events: none;
+}
+
+.skillMarkItem + .skillMarkItem {
+	margin-top: 2px;
+}
+
+/* 技能失效锁 */
+.skillitem .suo {
+	height: 30px;
+	width: 30px;
+	background-image: url("../../assets/skill/shousha/suo.png");
+	background-size: 100% 100%;
+	position: absolute;
+	left: 20px;
+	z-index: 6;
+}
+
+.skillitem .suo1 {
+	height: 35px;
+	width: 35px;
+	background-image: url("../../assets/skill/shousha/suo.png");
+	background-size: 100% 100%;
+	position: absolute;
+	left: 20px;
+	z-index: 6;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+}
+
+/* 阴阳标记 */
+.skillitem .yang {
+	width: 90px;
+	background-image: url("../../assets/skill/shousha/yang.png");
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 6;
+}
+
+.skillitem .ying {
+	width: 90px;
+	background-image: url("../../assets/skill/shousha/ying.png");
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 6;
+}
+
+.trigger .yang {
+	height: 20px;
+	width: 60px;
+	background-image: url("../../assets/skill/shousha/Tyang.png");
+	background-size: 100% 100%;
+	position: absolute;
+	left: -7px;
+	z-index: -1;
+}
+
+.trigger .ying {
+	height: 20px;
+	width: 60px;
+	background-image: url("../../assets/skill/shousha/Tying.png");
+	background-size: 100% 100%;
+	position: absolute;
+	left: -7px;
+	z-index: -1;
+}
+
+/* 技能剩余次数 */
+.skill-control > .enable > .skillitem > .numText,
+.skill-control > .enable > .skillitem_smh_huoji > .numText,
+.skill-control > .enable > .skillitemxianding > .numText {
+	font-size: 16px;
+	right: 3px;
+	top: 5px;
+	font-family: "HYZLSJ";
+	text-align: center;
+	-webkit-text-stroke: 0px rgba(38, 37, 34, 0.5);
+	text-shadow: none;
+	background-image: linear-gradient(180deg, #f0d775 30%, #ab8c31 57%, #b0a04d 67%);
+	font-weight: bold;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	position: absolute;
+}
+
+.skill-control > .trigger > .skillitem > .numText,
+.skill-control > .trigger > .skillitemxianding > .numText {
+	font-size: 16px;
+	right: -9px;
+	top: 5px;
+	font-family: "HYZLSJ";
+	text-align: center;
+	-webkit-text-stroke: 0px rgba(38, 37, 34, 0.5);
+	text-shadow: none;
+	background-image: linear-gradient(180deg, #f0d775 30%, #ab8c31 57%, #b0a04d 67%);
+	font-weight: bold;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	position: absolute;
+}
+
+.skill-control > .enable > .skillitem > .numText-child,
+.skill-control > .enable > .skillitem_smh_huoji > .numText-child,
+.skill-control > .enable > .skillitemxianding > .numText-child {
+	font-size: 16px;
+	right: 3px;
+	top: 5px;
+	font-family: "HYZLSJ";
+	text-align: center;
+	-webkit-text-stroke: 2.7px #102030;
+	opacity: 0.5;
+	z-index: -1;
+	text-shadow: none;
+	font-weight: bold;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	position: absolute;
+}
+
+.skill-control > .trigger > .skillitem > .numText-child,
+.skill-control > .trigger > .skillitemxianding > .numText-child {
+	font-size: 16px;
+	right: 3px;
+	top: 5px;
+	font-family: "HYZLSJ";
+	text-align: center;
+	-webkit-text-stroke: 2.7px #102030;
+	opacity: 0.5;
+	z-index: -1;
+	text-shadow: none;
+	font-weight: bold;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	position: absolute;
+}
+
+/* 封印锁样式 */
+.skillitem .fengyinsuo {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+}
+
+/* 左手布局 */
+.skill-controlzuoshou {
+	max-width: 120px;
+	bottom: 30px;
+	left: 165px;
+	z-index: 5;
+}
+
+.skill-controlzuoshou div {
+	position: relative;
+	height: 40px;
+	width: 75px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.skill-controlzuoshou .trigger,
+.skill-controlzuoshou .enable {
+	height: auto;
+	width: auto;
+	justify-content: left;
+}
+
+.skill-controlzuoshou {
+	float: right;
+	white-space: nowrap;
+	font-family: "HYZLSJ";
+	color: yellow;
+	text-shadow:
+		#f5d78e 0 0 2px,
+		black 0 0 3px;
+	font-size: 24px;
+}
+
+.skill-controlzuoshou > div {
+	display: flex;
+	flex-wrap: wrap-reverse;
+	flex-direction: row-reverse;
+}
+
+.skill-controlzuoshou > div::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.skill-controlzuoshou > .enable {
+	margin: 0 0 0 auto;
+	max-width: 120px;
+	font-size: 20.5px;
+	font-weight: bold;
+	font-family: "HYZLSJ";
+}
+
+.skill-controlzuoshou > .trigger > * .skillitem-child {
+	position: absolute;
+	-webkit-text-stroke: 4.3px #102030;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+.skill-controlzuoshou > .enable > * .skillitem-child {
+	position: absolute;
+	-webkit-text-stroke: 4.3px rgba(2, 3, 2);
+	opacity: 0.35;
+	z-index: -1;
+}
+
+.skill-controlzuoshou > .trigger > div {
+	margin: -6px 2px;
+	font-family: "HYZLSJ";
+	text-align: center;
+	-webkit-text-stroke: 0px rgba(38, 37, 34, 0.5);
+	text-shadow: none;
+	background-image: linear-gradient(180deg, #f0d775 30%, #ab8c31 57%, #b0a04d 67%);
+	font-weight: lighter;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	font-size: 22px;
+	width: auto;
+}
+
+.skill-controlzuoshou > .enable > * {
+	background-size: 100% 100%;
+	background-image: linear-gradient(180deg, #f0d775 30%, #ab8c31 57%, #b0a04d 67%);
+	-webkit-text-stroke: 0.5px #3e362a;
+	text-shadow: none;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	position: relative;
+	font-size: 22px;
+	white-space: nowrap;
+	margin: 1px 9px;
+	margin-top: 3px;
+	index: 4;
+}
+
+/* 左手布局按钮背景 */
+.skill-controlzuoshou > .enable > .skillitem::before {
+	z-index: -1;
+	content: "";
+	--w: auto;
+	--h: calc(var(--w) * 1045 / 669);
+	line-height: var(--h);
+	text-align: center;
+	display: block;
+	position: absolute;
+	margin: 1px 12px;
+	width: 147%;
+	height: 170%;
+	font-family: "HYZLSJ";
+	background-image: url("../../assets/skill/shousha/btn0.png");
+	background-size: 100% 100%;
+}
+
+.skill-controlzuoshou
+	> .enable
+	> *.select:not(.skillitem_smh_yeyan):not(.skillitem_smh_huoji):not(.skillitem_smh_lianhuan):not([data-gskill="true"])::before {
+	background-image: url("../../assets/skill/shousha/btn1.png");
+}
+
+.skill-controlzuoshou > .enable > .skillitem:not(.usable):not(.select)::before {
+	background-image: url("../../assets/skill/shousha/btn2.png");
+}
+
+.skill-controlzuoshou > .enable > .skillitem.shixiao::before {
+	background-image: url("../../assets/skill/shousha/btn2.png");
+}
+
+/* 左手布局司马徽特殊按钮 */
+.skill-controlzuoshou > .enable > .skillitem_smh_lianhuan::before {
+	z-index: -1;
+	content: "";
+	text-align: center;
+	display: block;
+	position: absolute;
+	margin: 1px 12px;
+	width: 147%;
+	height: 170%;
+	font-family: "HYZLSJ";
+	background-image: url("../../assets/skill/shousha/feng.png");
+	background-size: 100% 100%;
+}
+
+.skill-controlzuoshou > .enable > .skillitem_smh_lianhuan:not(.usable):not(.select)::before {
+	background-image: url("../../assets/skill/shousha/feng_no.png");
+}
+
+.skill-controlzuoshou > .enable > .skillitem_smh_huoji::before {
+	z-index: -1;
+	content: "";
+	text-align: center;
+	display: block;
+	position: absolute;
+	margin: 1px 12px;
+	width: 147%;
+	height: 170%;
+	font-family: "HYZLSJ";
+	background-image: url("../../assets/skill/shousha/long.png");
+	background-size: 100% 100%;
+}
+
+.skill-controlzuoshou > .enable > .skillitem_smh_huoji:not(.usable):not(.select)::before {
+	background-image: url("../../assets/skill/shousha/long_no.png");
+}
+
+.skill-controlzuoshou > .enable > .skillitem_smh_yeyan::before {
+	z-index: -1;
+	content: "";
+	--w: auto;
+	--h: calc(var(--w) * 1045 / 669);
+	line-height: var(--h);
+	text-align: center;
+	display: block;
+	position: absolute;
+	margin: 1px 12px;
+	width: 147%;
+	height: 170%;
+	font-family: "HYZLSJ";
+	background-image: url("../../assets/skill/shousha/longfeng.png");
+	background-size: 100% 100%;
+}
+
+.skill-controlzuoshou > .enable > .skillitem_smh_yeyan:not(.usable):not(.select)::before {
+	background-image: url("../../assets/skill/shousha/longfeng_no.png");
+}
+
+/* 左手布局技能次数 */
+.skill-controlzuoshou > .enable > .skillitem > .numText,
+.skill-controlzuoshou > .enable > .skillitem_smh_huoji > .numText,
+.skill-controlzuoshou > .enable > .skillitemxianding > .numText {
+	font-size: 16px;
+	right: 3px;
+	top: 5px;
+	font-family: "HYZLSJ";
+	text-align: center;
+	-webkit-text-stroke: 0px rgba(38, 37, 34, 0.5);
+	text-shadow: none;
+	background-image: linear-gradient(180deg, #f0d775 30%, #ab8c31 57%, #b0a04d 67%);
+	font-weight: bold;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	position: absolute;
+}
+
+.skill-controlzuoshou > .trigger > .skillitem > .numText,
+.skill-controlzuoshou > .trigger > .skillitemxianding > .numText {
+	font-size: 16px;
+	right: -9px;
+	top: 5px;
+	font-family: "HYZLSJ";
+	text-align: center;
+	-webkit-text-stroke: 0px rgba(38, 37, 34, 0.5);
+	text-shadow: none;
+	background-image: linear-gradient(180deg, #f0d775 30%, #ab8c31 57%, #b0a04d 67%);
+	font-weight: bold;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	position: absolute;
+}
+
+.skill-controlzuoshou > .enable > .skillitem > .numText-child,
+.skill-controlzuoshou > .enable > .skillitem_smh_huoji > .numText-child,
+.skill-controlzuoshou > .enable > .skillitemxianding > .numText-child,
+.skill-controlzuoshou > .trigger > .skillitem > .numText-child,
+.skill-controlzuoshou > .trigger > .skillitemxianding > .numText-child {
+	font-size: 16px;
+	right: 3px;
+	top: 5px;
+	font-family: "HYZLSJ";
+	text-align: center;
+	-webkit-text-stroke: 2.7px #102030;
+	opacity: 0.5;
+	z-index: -1;
+	text-shadow: none;
+	font-weight: bold;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+	position: absolute;
+}
+
+/* 左手布局阴阳标记 */
+.skill-controlzuoshou .skillitem .yang {
+	width: 90px;
+	background-image: url("../../assets/skill/shousha/yang.png");
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 6;
+}
+
+.skill-controlzuoshou .skillitem .ying {
+	width: 90px;
+	background-image: url("../../assets/skill/shousha/ying.png");
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 6;
+}
+
+.skill-controlzuoshou .trigger .yang {
+	height: 20px;
+	width: 60px;
+	background-image: url("../../assets/skill/shousha/Tyang.png");
+	background-size: 100% 100%;
+	position: absolute;
+	left: -7px;
+	z-index: -1;
+}
+
+.skill-controlzuoshou .trigger .ying {
+	height: 20px;
+	width: 60px;
+	background-image: url("../../assets/skill/shousha/Tying.png");
+	background-size: 100% 100%;
+	position: absolute;
+	left: -7px;
+	z-index: -1;
+}
+
+/* gskill按钮红色背景（用于区分） */
+.skill-control > .enable > .skillitem[data-gskill="true"]::before,
+.skill-controlzuoshou > .enable > .skillitem[data-gskill="true"]::before {
+	background-image: url("../../assets/skill/shousha/gskill1.png");
+}
+
+.skill-control > .enable > .skillitem[data-gskill="true"]:not(.usable):not(.select)::before,
+.skill-controlzuoshou > .enable > .skillitem[data-gskill="true"]:not(.usable):not(.select)::before {
+	background-image: url("../../assets/skill/shousha/gskill0.png");
+}
+
+.skill-control > .enable > .skillitem[data-gskill="true"].select::before,
+.skill-controlzuoshou > .enable > .skillitem[data-gskill="true"].select::before {
+	background-image: url("../../assets/skill/shousha/gskill2.png");
+}
