@@ -36,6 +36,9 @@ export function playerDamagepop(num, nature = "soil", font, nobroadcast) {
 			game.broadcast((p, n, na, f) => p.$damagepop(n, na, f), player, num, nature, font);
 		}
 
+		// 仅控制本地文字显示，保留录像与广播；未配置时保持原有行为。
+		if (lib.config.extension_十周年UI_actionText === false) return;
+
 		const container = ui.create.div(".damage.skill-popup", ui.arena);
 		container.dataset.nature = nature || "soil";
 
