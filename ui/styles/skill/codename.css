@@ -1,0 +1,163 @@
+/**
+ * 代号风格 - 技能按钮样式
+ * 对应原 shoushaUI/skill/main6.css
+ */
+
+#arena[data-right-layout="on"] > .skill-control {
+	max-width: 200px;
+	bottom: 0px;
+	right: 160px;
+	z-index: 0;
+}
+
+.skill-control div {
+	position: relative;
+}
+
+.skill-control .skillitem {
+	float: right;
+	white-space: nowrap;
+	color: #f5d78e;
+	font-size: 18px;
+}
+
+.skill-control > div {
+	display: flex;
+	flex-wrap: wrap-reverse;
+	flex-direction: row-reverse;
+}
+
+.skill-control > div::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* 右手布局 - 单列排列 */
+#arena[data-right-layout="on"] > .skill-control .combined {
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: flex-end;
+	margin-right: 5px;
+	flex-wrap: nowrap;
+	max-height: 500px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#arena[data-right-layout="on"] > .skill-control .combined.scroll-enabled {
+	flex-direction: column-reverse;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	max-height: 500px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+/* 主动技样式 */
+.skill-control > .combined > .skillitem.enable-skill {
+	margin: 3px 4px;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 15px;
+	color: #000000;
+	text-shadow:
+		0 0 2px #fff,
+		0 0 2px #fff;
+	font-family: "yuanli";
+	font-weight: 500;
+	background-image: url("../../assets/skill/codename/btnn1.png");
+	background-size: 100% 100%;
+}
+
+.skill-control > .combined > .skillitem.enable-skill.select {
+	background-image: url("../../assets/skill/codename/btnn3.png");
+	filter: brightness(1.2);
+}
+
+.skill-control > .combined > .skillitem.enable-skill:not(.usable):not(.select) {
+	filter: grayscale(100%);
+}
+
+/* 限定技样式 */
+.skill-control > .combined > .xiandingji.enable-skill {
+	margin: 3px 4px;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #000000;
+	text-shadow:
+		0 0 2px #fff,
+		0 0 2px #fff;
+	font-family: "yuanli";
+	font-weight: 500;
+	font-size: 15px;
+	background-image: url("../../assets/skill/codename/btnn2.png");
+	background-size: 100% 100%;
+}
+
+.skill-control > .combined > .xiandingji.enable-skill.select {
+	background-image: url("../../assets/skill/codename/btnn2.png");
+}
+
+.skill-control > .combined > .xiandingji.enable-skill:not(.usable):not(.select) {
+	filter: grayscale(100%);
+}
+
+/* 被动技样式 */
+.skill-control > .combined > .skillitem.trigger-skill {
+	margin: 3px 4px;
+	width: 100px;
+	height: 30px;
+	line-height: 24px;
+	text-align: center;
+	font-size: 15px;
+	color: #f7f5e7;
+	font-family: "yuanli";
+	font-weight: 500;
+	background-image: url("../../assets/skill/codename/btnn.png");
+	background-size: 100% 100%;
+	text-shadow: 0.3px 0px 1.8px #332c18;
+}
+
+/* 技能标记 */
+.skillMarks {
+	max-height: 80px;
+	overflow-y: auto;
+	left: -35px !important;
+	top: 20px !important;
+	z-index: 90 !important;
+	justify-content: center;
+	align-items: center;
+}
+
+.skillMarks > .skillMarkItem {
+	--h: 19px;
+	width: 18px !important;
+	height: 23px !important;
+	right: 0px;
+	line-height: -10px;
+	text-align: center;
+	display: block;
+	position: relative;
+	border-radius: 50%;
+}
+
+.skillMarkItem.xiandingji {
+	background-image: url("../../assets/skill/codename/xiandingji.png");
+	background-size: 100% 100%;
+	text-shadow: none;
+}
+
+.skillMarkItem.xiandingji.used {
+	filter: grayscale(1);
+}
+
+.skillMarkItem + .skillMarkItem {
+	margin-top: -6.5px;
+}

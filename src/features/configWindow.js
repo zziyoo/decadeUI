@@ -1,0 +1,1 @@
+import{showDecadeConfigWindow as e,hideDecadeConfigWindow as d}from"../config/config-window.js";function n(){window.decadeUI&&(window.decadeUI.showConfigWindow=e,window.decadeUI.hideConfigWindow=d),document.addEventListener("keydown",d=>{d.ctrlKey&&d.shiftKey&&"C"===d.key&&(d.preventDefault(),e())})}export{n as setupConfigWindow};

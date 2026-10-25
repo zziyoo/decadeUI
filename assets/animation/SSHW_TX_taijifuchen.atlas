@@ -1,0 +1,299 @@
+
+SSHW_TX_taijifuchen.png
+size: 1997,1997
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+taijifu_00001
+  rotate: false
+  xy: 2, 1600
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00002
+  rotate: false
+  xy: 2, 1203
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00003
+  rotate: false
+  xy: 401, 1600
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00004
+  rotate: false
+  xy: 2, 806
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00005
+  rotate: false
+  xy: 401, 1203
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00006
+  rotate: false
+  xy: 800, 1600
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00007
+  rotate: false
+  xy: 2, 409
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00008
+  rotate: false
+  xy: 401, 806
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00009
+  rotate: false
+  xy: 800, 1203
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00010
+  rotate: false
+  xy: 1199, 1600
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00011
+  rotate: false
+  xy: 2, 12
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00012
+  rotate: false
+  xy: 401, 409
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00013
+  rotate: false
+  xy: 800, 806
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00014
+  rotate: false
+  xy: 1199, 1203
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00015
+  rotate: false
+  xy: 1598, 1600
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00016
+  rotate: false
+  xy: 401, 12
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00017
+  rotate: false
+  xy: 800, 409
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00018
+  rotate: false
+  xy: 1199, 806
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00019
+  rotate: false
+  xy: 1598, 1203
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00020
+  rotate: false
+  xy: 800, 12
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00021
+  rotate: false
+  xy: 1199, 409
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00022
+  rotate: false
+  xy: 1598, 806
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00023
+  rotate: false
+  xy: 1199, 12
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00024
+  rotate: false
+  xy: 1598, 409
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00025
+  rotate: false
+  xy: 1598, 12
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+
+SSHW_TX_taijifuchen2.png
+size: 1592,1592
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+taijifu_00000
+  rotate: false
+  xy: 793, 133
+  size: 293, 262
+  orig: 400, 400
+  offset: 64, 41
+  index: -1
+taijifu_00026
+  rotate: false
+  xy: 2, 1195
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00027
+  rotate: true
+  xy: 401, 1193
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00028
+  rotate: true
+  xy: 2, 796
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00029
+  rotate: false
+  xy: 399, 796
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00030
+  rotate: true
+  xy: 798, 1193
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00031
+  rotate: true
+  xy: 798, 794
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00032
+  rotate: false
+  xy: 2, 399
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00033
+  rotate: true
+  xy: 401, 397
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00034
+  rotate: false
+  xy: 2, 2
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00035
+  rotate: false
+  xy: 798, 397
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00036
+  rotate: true
+  xy: 1195, 1193
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00037
+  rotate: true
+  xy: 1195, 794
+  size: 397, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00038
+  rotate: false
+  xy: 1197, 397
+  size: 393, 395
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+taijifu_00039
+  rotate: true
+  xy: 401, 8
+  size: 387, 390
+  orig: 400, 400
+  offset: 0, 1
+  index: -1
+taijifu_00040
+  rotate: false
+  xy: 1088, 229
+  size: 170, 166
+  orig: 400, 400
+  offset: 142, 95
+  index: -1

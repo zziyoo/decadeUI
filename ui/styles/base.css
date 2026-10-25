@@ -1,0 +1,178 @@
+/**
+ * 基础样式 - 所有样式共用
+ */
+
+/** 武将详情弹窗 */
+/* 注意：各样式有自己的character-dialog定位方式，这里只定义通用变量 */
+.character-dialog {
+	--w: 700px;
+	--h: 450px;
+	--bt: calc(var(--h) * 15 / 290);
+	--bl: calc(var(--w) * 38 / 497);
+	--bb: calc(var(--h) * 17 / 290);
+	--dw: calc(var(--w) - 2 * var(--bl));
+	--dh: calc(var(--h) - var(--bt) - var(--bb));
+	box-sizing: border-box;
+	z-index: 13;
+}
+
+.character-dialog > .blackBg {
+	padding: 10px 25px;
+	position: relative;
+	width: 100%;
+	height: 115px;
+	top: 0;
+	left: -25px;
+	background-color: #00000052;
+	clip-path: polygon(
+		10px 0%,
+		calc(100% - 10px) 0%,
+		100% 10px,
+		100% calc(100% - 10px),
+		calc(100% - 10px) 100%,
+		10px 100%,
+		0 calc(100% - 10px),
+		0 10px
+	);
+}
+
+.blackBg.two {
+	margin-top: 8px;
+	height: 218px;
+}
+
+.character-dialog .basicInfo {
+	position: relative;
+	height: 35px;
+	display: block;
+	margin-left: 20px;
+}
+
+.character-dialog .basicInfo .mingcheng {
+	position: relative;
+	font-size: 20px;
+	color: rgb(75, 59, 48);
+	filter: blur(0.3px);
+	margin-top: 4px;
+	text-shadow: none;
+	font-weight: bold;
+	font-family: shousha;
+	z-index: 68;
+}
+
+.character-dialog .basicInfo .dengji {
+	position: relative;
+	font-size: 20px;
+	color: #fbce08;
+	text-shadow: none;
+	filter: blur(0.3px);
+	font-weight: normal;
+	font-family: shousha;
+	z-index: 68;
+	margin-left: 20px;
+}
+
+/** 左侧控制按钮 */
+.lbtn-controls {
+	--width: 66px;
+	--height: 55px;
+	left: 18px;
+	bottom: 14.2%;
+	width: var(--width);
+	z-index: 4;
+}
+
+/* 右上角菜单页面 */
+.yemian {
+	--w: 566px;
+	--h: calc(var(--w) * 360 / 1560);
+	width: var(--w);
+	height: var(--h);
+	top: 0%;
+	left: calc(100% - 562px);
+	background-size: 100% 100%;
+	z-index: 68;
+	position: relative;
+	transition: opacity 1s ease-in-out;
+}
+
+/* 菜单按钮基础样式 */
+.shezhi,
+.tuichu,
+.taopao,
+.touxiang,
+.tuoguan {
+	--w: 65px;
+	--h: calc(var(--w) * 82 / 107);
+	width: var(--w);
+	height: var(--h);
+	background-size: 100% 100%;
+	z-index: 99;
+	position: fixed;
+}
+
+.shezhi {
+	bottom: calc(100% - 69px);
+	left: calc(100% - 498px);
+}
+
+.tuichu {
+	bottom: calc(100% - 69px);
+	left: calc(100% - 418px);
+}
+
+.taopao {
+	bottom: calc(100% - 69px);
+	left: calc(100% - 338px);
+}
+
+.touxiang {
+	bottom: calc(100% - 69px);
+	left: calc(100% - 260px);
+}
+
+.tuoguan {
+	bottom: calc(100% - 69px);
+	left: calc(100% - 184px);
+}
+
+/** 技能控制 - 基础定位，具体样式由样式CSS定义 */
+
+/* 隐藏内部控制节点，只用于逻辑控制 */
+.hidden-control {
+	position: absolute !important;
+	left: -9999px !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
+}
+
+/* 技能项渐变文字 - 由各样式CSS单独定义 */
+
+/** 确认按钮 */
+.lbtn-confirm {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.lbtn-confirm .disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+.lbtn-confirm > * {
+	transition: none !important;
+}
+
+/** 手牌数量显示 */
+.handcardNumber,
+.handcardNumber1 {
+	position: absolute;
+	z-index: 5;
+}
+
+.cardRoundNumber {
+	position: absolute;
+	z-index: 5;
+}
