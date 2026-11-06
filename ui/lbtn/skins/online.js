@@ -95,7 +95,6 @@ export function createOnlineLbtnPlugin(lib, game, ui, get, ai, _status, app) {
 		precontent() {
 			base.initBaseRewrites.call(this);
 			this.initChatMessage();
-			this.initCancelOverride();
 			this.initPauseOverride();
 			this.initConfirmRewrite();
 			this.initArenaReady();
@@ -112,26 +111,6 @@ export function createOnlineLbtnPlugin(lib, game, ui, get, ai, _status, app) {
 				} else {
 					originalChat.call(this, id, str);
 				}
-			};
-		},
-
-		// 拦截出牌阶段取消
-		initCancelOverride() {
-			const originalCancel = ui.click.cancel;
-			ui.click.cancel = function (node) {
-				const event = _status.event;
-				if (event && event.type === "phase" && ui.confirm && !event.skill && (ui.selected.cards.length !== 0 || ui.selected.targets.length !== 0)) {
-					ui.confirm.classList.add("removing");
-					event.restore();
-					const cards = event.player.getCards("hej");
-					for (let i = 0; i < cards.length; i++) {
-						cards[i].recheck("useSkill");
-					}
-					game.uncheck();
-					game.check();
-					return;
-				}
-				return originalCancel.call(this, node);
 			};
 		},
 

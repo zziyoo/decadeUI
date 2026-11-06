@@ -371,7 +371,7 @@ export function createBaseLbtnPlugin(lib, game, ui, get, ai, _status, app) {
 			const originalCancel = ui.click.cancel;
 			ui.click.cancel = function (node) {
 				const event = _status.event;
-				if (event?.type === "phase" && ui.confirm && !event.skill && (ui.selected.cards.length || ui.selected.targets.length)) {
+				if (event?.type === "phase" && ui.confirm && node === ui.confirm.node?.cancel && node?.link === "cancel" && !event.skill && (ui.selected.cards.length || ui.selected.targets.length)) {
 					ui.confirm.classList.add("removing");
 					event.restore();
 					event.player.getCards("hej").forEach(c => c.recheck("useSkill"));
@@ -379,7 +379,7 @@ export function createBaseLbtnPlugin(lib, game, ui, get, ai, _status, app) {
 					game.check();
 					return;
 				}
-				return originalCancel.call(this, node);
+				return originalCancel.apply(this, arguments);
 			};
 		},
 
