@@ -1,0 +1,170 @@
+﻿/**
+ * 十周年UI - 组件样式
+ */
+
+/** 滑块控件 */
+
+input[type="range"].slider {
+	position: relative;
+	height: 5px;
+	border-radius: 5px;
+	background: linear-gradient(rgba(240, 240, 255, 0.8), rgba(240, 240, 255, 0.8)) no-repeat rgba(200, 200, 200, 0.5);
+	background-size: 50% 100%;
+	-webkit-appearance: none;
+}
+
+input[type="range"].slider:focus {
+	outline: none;
+}
+
+input[type="range"].slider::-webkit-slider-thumb {
+	width: 13px;
+	height: 13px;
+	border: solid 1px rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	background: white;
+	-webkit-appearance: none;
+}
+
+/** 聊天框 */
+
+.chat-box {
+	display: inline-flex;
+	flex-flow: column;
+	width: auto;
+	height: 200px;
+	background: rgba(0, 0, 0, 0.66);
+	border-radius: 0 0 4px 4px;
+}
+
+#arena > .chat-box {
+	left: -15px;
+	bottom: calc(1% + 185px);
+	z-index: 5;
+}
+
+/* 折叠状态 */
+.chat-box.folded {
+	height: auto;
+	border-radius: 4px;
+	opacity: 0.66;
+}
+
+.chat-box.folded > div:not(.operation) {
+	display: none;
+}
+
+.chat-box.folded > .operation > input,
+.chat-box.folded > .operation > button:not(.fold-button) {
+	display: none;
+}
+
+.chat-box.folded > .operation > button.fold-button {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+/* 聊天框子元素 */
+.chat-box > div {
+	position: static;
+	width: auto;
+	height: auto;
+}
+
+/* 消息容器 */
+.chat-box > .container {
+	position: relative;
+	flex: 1;
+	padding: 4px;
+	color: white;
+	box-shadow: 0 0 6px rgb(200, 150, 80) inset;
+}
+
+.chat-box > .container > .content {
+	position: absolute;
+	width: calc(100% - 8px);
+	height: calc(100% - 8px);
+	overflow-y: auto;
+}
+
+.chat-box > .container > .content > div {
+	display: block;
+	position: static;
+	height: auto;
+	margin: 0;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.chat-box > .container > .content > div > .sender {
+	color: #02ff02;
+}
+
+/* 操作栏 */
+.chat-box > .operation {
+	display: flex;
+	flex-flow: row;
+	height: auto;
+	min-height: 24px;
+	max-height: 32px;
+	padding: 2px;
+}
+
+.chat-box > .operation > div,
+.chat-box > .operation > input,
+.chat-box > .operation > button {
+	position: static;
+}
+
+/* 输入框 */
+.chat-box > .operation > .chat-input {
+	flex: 1;
+	margin: 0 2px;
+	padding: 4px 2px;
+	font-size: 16px;
+	line-height: 18px;
+	color: #fff;
+	background: transparent;
+	border: 1px solid rgb(120, 120, 50);
+	outline: none;
+}
+
+.chat-box > .operation > .chat-input::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.3);
+	line-height: 18px;
+}
+
+.chat-box > .operation > input {
+	font-family: inherit;
+}
+
+/* 按钮 */
+.chat-box > .operation > button {
+	font-family: inherit;
+	text-shadow: 0 0 2px black;
+}
+
+.chat-box > .operation > button:active {
+	background: rgb(188, 120, 24);
+}
+
+.chat-box > .operation > .fold-button,
+.chat-box > .operation > .send-button,
+.chat-box > .operation > .sticker-button {
+	padding: 4px;
+	font-size: 16px;
+	line-height: 18px;
+	color: #fff;
+	white-space: nowrap;
+	background: rgb(236, 151, 31);
+	border: 1px solid transparent;
+	border-radius: 4px;
+	outline: none;
+	transition:
+		background 0.2s,
+		transform 0.2s,
+		opacity 0.2s;
+}
+
+.chat-box > .operation > .send-button {
+	margin-left: 2px;
+}

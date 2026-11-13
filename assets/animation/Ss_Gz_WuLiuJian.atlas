@@ -1,0 +1,132 @@
+
+Ss_Gz_WuLiuJian.png
+size: 895,895
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+j_dg_06
+  rotate: true
+  xy: 560, 156
+  size: 146, 129
+  orig: 250, 160
+  offset: 2, 5
+  index: -1
+j_dg_07
+  rotate: false
+  xy: 560, 47
+  size: 82, 107
+  orig: 250, 160
+  offset: 4, 27
+  index: -1
+j_shan_19
+  rotate: false
+  xy: 161, 71
+  size: 129, 212
+  orig: 188, 330
+  offset: 2, 54
+  index: -1
+j_shan_20
+  rotate: false
+  xy: 2, 585
+  size: 188, 308
+  orig: 188, 330
+  offset: 0, 5
+  index: -1
+j_shan_21
+  rotate: false
+  xy: 2, 285
+  size: 188, 298
+  orig: 188, 330
+  offset: 0, 16
+  index: -1
+j_shan_22
+  rotate: false
+  xy: 374, 592
+  size: 183, 301
+  orig: 188, 330
+  offset: 5, 14
+  index: -1
+j_shan_23
+  rotate: false
+  xy: 192, 588
+  size: 180, 305
+  orig: 188, 330
+  offset: 8, 13
+  index: -1
+j_shan_24
+  rotate: false
+  xy: 192, 290
+  size: 180, 296
+  orig: 188, 330
+  offset: 8, 16
+  index: -1
+j_shan_25
+  rotate: false
+  xy: 374, 298
+  size: 180, 292
+  orig: 188, 330
+  offset: 8, 18
+  index: -1
+j_shan_26
+  rotate: false
+  xy: 559, 601
+  size: 179, 292
+  orig: 188, 330
+  offset: 9, 18
+  index: -1
+j_shan_27
+  rotate: false
+  xy: 677, 314
+  size: 173, 285
+  orig: 188, 330
+  offset: 15, 23
+  index: -1
+j_shan_28
+  rotate: false
+  xy: 2, 2
+  size: 157, 281
+  orig: 188, 330
+  offset: 31, 27
+  index: -1
+j_shan_29
+  rotate: false
+  xy: 740, 611
+  size: 145, 282
+  orig: 188, 330
+  offset: 38, 27
+  index: -1
+j_shan_30
+  rotate: false
+  xy: 292, 4
+  size: 139, 284
+  orig: 188, 330
+  offset: 41, 26
+  index: -1
+j_shan_31
+  rotate: false
+  xy: 433, 14
+  size: 125, 282
+  orig: 188, 330
+  offset: 46, 27
+  index: -1
+j_shan_32
+  rotate: false
+  xy: 556, 304
+  size: 119, 286
+  orig: 188, 330
+  offset: 53, 23
+  index: -1
+jg_00
+  rotate: true
+  xy: 691, 262
+  size: 50, 194
+  orig: 64, 200
+  offset: 7, 1
+  index: -1
+jian_00
+  rotate: false
+  xy: 852, 401
+  size: 19, 208
+  orig: 24, 216
+  offset: 2, 5
+  index: -1

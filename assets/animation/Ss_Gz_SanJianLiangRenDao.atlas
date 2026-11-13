@@ -1,0 +1,118 @@
+
+Ss_Gz_SanJianLiangRenDao.png
+size: 1009,1009
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dao_00
+  rotate: false
+  xy: 480, 83
+  size: 42, 260
+  orig: 44, 264
+  offset: 2, 2
+  index: -1
+dg_17
+  rotate: false
+  xy: 2, 701
+  size: 367, 306
+  orig: 400, 400
+  offset: 10, 82
+  index: -1
+dg_19
+  rotate: true
+  xy: 371, 711
+  size: 296, 304
+  orig: 400, 400
+  offset: 10, 85
+  index: -1
+dg_20
+  rotate: true
+  xy: 677, 734
+  size: 273, 300
+  orig: 400, 400
+  offset: 21, 83
+  index: -1
+dg_21
+  rotate: false
+  xy: 367, 85
+  size: 111, 258
+  orig: 400, 400
+  offset: 23, 82
+  index: -1
+gj_00
+  rotate: true
+  xy: 677, 368
+  size: 364, 160
+  orig: 364, 160
+  offset: 0, 0
+  index: -1
+gj_01
+  rotate: true
+  xy: 371, 345
+  size: 364, 158
+  orig: 364, 160
+  offset: 0, 2
+  index: -1
+gj_03
+  rotate: true
+  xy: 835, 2
+  size: 364, 157
+  orig: 364, 160
+  offset: 0, 0
+  index: -1
+gj_05
+  rotate: true
+  xy: 839, 368
+  size: 364, 160
+  orig: 364, 160
+  offset: 0, 0
+  index: -1
+gj_07
+  rotate: true
+  xy: 675, 2
+  size: 364, 158
+  orig: 364, 160
+  offset: 0, 2
+  index: -1
+gj_09
+  rotate: false
+  xy: 2, 187
+  size: 363, 156
+  orig: 364, 160
+  offset: 0, 4
+  index: -1
+gj_11
+  rotate: false
+  xy: 2, 29
+  size: 358, 156
+  orig: 364, 160
+  offset: 2, 4
+  index: -1
+gj_13
+  rotate: false
+  xy: 2, 543
+  size: 355, 156
+  orig: 364, 160
+  offset: 5, 4
+  index: -1
+gj_15
+  rotate: false
+  xy: 2, 392
+  size: 350, 149
+  orig: 364, 160
+  offset: 11, 6
+  index: -1
+gj_17
+  rotate: true
+  xy: 531, 356
+  size: 353, 142
+  orig: 364, 160
+  offset: 5, 12
+  index: -1
+gj_19
+  rotate: true
+  xy: 531, 5
+  size: 349, 135
+  orig: 364, 160
+  offset: 8, 21
+  index: -1

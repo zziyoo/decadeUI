@@ -1,0 +1,20 @@
+
+XTBGZ_xiao.png
+size: 242,163
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bagua_00000
+  rotate: true
+  xy: 161, 72
+  size: 89, 79
+  orig: 90, 90
+  offset: 1, 7
+  index: -1
+bagua_guangying_00000
+  rotate: true
+  xy: 2, 2
+  size: 159, 157
+  orig: 160, 160
+  offset: 0, 2
+  index: -1

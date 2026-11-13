@@ -1,0 +1,206 @@
+﻿/**
+ * 十周年UI - 美化样式
+ */
+
+/** 手牌显示区 */
+
+.handdisplays {
+	width: 35px;
+	height: 90px;
+	left: -45px;
+	bottom: 0;
+	overflow: scroll;
+	background-color: rgba(3, 3, 3, 0.3);
+	opacity: 1;
+}
+
+.handdisplays .handcard {
+	position: relative;
+	width: 100%;
+	margin-top: 5px;
+	font-size: 10px;
+	font-family: "yuanli";
+	font-weight: 700;
+	color: rgb(224, 215, 174);
+	text-align: center;
+}
+
+/** 技能框 */
+
+.baby_skill {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 10px;
+	max-width: 200px;
+	padding: 2px;
+	box-sizing: border-box;
+	overflow: visible;
+	background: rgba(0, 0, 0, 0.1);
+	z-index: 9999;
+}
+
+.baby_skill_box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 60px;
+	height: 20px;
+	margin: 0;
+	padding: 6px 2px;
+	font-size: 15px;
+	font-family: "yuanli";
+	color: #fff;
+	text-align: center;
+	background: url("../../ui/assets/skill/baby/btnnhs3.png");
+	background-size: 100% 100%;
+	border-radius: 4px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 技能描述弹窗 */
+.baby_skill_popup {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	min-width: 250px;
+	max-width: 80vw;
+	width: fit-content;
+	height: fit-content;
+	padding: 20px 24px 20px 16px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #fff;
+	text-align: left;
+	word-wrap: break-word;
+	background: rgba(0, 0, 0, 0.7);
+	border: 3px solid #4a90e2;
+	border-radius: 15px;
+	box-shadow:
+		0 6px 20px rgba(74, 144, 226, 0.3),
+		0 0 0 1px rgba(74, 144, 226, 0.1);
+	backdrop-filter: blur(5px);
+	pointer-events: auto;
+	z-index: 5;
+}
+
+.baby_skill_popup .skill_title {
+	margin-bottom: 8px;
+	font-weight: bold;
+	color: #4caf50;
+	text-align: left;
+}
+
+.baby_skill_popup .skill_description {
+	margin-top: 20px;
+	text-align: left;
+}
+
+/** 阵营选择框 */
+
+.groupTitle {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 24px;
+	font-family: kaiti;
+	font-weight: bold;
+	text-align: center;
+	white-space: nowrap;
+	pointer-events: none;
+	z-index: 10;
+}
+
+/* 进度条容器 */
+.groupJindutiao {
+	position: absolute;
+	bottom: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
+	height: 20px;
+	pointer-events: none;
+	z-index: 10;
+}
+
+/* 进度条背景 */
+.groupJindutiao1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 13px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 1;
+}
+
+/* 进度条填充 */
+.groupJindutiao2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 13px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: width 0.1s ease-out;
+	z-index: 2;
+}
+
+/* 阵营选择对话框 */
+.dialog.faction-choice {
+	width: 100%;
+	height: 50% !important;
+	top: 25%;
+	left: 0;
+	background-size: 100% 100%;
+	z-index: 6;
+}
+
+.dialog.faction-choice .content {
+	width: 70%;
+	height: 90% !important;
+	top: 20% !important;
+	left: 15%;
+	z-index: 7;
+}
+
+.dialog.noupdate {
+	animation: factionDialogFadeIn 0.3s ease-out;
+}
+
+.dialog.faction-choice .button {
+	width: 120px;
+	height: 160px;
+	padding: 0;
+	border: none;
+	background-size: 100% 100% !important;
+	background-repeat: no-repeat;
+	background-position: center;
+	box-shadow: none !important;
+}
+
+/** 装备点击效果 */
+
+.epclick {
+	position: absolute;
+	width: 106px;
+	height: 150px;
+	left: 2px;
+	top: 2px;
+	background-image: url(../../image/styles/decade/equipHand.png);
+	background-size: 100% 100%;
+}
+
+/** 手牌提示 */
+
+#arena > .hand-tip,
+#arena > .hand-tip-info,
+#arena > .hand-tip span {
+	font-size: 17px !important;
+	font-family: "yuanli" !important;
+	bottom: var(--hand-tip-bottom, calc(20% + 10px)) !important;
+}

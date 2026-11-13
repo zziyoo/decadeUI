@@ -1,0 +1,892 @@
+/**
+ * OL风格 - 按钮控制样式
+ * 对应原 shoushaUI/lbtn/main4.css
+ */
+
+/* 隐藏本体轮数/牌堆显示，避免与扩展重复 */
+#arena > .cardRoundNumber,
+#gameinfo,
+.touchinfo.left,
+.touchinfo.right {
+	display: none !important;
+}
+
+/* 出牌记录 */
+#arena.chess > #arenalog {
+	display: none !important;
+	font-family: "HYXLSJ" !important;
+	background: none;
+}
+
+#arena.observe .handcards > .card > div {
+	opacity: 0 !important;
+	font-family: "HYXLSJ" !important;
+	background: none;
+}
+
+#arena.hide_name .player > .name:not(.name_seat),
+#arena.hide_name .player > .name2,
+#arena.hide_name > .dialog .button.character > .name {
+	display: none !important;
+	font-family: "HYXLSJ" !important;
+	background: none;
+}
+
+/* 记录栏主体 */
+#arenalog {
+	width: calc(50% - 230px);
+	height: calc(100% - 452px);
+	left: calc(50% + 60px);
+	top: 234px;
+	overflow: hidden;
+	font-family: "HYXLSJ" !important;
+	z-index: 10;
+	pointer-events: none;
+	text-align: center;
+}
+
+#arenalog.withdialog {
+	opacity: 0.5;
+}
+
+#arena:not(.oldlayout) > #arenalog[data-position="center"] {
+	left: calc(25% + 105px);
+}
+
+#arena:not(.oldlayout) > #arenalog[data-position="left"] {
+	left: 150px;
+}
+
+#arena.oldlayout > #arenalog {
+	top: 160px;
+	width: calc(50% - 280px);
+	height: calc(100% - 355px);
+}
+
+#arena.oldlayout > #arenalog[data-position="center"] {
+	left: calc(25% + 150px);
+}
+
+#arena.oldlayout > #arenalog[data-position="left"] {
+	left: 240px;
+}
+
+/* 文本颜色 */
+.firetext {
+	color: rgb(255, 119, 63);
+}
+
+.yellowtext {
+	color: #bd9927;
+}
+
+.bluetext {
+	color: #bd9927;
+}
+
+.greentext {
+	color: #bd9927;
+}
+
+.icetext {
+	color: rgb(59, 98, 115);
+}
+
+.thundertext,
+.controlthundertext {
+	color: rgb(117, 186, 255);
+}
+
+.kamitext {
+	color: rgb(90, 118, 99);
+}
+
+.whitetext .thundertext {
+	color: #b9b7bc;
+}
+
+.poisontext {
+	color: rgb(104, 221, 127);
+}
+
+.browntext {
+	color: rgb(195, 161, 223);
+}
+
+.legendtext {
+	color: rgb(233, 131, 255);
+}
+
+#arenalog > div {
+	position: relative;
+	display: block;
+	width: calc(100% - 23px);
+	left: 20px;
+	font-size: 22px;
+	line-height: 22px;
+	font-family: "HYXLSJ" !important;
+	font-weight: 800;
+	color: #b9b7bc;
+	text-shadow:
+		-1px -1px 0px black,
+		1px -1px 0px black,
+		-1px 1px 0px black,
+		1px 1px 0px black;
+	background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0.5) 90%, transparent 100%);
+	background-size: 100% 100%;
+}
+
+/* 历史记录栏 */
+.bigbgjilu {
+	background-image: url("../../../assets/lbtn/OL_line/jilu/lsbigdialog.png");
+	background-size: 100% 100%;
+	left: 0%;
+	top: 0%;
+	height: 100%;
+	width: 55%;
+}
+
+.bigbgjilu > .content {
+	left: 0%;
+	top: 7%;
+	width: 40%;
+	height: 92%;
+	background-image: url("../../../assets/lbtn/OL_line/jilu/lsbigdialog2.png");
+	background-size: 100% 100%;
+	overflow: auto;
+	z-index: 7;
+}
+
+.bigbgjilu > .content > .namebg {
+	width: auto;
+	height: 9.4%;
+	line-height: 19px;
+	font-weight: 200;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	left: 35%;
+	z-index: 7;
+}
+
+.bigbgjilu > .content > .namebg > .jiluanniu {
+	background-image: url("../../../assets/lbtn/OL_line/jilu/kuang.png");
+	background-size: 100% 100%;
+	width: 30px;
+	height: 30px;
+	flex-shrink: 0;
+	left: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 8;
+}
+
+.bigbgjilu > .content > .namebg > .jiluanniu > .gou {
+	background-image: url("../../../assets/lbtn/OL_line/jilu/gou.png");
+	background-size: 100% 100%;
+	width: 35px;
+	height: 35px;
+	transform: translateY(-5px);
+	z-index: 7;
+}
+
+.bigbgjilu > .content > .namebg > .namebgbg {
+	left: 48px;
+	width: 45%;
+	display: flex;
+	justify-content: center;
+}
+
+.bigbgjilu > .content > .namebg > .namebgbg > .name {
+	font-size: 18px;
+	font-family: "shousha";
+	color: rgb(197, 139, 73);
+	z-index: 7;
+	top: -8px;
+	text-shadow:
+		0px 0px 3px rgb(61, 32, 11),
+		0 0 3px rgb(61, 32, 11),
+		0 0 3px rgb(61, 32, 11);
+	font-weight: 600;
+}
+
+.bigbgjilu > .content > .namebg > .namebgbg::before {
+	content: "";
+	background-image: url("../../../assets/lbtn/OL_line/jilu/jianfeng.png");
+	background-size: 100% 100%;
+	width: 120px;
+	height: 5px;
+	position: absolute;
+	bottom: -20px;
+	left: 3px;
+	z-index: 6;
+}
+
+.pausedbg > .resumedbg {
+	left: 0 !important;
+	top: 0 !important;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+}
+
+.pausedbg > .historybg {
+	transition: all 0.2s linear;
+	display: flex;
+	width: 22%;
+	height: 93%;
+	top: 7%;
+	left: 22%;
+	z-index: 6;
+}
+
+#sidebar {
+	left: 0;
+	top: 0;
+	width: 467px;
+	height: calc(100% - 15px);
+	text-align: left;
+	padding: 0px;
+	overflow-y: scroll;
+	z-index: 6;
+	font-size: 18px;
+	color: rgb(217, 194, 153);
+	line-height: 19px;
+	font-weight: 500;
+}
+
+#sidebar > div {
+	font-family: "shousha";
+}
+
+#sidebar > div > .yellowtext {
+	color: rgb(217, 194, 153);
+	letter-spacing: 4px;
+	font-weight: 500;
+}
+
+#sidebar > div > .bluetext {
+	color: rgb(220, 170, 50);
+	font-weight: 600;
+}
+
+#sidebar > div > .greentext {
+	color: rgb(193, 181, 24);
+	letter-spacing: 4px;
+	font-weight: 600;
+}
+
+#sidebar3 > div {
+	color: rgb(217, 194, 153);
+	letter-spacing: 4px;
+	font-weight: 500;
+}
+
+/* 身份任务 */
+.identityShow {
+	top: 95px;
+	left: 50px;
+	z-index: 4;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 3px;
+	width: 130px;
+}
+
+/* 记录按钮 */
+.jiluButton {
+	display: block;
+	--w: 117px;
+	--h: 42px;
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	top: -48px;
+	background-image: url("../../../assets/lbtn/OL_line/uibutton/jiluShow.png");
+	background-size: 100% 100%;
+	z-index: 5;
+	left: 0px;
+}
+
+.jiluButton::after {
+	content: "牌局记录";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: #f5d78e;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	text-shadow: 0 0 3px black;
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+/* 背景选择器 */
+.bgdialog {
+	position: absolute;
+	background: url("../../../assets/lbtn/OL_line/bg/bgdialog.png");
+	background-size: 100% 100%;
+	width: 70%;
+	height: 90%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.backgroundsbg {
+	width: 100%;
+	height: 82%;
+	top: 11.5%;
+	left: 0.5%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.backgrounds {
+	background-size: 100% 100%;
+	left: 3.55%;
+	width: 29%;
+	height: 34%;
+	position: relative;
+	border: 2px solid #d2b48c;
+	min-width: 200px;
+	object-fit: cover;
+	margin-left: 1%;
+	margin-bottom: 1%;
+	border-radius: 6px;
+}
+
+.buttontext {
+	position: absolute;
+	bottom: 0;
+	height: 20%;
+	background-color: #2e1e10;
+	width: 100%;
+	text-align: center;
+	font-weight: 500;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+	font-size: 25px;
+}
+
+.bgback {
+	width: 80px;
+	height: 40px;
+	top: 5%;
+	right: 8%;
+	background-image: url("../../../assets/lbtn/OL_line/uibutton/back.png");
+	background-size: 100% 100%;
+	z-index: 100;
+	position: absolute;
+}
+
+.bgxuanzhong {
+	background: url("../../../assets/lbtn/OL_line/bg/gou.png");
+	background-size: 100% 100%;
+	width: 45%;
+	height: 60%;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%, -50%);
+}
+
+/* 礼物面板 */
+.giftbg {
+	width: 35%;
+	height: 30%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 4px;
+	border: 1px solid #ae8e7d;
+}
+
+.giftbgtext {
+	bottom: 5%;
+	font-size: 18px;
+	width: 100%;
+	text-align: center;
+	color: #efdbb6;
+	font-family: "HYXLSJ";
+}
+
+.giftes {
+	width: 100%;
+	height: 70%;
+	top: 10%;
+}
+
+.gift {
+	width: 19%;
+	height: 65%;
+	background-size: 100% 100%;
+	position: relative;
+	margin-left: 4.55%;
+}
+
+.giftname {
+	bottom: -30%;
+	font-size: 18px;
+	width: 100%;
+	text-align: center;
+	color: #efdbb6;
+	font-family: "HYXLSJ";
+}
+
+.giftcost {
+	bottom: -55%;
+	font-size: 18px;
+	width: 100%;
+	text-align: center;
+	color: #efdbb6;
+	font-family: "HYXLSJ";
+}
+
+.giftcost::before {
+	content: "";
+	background-image: url("../../../assets/lbtn/OL_line/gift/hua.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+.giftbg2 {
+	width: 25%;
+	height: 25%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 4px;
+	border: 1px solid #aa8f3a;
+}
+
+.gift2 {
+	width: 25%;
+	height: 55%;
+	background-size: 100% 100%;
+	position: relative;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%, -50%);
+}
+
+.giftgive {
+	/* 送礼物元素，位置在js里设置 */
+	position: absolute;
+}
+
+/* 聊天面板 */
+.talkbg {
+	background-image: url("../../../assets/lbtn/OL_line/talk/talkbg.png");
+	background-size: 100% 100%;
+	height: 100%;
+	width: 35%;
+	left: 0%;
+	top: 0%;
+}
+
+.typechanges {
+	top: 6%;
+	height: 94%;
+	width: 10%;
+	left: 24%;
+}
+
+.typechange {
+	background-image: url("../../../assets/lbtn/OL_line/talk/btnn1.png");
+	background-size: 100% 100%;
+	height: 33%;
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	color: #ae8e7d;
+	font-size: 23px;
+	font-family: "HYXLSJ";
+}
+
+.typechangelight {
+	background-image: url("../../../assets/lbtn/OL_line/talk/btnn2.png");
+	background-size: 100% 100%;
+	height: 33%;
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	color: #efdbb6;
+	font-size: 23px;
+	font-family: "HYXLSJ";
+}
+
+.talkrightbg {
+	width: 63%;
+	height: 80%;
+	top: 7%;
+	right: 1.5%;
+	overflow: auto;
+}
+
+.talkquick {
+	color: #efdbb6;
+	font-size: 22px;
+	font-family: "HYXLSJ";
+	position: relative;
+	margin-top: 20px;
+	font-weight: 600;
+	display: block;
+	text-align: center;
+}
+
+.talkquick::before {
+	content: "";
+	background-image: url("../../../assets/lbtn/OL_line/jilu/jianfeng.png");
+	background-size: 100% 100%;
+	width: 100%;
+	height: 5px;
+	position: absolute;
+	bottom: -12px;
+	left: 3px;
+	z-index: 6;
+}
+
+.emotionbg {
+	background-size: 100% 100%;
+	height: 100%;
+	width: 25%;
+}
+
+.talkhistory {
+	color: #efdbb6;
+	font-family: "HYXLSJ";
+	position: relative;
+	margin-top: 20px;
+	font-size: 21px;
+	display: block;
+}
+
+.talkhistory::before {
+	content: "";
+	background-image: url("../../../assets/lbtn/OL_line/jilu/jianfeng.png");
+	background-size: 100% 100%;
+	width: 100%;
+	height: 5px;
+	position: absolute;
+	top: -15px;
+	left: 3px;
+	z-index: 6;
+}
+
+.dazi {
+	background-image: url("../../../assets/lbtn/OL_line/talk/btnn2.png");
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #efdbb6;
+	font-size: 23px;
+	font-family: "HYXLSJ";
+	bottom: 1.5%;
+	right: 15%;
+	width: 35%;
+	height: 10%;
+	position: absolute;
+}
+
+/* 左侧按钮 */
+.leftbuttons,
+.rightbuttons {
+	width: 85px;
+	bottom: 5px;
+	max-height: 205px;
+	overflow: auto;
+}
+
+.leftbuttons {
+	left: 40px;
+}
+
+.rightbuttons {
+	right: 80px;
+}
+
+.anniubutton {
+	width: 80%;
+	height: 40px;
+	background-size: 100% 100%;
+	margin-top: 9%;
+	position: relative;
+	background-image: url("../../../assets/lbtn/OL_line/uibutton/gameanniubuttonsbg.png");
+	background-size: 100% 100%;
+	font-size: 20px;
+	font-weight: 550;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgb(197, 167, 139);
+	font-family: "HYXLSJ";
+	text-shadow: none;
+}
+
+/* 菜单按钮 */
+.caidanbutton {
+	background-image: url("../../../assets/lbtn/OL_line/uibutton/caidan.png");
+	background-size: 100% 100%;
+	display: block;
+	width: 53px;
+	height: 46px;
+	position: absolute;
+	top: 44px;
+	right: 55px;
+	background-color: transparent;
+	z-index: 1;
+}
+
+.caidanopen {
+	width: 47px;
+	height: 236.34px;
+	flex-direction: column;
+	align-items: flex-start;
+	white-space: normal;
+	position: fixed;
+	top: 12px;
+	right: 56px;
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 4px;
+	overflow: auto;
+}
+
+.controls {
+	width: 95%;
+	height: 40.1px;
+	background-size: 100% 100%;
+	z-index: 99;
+	left: -4px;
+	position: relative;
+	margin-top: 6px;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	color: rgb(194, 145, 105);
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	background-color: rgb(87, 59, 38);
+	border-radius: 2px;
+	text-align: center;
+	text-shadow: none;
+}
+
+/* 控制按钮 */
+.lbtn-confirm:not(.closing).removing {
+	opacity: 1 !important;
+}
+
+.control {
+	--height: 32px;
+	width: auto !important;
+	background: transparent;
+	line-height: normal;
+	box-shadow: none !important;
+	padding: 0;
+}
+
+.control > div {
+	background-image: url("../../../assets/lbtn/OL_line/uibutton/seatui_btns_ingnore.png");
+	background-size: 100% 100%;
+	line-height: var(--h);
+	padding: 4px 23px !important;
+	text-align: center;
+	margin-top: 0px !important;
+	margin-bottom: -15px !important;
+	color: #ceb193;
+	-webkit-text-stroke: 2px black;
+	paint-order: stroke fill;
+	font-family: "HYXLSJ";
+	font-size: 26px;
+	text-shadow:
+		1px 1px 0px #5d4022,
+		-1px -1px 0px #5d4022;
+	letter-spacing: 2px;
+}
+
+#arena > #dui-controls > .control.stayleft {
+	left: calc(70% - 20px) !important;
+	margin-bottom: 5px !important;
+	order: 3;
+}
+
+.control > div.primary2 {
+	bottom: 1.8px;
+	color: #ceb193;
+	font-family: "HYXLSJ";
+	font-size: 23px !important;
+	line-height: 35px;
+	min-width: 85px !important;
+	height: 39px !important;
+	padding: 4px 24.5px !important;
+	margin-right: 55px !important;
+	margin-right: 0px !important;
+	margin-top: 0px !important;
+	margin-bottom: -15px !important;
+	font-weight: 500;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("../../../assets/lbtn/OL_line/uibutton/seatui_btns_confirm_2.png");
+	overflow: visible;
+	transition: none;
+	text-shadow:
+		1px 1px 0px #5d4022,
+		-1px -1px 0px #5d4022;
+	letter-spacing: 2px;
+}
+
+.control > div.primary {
+	color: #ceb193;
+	font-family: "HYXLSJ";
+	font-size: 28px !important;
+	line-height: 35px;
+	font-weight: 500;
+	width: 109px !important;
+	height: 46px !important;
+	padding: 4px 24.5px !important;
+	margin-left: -10px !important;
+	margin-right: 10px !important;
+	margin-top: 0px !important;
+	margin-bottom: -15px !important;
+	background-size: 100% 100%;
+	background-image: url("../../../assets/lbtn/OL_line/uibutton/seatui_btns_ingnore.png");
+	text-shadow:
+		1px 1px 0px #5d4022,
+		-1px -1px 0px #5d4022;
+	letter-spacing: 2px;
+}
+
+.control > div.disabled:not([data-type="endButton"]) {
+	background-size: 100% 100%;
+	filter: grayscale(100%);
+}
+
+/* 牌堆显示 */
+.cardRoundNumber {
+	top: 59px;
+	right: 138.5px;
+	font-weight: 400;
+	font-family: "HYXLSJ";
+	z-index: 3;
+}
+
+.cardRoundNumber > .cardPileNumber {
+	left: 30px;
+	top: -15px;
+	--w: 86px;
+	--h: 46px;
+	width: var(--w);
+	height: var(--h);
+	background-image: url("../../../assets/lbtn/OL_line/uibutton/round_info_time_bg.png");
+	background-size: 100% 100%;
+	background-color: transparent;
+	position: relative;
+	z-index: 1;
+}
+
+.cardRoundNumber > .cardPileNumber > span {
+	left: -25px;
+	top: 23px;
+	width: 100%;
+	display: block;
+	position: absolute;
+	font-family: "HYXLSJ";
+	line-height: 25px;
+	text-align: center;
+	color: #b08463;
+	font-size: 16px;
+	-webkit-text-stroke: 0.1px #000;
+	text-shadow:
+		-1px 0 0 #000,
+		1px 0 0 #000,
+		0 -1px 0 #000,
+		0 1px 0 #000;
+}
+
+.cardRoundNumber > .roundNumber,
+.cardRoundNumber > .time {
+	left: 55px;
+	top: -5px;
+	height: 20px;
+	line-height: 5px;
+	white-space: nowrap;
+	font-size: 16px;
+	font-family: "HYXLSJ";
+	color: #b08463;
+	z-index: 3;
+}
+
+.cardRoundNumber > .roundNumber {
+	left: 68px;
+}
+
+.cardRoundNumber > .time {
+	top: 20px;
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
+	font-family: "HYXLSJ";
+	color: #b08463;
+	min-width: 70px;
+}
+
+/* 托管中图标 */
+#autonode > div:last-child {
+	z-index: 10;
+	margin-bottom: -75px !important;
+	left: calc(50% - 440px);
+	font-size: 0px;
+	text-shadow: none;
+	--w: 400px;
+	--h: calc(var(--w) * 149 / 598);
+	width: var(--w);
+	height: var(--h);
+	background-image: url("../../../assets/lbtn/CD/tuoguan2.png");
+	background-size: 100% 100%;
+	-webkit-text-fill-color: transparent;
+	text-shadow: none !important;
+}
+
+/* 手牌数 */
+.handcardNumber {
+	bottom: 0px;
+	right: 230px;
+	font-family: "HYXLSJ";
+	text-shadow:
+		#f5d78e 0 0 1px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px;
+	color: #f5d78e;
+	z-index: 1;
+}
+
+.handcardNumber > .cardNumber {
+	display: none !important;
+}
+
+.lbtn-confirm[data-skill] > [data-type="skill2"] {
+	display: none;
+}

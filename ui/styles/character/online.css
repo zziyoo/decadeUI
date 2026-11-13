@@ -1,0 +1,953 @@
+/**
+ * OL风格 - 角色信息弹窗样式
+ * 使用独立容器类名 .online-character-dialog
+ */
+
+.popup-container > .online-character-dialog {
+	top: calc(49% - var(--h) / 2 + var(--bt));
+	left: calc(50% - var(--w) / 2 + var(--bl));
+}
+
+/* 基础弹窗 */
+.online-character-dialog {
+	--w: 828px;
+	--h: 503px;
+	--bt: calc(var(--h) * 15 / 290);
+	--bl: calc(var(--w) * 38 / 497);
+	--bb: calc(var(--h) * 17 / 290);
+	--dw: calc(var(--w) - 2 * var(--bl));
+	--dh: calc(var(--h) - var(--bt) - var(--bb));
+	width: var(--dw);
+	height: var(--dh);
+	position: absolute;
+	box-sizing: border-box;
+	padding: 0;
+	z-index: 13;
+}
+
+.online-character-dialog > .blackBg {
+	padding: 0;
+	position: relative;
+	width: 100%;
+	height: 115px;
+	top: 0;
+	left: -25px;
+}
+
+.online-character-dialog .blackBg.two {
+	margin-top: 8px;
+	height: 218px;
+}
+
+.online-character-dialog::before {
+	content: "";
+	top: calc(0% - var(--bt));
+	left: calc(0% - var(--bl));
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	background-image: url("../../assets/character/online/dialog4.png");
+	background-size: 100% 100%;
+}
+
+.online-character-dialog > div {
+	top: 0;
+	height: 100%;
+	position: absolute;
+}
+
+/* 武将框 */
+.online-character-dialog > .blackBg.one > div.biankuang3 {
+	width: 22px;
+	height: 204px;
+	top: 51px;
+	left: 57.2px;
+	background-size: 100% 100%;
+	z-index: 60;
+	position: absolute;
+	background: rgb(154, 148, 122);
+	box-shadow:
+		inset -0.1px 0.3px 1px rgba(0, 0, 0, 0.6),
+		inset 0.1px 0.3px 1.5px rgba(0, 0, 0, 0.6),
+		2.5px -0.5px 2px rgba(0, 0, 0, 0.8);
+	filter: none;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	visibility: visible;
+}
+
+.online-character-dialog > .blackBg.one > div.biankuang2 {
+	width: 155px;
+	height: 204px;
+	top: 51px;
+	left: 56px;
+	background-size: 100% 100%;
+	z-index: 60;
+	background: #3f3f3f;
+	border-radius: 4px;
+	box-shadow:
+		-0.3px -0.3px 0 rgba(0, 0, 0, 0.5),
+		0.3px 0 0 rgba(0, 0, 0, 0.5),
+		0 1px 5px black;
+	position: absolute;
+	/*	filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));*/
+}
+
+/* 势力 */
+.online-character-dialog .biankuang4 {
+	width: 25px;
+	height: 25px;
+	top: 50px;
+	left: 55px;
+	background-size: 100% 100%;
+	z-index: 60;
+	position: absolute;
+}
+
+/* 武将名字 */
+.online-character-dialog > .name {
+	position: absolute;
+	width: 24px;
+	height: 135px;
+	left: 32.5px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	top: 72px;
+	font-size: 22px;
+	font-family: "HYXLSJ";
+	z-index: 99;
+	color: #ffffff;
+	-webkit-text-stroke: 3px black;
+	paint-order: stroke fill;
+	line-height: 24px;
+	white-space: normal;
+}
+
+/* 吊坠 */
+.online-character-dialog .diaozhui {
+	width: 80px;
+	height: 40px;
+	top: -85px;
+	left: 700px;
+	background-size: 100% 100%;
+	z-index: 60;
+	position: absolute;
+}
+
+/* 玩家名 */
+.online-character-dialog .wanjia {
+	font-size: 20px;
+	font-family: "HYXLSJ";
+	left: 0px;
+	top: 300px;
+	color: #efdbb6;
+	font-weight: bold;
+	text-align: center;
+	z-index: 99;
+}
+
+/* 配件 */
+.online-character-dialog .peijian {
+	width: 270px;
+	height: 30px;
+	top: 235px;
+	left: -60px;
+	background-size: 100% 100%;
+	z-index: 60;
+	position: absolute;
+}
+
+/* 人气值 */
+.online-character-dialog .renqi {
+	left: -42px;
+	top: 370px;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+}
+
+/* 胜率 */
+.online-character-dialog .shenglv {
+	left: 59px;
+	top: 370px;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+}
+
+/* 逃率 */
+.online-character-dialog .taolv {
+	left: 155px;
+	top: 370px;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+}
+
+/* 资料页启动按钮 */
+.online-character-dialog .xinxi {
+	background: url("../../assets/character/online/xinxi.png");
+	background-size: 100% 100%;
+	bottom: -305%;
+	right: -24.5%;
+	height: 65px;
+	width: 80px;
+}
+
+/* 双将切换按钮 */
+.online-character-dialog .sjright {
+	background: url("../../assets/character/online/sj_btn.png");
+	background-size: 100% 100%;
+	width: 25px;
+	height: 25px;
+	right: -45px;
+	top: 80px;
+}
+
+.online-character-dialog .sjleft {
+	background: url("../../assets/character/online/sj_btn.png");
+	background-size: 100% 100%;
+	width: 25px;
+	height: 25px;
+	transform: rotate(180deg);
+	left: -55px;
+	top: 80px;
+}
+
+/* 边框底纹 */
+.online-character-dialog > .blackBg.one > div.biankuang3::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("../../assets/character/online/border_diwen.png");
+	background-size: 100% 100%;
+	border-radius: 4px 0 0 4px;
+	opacity: 0.18;
+	z-index: 61;
+}
+
+/* 武将牌不露头 */
+.online-character-dialog .biankuang2 > div.left2 {
+	left: 15%;
+	top: auto;
+	bottom: 0.7%;
+	width: 84%;
+	height: 98.7%;
+	opacity: 1;
+	box-shadow:
+		0.3px 0.3px 0 rgba(0, 0, 0, 0.8),
+		-0.3px -0.3px 0 rgba(0, 0, 0, 0.8);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 0 3px 3px 0;
+	transition-property: opacity, transform;
+	z-index: 69;
+}
+
+/* 技能窗口 */
+.online-character-dialog.single div.right {
+	top: -48.5%;
+	/*	border: 1px solid red;*/
+	left: 41%;
+	width: calc(70%);
+	height: calc(202.5%);
+}
+
+.online-character-dialog div.right {
+	left: 50%;
+	width: 50%;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+.online-character-dialog div.right > div {
+	position: absolute !important;
+	top: 0;
+	left: 4%;
+	width: 91.5%;
+	height: 100%;
+	overflow: auto;
+}
+
+.online-character-dialog div.right div {
+	position: relative;
+}
+
+.online-character-dialog div.right .xcaption {
+	background: url("../../assets/character/online/quyu4.png") center/contain no-repeat;
+	background-size: 260px 30px;
+	background-origin: content-box;
+	text-align: center;
+	line-height: 1.8;
+	color: #bb9870;
+	display: inline-block;
+	position: relative;
+	min-width: 250px;
+	width: 100%;
+	bottom: 0%;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0;
+	font-family: "HYXLSJ";
+}
+
+/* 技能描述 */
+.online-character-dialog div.right .xskill > div {
+	display: block;
+	color: #efdbb6;
+	text-shadow: none;
+	font-size: 20.5px;
+	text-align: justify;
+	word-break: break-all;
+	font-weight: 550;
+	font-family: "HYXLSJ";
+}
+
+.online-character-dialog div.right .xskill > div[data-color] {
+	display: inline-block;
+	color: #f7d229;
+	padding: 3px 0px;
+	text-align: center;
+	font-size: 20px;
+	min-width: 62px;
+	max-width: 1000px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	box-sizing: border-box;
+	border-image: url("../../assets/character/online/btn4.png") 0 25 fill / 0 15px stretch;
+	border-width: 0 0px;
+	border-style: solid;
+}
+
+.online-character-dialog div.right .xskill + .xskill {
+	margin-top: 15px;
+}
+
+/* 装备描述 */
+.online-character-dialog div.right .xskillx > div {
+	display: block;
+	color: #efdbb6;
+	text-shadow: none;
+	font-size: 20px;
+	font-weight: 550;
+	font-family: "HYXLSJ";
+}
+
+.online-character-dialog div.right .xskillx > div[data-color] {
+	display: inline-block;
+	text-align: center;
+	font-size: 20px;
+	font-family: "HYXLSJ";
+	font-weight: bold;
+	color: #f7d229;
+}
+
+/* 主被动标签 */
+.online-character-dialog div.right > div > div.xskill > span.skill-type-tag {
+	position: relative;
+	color: #f7d229;
+	top: -5px;
+	left: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	text-shadow: none;
+}
+
+/* 衍生技 */
+.online-character-dialog div.right > div > div.xskill > span.yanshengji {
+	position: relative;
+	color: #f7d229;
+	top: -5px;
+	left: 15px;
+	font-size: 19px;
+	font-weight: 700;
+	font-family: "HYXLSJ";
+	text-shadow: none;
+}
+
+.online-character-dialog div.right > div > div.xskill > span.yanshengji::before {
+	content: "";
+	background-image: url("../../assets/character/online/ysjineg.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+/* 衍生技描述 */
+.online-character-dialog div.right > div > div.xskill > span.yanshengjiinfo {
+	display: block;
+	width: 90%;
+	margin-left: 15px;
+	color: #d1b296;
+	text-shadow: none;
+	font-size: 17px;
+	font-weight: 550;
+	font-family: "HYXLSJ";
+}
+
+/** 详细资料弹窗样式 */
+
+/* 大资料主页 */
+.online-detail-popup .bigdialog {
+	position: absolute;
+	background: url("../../assets/character/online/bigdialog.png");
+	background-size: 100% 100%;
+	width: 73.8%;
+	height: 95%;
+	left: 50%;
+	top: 50.5%;
+	transform: translate(-50%, -50%);
+	z-index: 75;
+}
+
+/* 关闭按钮 */
+.online-detail-popup .guanbi {
+	width: 80px;
+	height: 40px;
+	top: 2%;
+	right: 6%;
+	background-image: url("../../assets/character/online/diaozhui.png");
+	background-size: 100% 100%;
+	z-index: 100;
+	position: absolute;
+}
+
+/* 玩家头像 */
+.online-detail-popup .minixingxiang {
+	opacity: 1;
+	left: 3.5%;
+	top: 14.5%;
+	height: 28%;
+	width: 12%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	border-radius: 5px;
+	transition-property: opacity, transform;
+	border: 2px solid #000000;
+	z-index: 69;
+	text-align: center;
+}
+
+.online-detail-popup .minixingxiang::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 15%);
+	border-radius: 5px;
+}
+
+/* 玩家名称 */
+.online-detail-popup .nameX {
+	font-size: 18px;
+	top: -25px;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+	font-weight: 700;
+	position: relative;
+}
+
+/* 资料页玩家等级 */
+.online-detail-popup .dengjiX {
+	right: 5%;
+	top: 0%;
+	font-size: 15px;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: 1px 1px 1px black;
+	font-weight: 700;
+}
+
+/* 资料页会员等级 */
+.online-detail-popup .huiyuanX {
+	left: 5%;
+	top: 0%;
+	font-size: 15px;
+	font-family: "HYXLSJ";
+	color: orange;
+	text-shadow: 1px 1px 1px black;
+	font-weight: 700;
+}
+
+/* 官阶 */
+.online-detail-popup .guanjie {
+	background-size: 100% 100%;
+	left: 17.8%;
+	z-index: 78;
+	width: 11%;
+	height: 17%;
+	top: 9%;
+}
+
+.online-detail-popup .guanjiewenzi {
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+	bottom: -37%;
+	left: 0%;
+	width: 104%;
+}
+
+/* 资料页信誉分 */
+.online-detail-popup .xinyufen {
+	left: 22%;
+	top: 34%;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+}
+
+/* 资料页人气值 */
+.online-detail-popup .renqizhi {
+	left: 22%;
+	top: 39.5%;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+}
+
+/* 将灯底图 */
+.online-detail-popup .jddialog {
+	background: url("../../assets/character/online/jddialog.png");
+	background-size: 100% 100%;
+	z-index: 77;
+	width: 42%;
+	height: 37%;
+	top: 7.8%;
+	left: 31.3%;
+}
+
+.online-detail-popup .jdditu {
+	display: inline-flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 3.3%;
+	top: 10%;
+	height: 25%;
+	width: 15%;
+	opacity: 1;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: top;
+	transition-property: opacity, transform;
+	z-index: 69;
+	position: relative;
+	filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+	background: url("../../assets/character/online/jdditu.png");
+	background-size: 100% 100%;
+}
+
+/* 将灯图标 */
+.online-detail-popup .jdtubiao {
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	animation: alternateImages 4s ease-in-out infinite reverse;
+}
+
+.online-detail-popup .jdtubiaoan {
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	filter: grayscale(100%) brightness(0.6);
+}
+
+/* 文字闪烁动画 */
+@keyframes alternateImages {
+	0%,
+	49.9%,
+	99.9% {
+		opacity: 1.2;
+	}
+
+	24.9%,
+	74.9% {
+		opacity: 0.7;
+	}
+}
+
+/* 流水灯动画 */
+@keyframes flowingLights {
+	0% {
+		background-image: var(--first-image);
+		opacity: 1;
+	}
+
+	24.9% {
+		opacity: 0;
+	}
+
+	25% {
+		background-image: var(--second-image);
+		opacity: 0;
+	}
+
+	49.9% {
+		opacity: 1;
+	}
+
+	50% {
+		background-image: var(--second-image);
+		opacity: 1;
+	}
+
+	74.9% {
+		opacity: 0;
+	}
+
+	75% {
+		background-image: var(--first-image);
+		opacity: 0;
+	}
+
+	99.9% {
+		opacity: 1;
+	}
+}
+
+/* 将灯动画 */
+.online-detail-popup .jdbiaodonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/biao1.png");
+	--second-image: url("../../assets/character/online/biao2.png");
+}
+
+.online-detail-popup .jdcuidonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/cui1.png");
+	--second-image: url("../../assets/character/online/cui2.png");
+}
+
+.online-detail-popup .jdguodonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/guo1.png");
+	--second-image: url("../../assets/character/online/guo2.png");
+}
+
+.online-detail-popup .jdjiangdonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/jiang1.png");
+	--second-image: url("../../assets/character/online/jiang2.png");
+}
+
+.online-detail-popup .jdjiangjiedonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/jiangjie1.png");
+	--second-image: url("../../assets/character/online/jiangjie2.png");
+}
+
+.online-detail-popup .jdjiedonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/jie1.png");
+	--second-image: url("../../assets/character/online/jie2.png");
+}
+
+.online-detail-popup .jdmoudonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/mou1.png");
+	--second-image: url("../../assets/character/online/mou2.png");
+}
+
+.online-detail-popup .jdqidonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/qi1.png");
+	--second-image: url("../../assets/character/online/qi2.png");
+}
+
+.online-detail-popup .jdshandonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/shan1.png");
+	--second-image: url("../../assets/character/online/shan2.png");
+}
+
+.online-detail-popup .jdshendonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/shen1.png");
+	--second-image: url("../../assets/character/online/shen2.png");
+}
+
+.online-detail-popup .jdspdonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/sp1.png");
+	--second-image: url("../../assets/character/online/sp2.png");
+}
+
+.online-detail-popup .jdwenwudonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/wenwu1.png");
+	--second-image: url("../../assets/character/online/wenwu2.png");
+}
+
+.online-detail-popup .jdxiandonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/xian1.png");
+	--second-image: url("../../assets/character/online/xian2.png");
+}
+
+.online-detail-popup .jdzudonghua {
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	animation: flowingLights 4s linear infinite;
+	--first-image: url("../../assets/character/online/zu1.png");
+	--second-image: url("../../assets/character/online/zu2.png");
+}
+
+/* 排位底图 */
+.online-detail-popup .paiweiditu {
+	background: url("../../assets/character/online/paiweiditu.png");
+	background-size: 100% 100%;
+	right: 3%;
+	z-index: 78;
+	width: 21%;
+	height: 48%;
+	top: 5%;
+}
+
+/* 段位图标 */
+.online-detail-popup .duanwei {
+	background-size: 100% 100%;
+	z-index: 80;
+	width: 72%;
+	height: 52%;
+	left: 49.5%;
+	top: 38%;
+	transform: translate(-50%, -50%);
+}
+
+.online-detail-popup .duanweishuzi {
+	font-size: 17px;
+	font-family: "HYXLSJ";
+	color: orange;
+	text-shadow: 1px 1px 1px black;
+	bottom: 40%;
+	left: 25%;
+	text-align: center;
+	white-space: pre-wrap;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 47%, rgba(0, 0, 0, 0) 94%);
+	z-index: 81;
+	padding: 0px 10px;
+	width: 42%;
+	font-weight: 500;
+}
+
+/* 排位类型 */
+.online-detail-popup .paiweiType {
+	font-size: 22px;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+	top: 3%;
+	left: 32.5%;
+	z-index: 81;
+	font-weight: 700;
+}
+
+.online-detail-popup .typeleft {
+	left: 10%;
+	background: url("../../assets/character/online/left.png");
+	background-size: 100% 100%;
+	height: 25px;
+	width: 25px;
+	top: 2.7%;
+}
+
+.online-detail-popup .typeright {
+	right: 10%;
+	background: url("../../assets/character/online/right.png");
+	background-size: 100% 100%;
+	height: 25px;
+	width: 25px;
+	top: 2.7%;
+}
+
+/* 胜率2 */
+.online-detail-popup .shenglvx {
+	font-size: 18px;
+	font-weight: bold;
+	font-family: "HYXLSJ";
+	color: #efdbb6;
+	text-shadow: none;
+	bottom: 17%;
+	left: 20%;
+	white-space: pre-wrap;
+}
+
+/* 擅长武将 */
+.online-detail-popup .shanchangdialog {
+	background: url("../../assets/character/online/shanchangbigdialog.png");
+	background-size: 100% 100%;
+	z-index: 77;
+	width: 100%;
+	height: 54%;
+	bottom: 0%;
+}
+
+.online-detail-popup .shanchang {
+	display: inline-flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 3.5%;
+	left: 2.1%;
+	top: 20%;
+	height: 65%;
+	width: 15%;
+	opacity: 1;
+	border-radius: 4px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: top;
+	transition-property: opacity, transform;
+	z-index: 69;
+	position: relative;
+	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.8);
+	filter: none;
+}
+
+/* 换肤图标 */
+.online-detail-popup .huanfu {
+	width: 45px;
+	height: 45px;
+	background-image: url("../../assets/character/online/huanfu.png");
+	background-size: 100% 100%;
+	z-index: 99;
+	right: -10px;
+	top: -10px;
+}
+
+/* 擅长武将框 */
+.online-detail-popup .kuang {
+	width: 15%;
+	height: 100%;
+	background-size: 100% 100%;
+	z-index: 70;
+	left: 0%;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	background: rgb(154, 148, 122);
+	box-shadow:
+		inset -0.1px 0.3px 1px rgba(0, 0, 0, 0.6),
+		inset 0.1px 0.3px 1.5px rgba(0, 0, 0, 0.6),
+		2.5px -0.5px 2px rgba(0, 0, 0, 0.8);
+	filter: none;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	visibility: visible;
+}
+
+.online-detail-popup .kuang::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("../../assets/character/online/border_diwen.png");
+	background-size: 100% 100%;
+	border-radius: 4px 0 0 4px;
+	opacity: 0.18;
+	z-index: 1;
+}
+
+/* 星星 */
+.online-detail-popup .xing {
+	width: 90%;
+	height: 40%;
+	bottom: 0%;
+	background-image: url("../../assets/character/online/xing.png");
+	background-size: 100% 100%;
+}
+
+/* 武将名 */
+.online-detail-popup .charName {
+	margin-top: 25px;
+	left: 6px;
+	width: 15px;
+	font-family: "HYXLSJ";
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	white-space: nowrap;
+	font-size: 20px;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+/* 势力图标 */
+.online-detail-popup .shili {
+	width: 26px;
+	height: 26px;
+	background-size: 100% 100%;
+	z-index: 70;
+	margin-top: 0px;
+}
