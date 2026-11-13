@@ -23,6 +23,18 @@ export function initSvgClipPaths() {
  * @param {Object} ctx - 上下文对象
  */
 export function patchGlobalMethods(ctx) {
+	if (typeof ui.create.cardTempName === "function") {
+		const original = ui.create.cardTempName;
+		ui.create.cardTempName = function (card, applyNode) {
+			const node = (applyNode || card)?._tempName;
+			// Core 图片模式首次创建背景时不会清空已有文本，避免与十周年UI的牌名重复。
+			if (lib.config.cardtempname === "image" && node?.classList.contains("temp-name") && !node.querySelector("div")) {
+				node.textContent = "";
+			}
+			return original.apply(this, arguments);
+		};
+	}
+
 	if (!window.get) return;
 
 	if (typeof window.get.cardsetion === "function") {
