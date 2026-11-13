@@ -461,6 +461,8 @@ export function playerThrow(cards, time, record, nosource) {
 				if (evt.card.suit == "none") card.node.suitnum.style.display = "none";
 				card.dataset.virtual = 1;
 				cards = [card];
+			} else {
+				return;
 			}
 		}
 	}
