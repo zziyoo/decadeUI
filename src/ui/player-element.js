@@ -6,6 +6,74 @@
 import { lib, game, ui, get, ai, _status } from "noname";
 import { element } from "../utils/element.js";
 
+
+/**
+ * 折叠范围只限于有实际受赠记录的派生技能。
+ * 例如【甚宠】先赠予【飞扬】【跋扈】，再通过 *_die storage 保存受赠对象。
+ */
+function getGrantedSkillGroups(player, displayedSkills) {
+	if (lib.config.extension_十周年UI_foldDerivedSkills !== true || !displayedSkills.length) return [];
+	const available = new Set(displayedSkills), consumed = new Set(), result = [];
+	for (const giver of new Set([...(game.players || []), ...(game.dead || [])])) {
+		if (!giver || giver === player) continue;
+		for (const parent of giver.getSkills?.("invisible", null, false) || giver.skills || []) {
+			const derivation = lib.skill[parent]?.derivation;
+			if (!derivation) continue;
+			const recipients = giver.getStorage?.(parent + "_die") || giver.storage?.[parent + "_die"];
+			if (!Array.isArray(recipients) || !recipients.includes(player)) continue;
+			const children = (Array.isArray(derivation) ? derivation : [derivation]).filter(
+				id => typeof id === "string" && available.has(id) && !consumed.has(id)
+			);
+			if (!children.length) continue;
+			children.forEach(id => consumed.add(id));
+			result.push({ parent, children });
+		}
+	}
+	return result;
+}
+
+/** 只查看来源技能实际赠予的技能，不修改玩家状态。 */
+function showGrantedSkillDetails(player, group) {
+	const previous = document.querySelector(".derived-gain-overlay");
+	previous?._closeDerivedGain?.();
+	previous?.remove();
+	const overlay = ui.create.div(".derived-gain-overlay", ui.window);
+	const dialog = ui.create.div(".derived-gain-dialog", overlay);
+	dialog.setAttribute("role", "dialog");
+	dialog.setAttribute("aria-modal", "true");
+	const header = ui.create.div(".derived-gain-dialog-head", dialog);
+	ui.create.div(".derived-gain-dialog-title", header, get.translation(group.parent));
+	const closeButton = ui.create.div(".derived-gain-dialog-close", header, "×");
+	const onKeyDown = e => {
+		if (e.key === "Escape") close();
+	};
+	const close = () => {
+		document.removeEventListener("keydown", onKeyDown);
+		overlay.remove();
+	};
+	overlay._closeDerivedGain = close;
+	closeButton.addEventListener("click", e => { e.stopPropagation(); close(); });
+	overlay.addEventListener("click", e => {
+		e.stopPropagation();
+		if (e.target === overlay) close();
+	});
+	dialog.addEventListener("click", e => e.stopPropagation());
+	document.addEventListener("keydown", onKeyDown);
+	for (const skill of group.children) {
+		if (!player.node?.gainSkill?.skills?.includes(skill)) continue;
+		const row = ui.create.div(".derived-gain-dialog-skill", dialog);
+		ui.create.div(".derived-gain-dialog-name", row, get.translation(skill));
+		const description = ui.create.div(".derived-gain-dialog-desc", row);
+		let info = "";
+		try {
+			info = get.skillInfoTranslation?.(skill, player, false) || lib.translate[skill + "_info"] || "";
+		} catch (e) {
+			info = lib.translate[skill + "_info"] || "";
+		}
+		description.innerHTML = info || "暂无技能描述";
+	}
+}
+
 /**
  * 子节点监视器类
  * 用于缓存和监视DOM子节点变化
@@ -324,44 +392,80 @@ export function createPlayerElement(position, noclick) {
 		gainSkill: element.create("gain-skill", player),
 	};
 
+
 	node.gainSkill.player = player;
 	node.gainSkill.skills = [];
 
-	/**
-	 * 获得技能时的显示处理
-	 * @param {string} skill - 技能名称
-	 */
-	node.gainSkill.gain = function (skill) {
-		if (!this.skills.includes(skill) && lib.translate[skill]) {
-			if (lib.config.extension_十周年UI_newDecadeStyle === "off" && lib.config.extension_十周年UI_gainSkillsVisible !== "off") {
-				const info = lib.skill[skill];
-				if (!info || info.charlotte || info.sub || (info.mark && !info.limited) || info.nopop || info.popup === false || info.equipSkill) return;
-				if (info.onremove && game.me !== this.player.storage[skill]) return;
-				if (lib.config.extension_十周年UI_gainSkillsVisible === "othersOn" && this.player === game.me) return;
-				if (!info.intro) info.intro = { content: () => get.skillInfoTranslation(skill, this.player, false) };
-				this.player.markSkill(skill);
+	/** 将游戏的获赠技能记录渲染到武将牌。 */
+	node.gainSkill.refresh = function () {
+		const groups = getGrantedSkillGroups(this.player, this.skills);
+		const groupByChild = new Map(groups.flatMap(group => group.children.map(child => [child, group])));
+		const renderKey = [
+			lib.config.extension_十周年UI_foldDerivedSkills === true,
+			this.skills.join("|"),
+			groups.map(g => g.parent + ":" + g.children.join(",")).join("|"),
+		].join(";");
+		if (this._derivedGainRenderKey === renderKey) return;
+		this._derivedGainRenderKey = renderKey;
+		this.classList.toggle("derived-gain-active", groups.length > 0);
+
+		if (!groups.length) {
+			this.innerHTML = this.skills.map(s => lib.translate[s] || "").filter(Boolean).join(" ");
+			return;
+		}
+
+		this.textContent = "";
+		const inserted = new Set();
+		let first = true;
+		for (const skill of this.skills) {
+			const group = groupByChild.get(skill);
+			if (group && inserted.has(group)) continue;
+			if (!first) this.appendChild(document.createTextNode(" "));
+			first = false;
+			if (!group) {
+				this.appendChild(document.createTextNode(lib.translate[skill] || ""));
+				continue;
 			}
-			this.skills.push(skill);
-			this.innerHTML = this.skills
-				.map(s => lib.translate[s] || "")
-				.filter(Boolean)
-				.join(" ");
+			inserted.add(group);
+			const badge = document.createElement("span");
+			badge.className = "derived-gain-icon";
+			badge.textContent = get.translation(group.parent);
+			badge.title = group.children.map(id => get.translation(id)).join("、");
+			badge.setAttribute("role", "button");
+			badge.tabIndex = 0;
+			const open = e => {
+				e.preventDefault();
+				e.stopPropagation();
+				showGrantedSkillDetails(this.player, group);
+			};
+			badge.addEventListener("click", open);
+			badge.addEventListener("keydown", e => {
+				if (e.key === "Enter" || e.key === " ") open(e);
+			});
+			this.appendChild(badge);
 		}
 	};
 
-	/**
-	 * 失去技能时的显示处理
-	 * @param {string} skill - 技能名称
-	 */
+	/** 获得技能仍记录原技能 ID；折叠只改变显示。 */
+	node.gainSkill.gain = function (skill) {
+		if (this.skills.includes(skill) || !lib.translate[skill]) return;
+		if (lib.config.extension_十周年UI_newDecadeStyle === "off" && lib.config.extension_十周年UI_gainSkillsVisible !== "off") {
+			const info = lib.skill[skill];
+			if (!info || info.charlotte || info.sub || (info.mark && !info.limited) || info.nopop || info.popup === false || info.equipSkill) return;
+			if (info.onremove && game.me !== this.player.storage[skill]) return;
+			if (lib.config.extension_十周年UI_gainSkillsVisible === "othersOn" && this.player === game.me) return;
+			if (!info.intro) info.intro = { content: () => get.skillInfoTranslation(skill, this.player, false) };
+			this.player.markSkill(skill);
+		}
+		this.skills.push(skill);
+		this.refresh();
+	};
+
 	node.gainSkill.lose = function (skill) {
 		const index = this.skills.indexOf(skill);
-		if (index >= 0) {
-			this.skills.splice(index, 1);
-			this.innerHTML = this.skills
-				.map(s => lib.translate[s] || "")
-				.filter(Boolean)
-				.join(" ");
-		}
+		if (index < 0) return;
+		this.skills.splice(index, 1);
+		this.refresh();
 	};
 
 	decadeUI.get.extend(player.node, node);
