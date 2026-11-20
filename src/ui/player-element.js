@@ -6,6 +6,37 @@
 import { lib, game, ui, get, ai, _status } from "noname";
 import { element } from "../utils/element.js";
 
+
+/**
+ * 读取当前仍可见的获赠技能以及有明确来源记录的赠予关系。
+ * 【甚宠】先执行 addSkills，再通过 *_die storage 记录受赠目标；
+ * 在该记录出现前，仅将可能属于赠予中的技能列为 pending，而不错误归组。
+ */
+function getGrantedSkillState(player, shownSkills) {
+	const visible = new Set(shownSkills);
+	const pendingCandidates = new Set();
+	const assigned = new Set();
+	const groups = [];
+	for (const giver of new Set([...(game.players || []), ...(game.dead || [])])) {
+		if (!giver || giver === player) continue;
+		const sourceSkills = giver.getSkills?.("invisible", null, false) || giver.skills || [];
+		for (const parent of sourceSkills) {
+			const derivation = lib.skill[parent]?.derivation;
+			if (!derivation) continue;
+			const candidateSkills = (Array.isArray(derivation) ? derivation : [derivation]).filter(id => typeof id === "string" && visible.has(id));
+			if (!candidateSkills.length) continue;
+			candidateSkills.forEach(id => pendingCandidates.add(id));
+			const recipients = giver.getStorage?.(parent + "_die") || giver.storage?.[parent + "_die"];
+			if (!Array.isArray(recipients) || !recipients.includes(player)) continue;
+			const children = candidateSkills.filter(id => !assigned.has(id));
+			if (!children.length) continue;
+			children.forEach(id => assigned.add(id));
+			groups.push({ parent, children });
+		}
+	}
+	return { groups, pendingCandidates, assigned };
+}
+
 /**
  * 子节点监视器类
  * 用于缓存和监视DOM子节点变化
@@ -324,44 +355,139 @@ export function createPlayerElement(position, noclick) {
 		gainSkill: element.create("gain-skill", player),
 	};
 
+
+
 	node.gainSkill.player = player;
 	node.gainSkill.skills = [];
 
-	/**
-	 * 获得技能时的显示处理
-	 * @param {string} skill - 技能名称
-	 */
-	node.gainSkill.gain = function (skill) {
-		if (!this.skills.includes(skill) && lib.translate[skill]) {
-			if (lib.config.extension_十周年UI_newDecadeStyle === "off" && lib.config.extension_十周年UI_gainSkillsVisible !== "off") {
-				const info = lib.skill[skill];
-				if (!info || info.charlotte || info.sub || (info.mark && !info.limited) || info.nopop || info.popup === false || info.equipSkill) return;
-				if (info.onremove && game.me !== this.player.storage[skill]) return;
-				if (lib.config.extension_十周年UI_gainSkillsVisible === "othersOn" && this.player === game.me) return;
-				if (!info.intro) info.intro = { content: () => get.skillInfoTranslation(skill, this.player, false) };
-				this.player.markSkill(skill);
+	/** 对暂未建立来源记录的候选获赠技能短暂保留，避免“飞扬、跋扈”先闪现。 */
+	node.gainSkill.refresh = function () {
+		const enabled = lib.config.extension_十周年UI_foldDerivedSkills === true;
+		const { groups, pendingCandidates, assigned } = enabled
+			? getGrantedSkillState(this.player, this.skills)
+			: { groups: [], pendingCandidates: new Set(), assigned: new Set() };
+
+		if (this._grantRenderTimer) {
+			clearTimeout(this._grantRenderTimer);
+			this._grantRenderTimer = null;
+		}
+		this._grantPending ??= new Map();
+		this._grantExpired ??= new Set();
+		const now = Date.now();
+		const pending = new Set();
+		if (!enabled) {
+			this._grantPending.clear();
+			this._grantExpired.clear();
+		} else {
+			for (const skill of this.skills) {
+				if (assigned.has(skill)) {
+					this._grantPending.delete(skill);
+					this._grantExpired.delete(skill);
+				} else if (pendingCandidates.has(skill) && !this._grantExpired.has(skill)) {
+					if (!this._grantPending.has(skill)) this._grantPending.set(skill, now + 1000);
+					if (now < this._grantPending.get(skill)) {
+						pending.add(skill);
+					} else {
+						this._grantPending.delete(skill);
+						this._grantExpired.add(skill);
+					}
+				} else {
+					this._grantPending.delete(skill);
+				}
 			}
-			this.skills.push(skill);
+		}
+		if (pending.size) {
+			this._grantRenderTimer = setTimeout(() => {
+				this._grantRenderTimer = null;
+				if (this.isConnected) this.refresh();
+			}, 60);
+		}
+
+		const key = [
+			enabled,
+			this.skills.join("|"),
+			groups.map(g => g.parent + ":" + g.children.join(",")).join("|"),
+			[...pending].join("|"),
+		].join(";");
+		const markHost = this.player.node?.marks;
+		this._derivedGainMarks ??= new Set();
+		// 标记栏如被其他界面逻辑重新构建，也允许恢复此纯 UI 标记。
+		const lostMark = [...this._derivedGainMarks.values()].some(mark => mark.parentNode !== markHost);
+		if (this._derivedGainRenderKey === key && !lostMark) return;
+		this._derivedGainRenderKey = key;
+
+		// 只移除扩展自身创建的折叠标记，不触碰 player.marks 或原生标记。
+		for (const mark of this._derivedGainMarks.values()) mark.remove();
+		this._derivedGainMarks.clear();
+
+		if (!markHost || !groups.length) {
 			this.innerHTML = this.skills
-				.map(s => lib.translate[s] || "")
+				.filter(id => !pending.has(id))
+				.map(id => lib.translate[id] || "")
 				.filter(Boolean)
 				.join(" ");
+			return;
+		}
+
+		// 已归组技能不再出现在 gain-skill 文字层；摘要直接显示在原生标记栏。
+		this.innerHTML = this.skills
+			.filter(id => !pending.has(id) && !assigned.has(id))
+			.map(id => lib.translate[id] || "")
+			.filter(Boolean)
+			.join(" ");
+
+		for (const group of groups) {
+			// 复用现有标记 DOM 结构和 OL 的 .dui-marks > .mark 样式。
+			const mark = ui.create.div(".card.mark.other-skill.derived-gain-mark", markHost);
+			ui.create.div(".mark-text", mark, get.translation(group.parent).slice(0, 2));
+			mark.title = get.translation(group.parent) + "：" + group.children.map(id => get.translation(id)).join("、");
+			mark._customintro = uiintro => {
+				uiintro.add(get.translation(group.parent));
+				let count = 0;
+				for (const id of group.children) {
+					if (!this.skills.includes(id)) continue;
+					const name = get.translation(id);
+					let info = "";
+					try {
+						info = get.skillInfoTranslation(id, this.player, false) || "";
+					} catch (error) {
+						info = lib.translate[id + "_info"] || "";
+					}
+					if (!info) info = lib.translate[id + "_info"] || "暂无技能描述";
+					uiintro.add('<div><div class="skill">【' + name + '】</div><div>' + info + '</div></div>');
+					count++;
+				}
+				if (!count) uiintro.addText("当前没有可查看的获赠技能");
+				uiintro.add(ui.create.div(".placeholder.slim"));
+			};
+			// 与真实的十周年 UI 标记使用同一个交互入口，不新增弹窗系统。
+			mark.addEventListener(lib.config.touchscreen ? "touchend" : "click", ui.click.card);
+			this._derivedGainMarks.add(mark);
 		}
 	};
 
-	/**
-	 * 失去技能时的显示处理
-	 * @param {string} skill - 技能名称
-	 */
+	/** 获得技能仍记录原始技能 ID；折叠仅改变武将牌显示。 */
+	node.gainSkill.gain = function (skill) {
+		if (this.skills.includes(skill) || !lib.translate[skill]) return;
+		if (lib.config.extension_十周年UI_newDecadeStyle === "off" && lib.config.extension_十周年UI_gainSkillsVisible !== "off") {
+			const info = lib.skill[skill];
+			if (!info || info.charlotte || info.sub || (info.mark && !info.limited) || info.nopop || info.popup === false || info.equipSkill) return;
+			if (info.onremove && game.me !== this.player.storage[skill]) return;
+			if (lib.config.extension_十周年UI_gainSkillsVisible === "othersOn" && this.player === game.me) return;
+			if (!info.intro) info.intro = { content: () => get.skillInfoTranslation(skill, this.player, false) };
+			this.player.markSkill(skill);
+		}
+		this.skills.push(skill);
+		this.refresh();
+	};
+
 	node.gainSkill.lose = function (skill) {
 		const index = this.skills.indexOf(skill);
-		if (index >= 0) {
-			this.skills.splice(index, 1);
-			this.innerHTML = this.skills
-				.map(s => lib.translate[s] || "")
-				.filter(Boolean)
-				.join(" ");
-		}
+		if (index < 0) return;
+		this.skills.splice(index, 1);
+		this._grantPending?.delete(skill);
+		this._grantExpired?.delete(skill);
+		this.refresh();
 	};
 
 	decadeUI.get.extend(player.node, node);

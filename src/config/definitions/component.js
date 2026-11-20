@@ -5,7 +5,7 @@
  */
 import { lib } from "noname";
 import { createCollapseTitle, createCollapseEnd } from "../utils.js";
-import { onJindutiaoYangshiUpdate, onJindutiaoSetBlur, onJindutiaoSetUpdate, onJDTSYangshiUpdate, onGTBBYangshiClick, onPlayerMarkStyleUpdate, onLoadingStyleUpdate, onGainSkillsVisibleUpdate } from "../handlers/component-handlers.js";
+import { onJindutiaoYangshiUpdate, onJindutiaoSetBlur, onJindutiaoSetUpdate, onJDTSYangshiUpdate, onGTBBYangshiClick, onPlayerMarkStyleUpdate, onLoadingStyleUpdate, onGainSkillsVisibleUpdate, onFoldDerivedSkillUpdate } from "../handlers/component-handlers.js";
 
 /**
  * 部件管理折叠标题
@@ -177,6 +177,17 @@ export const gainSkillsVisible = {
 };
 
 /**
+ * 派生技能折叠配置（获赠技能显示）
+ * @type {Object}
+ */
+export const foldDerivedSkills = {
+	name: "派生技能折叠",
+	intro: "当其他角色通过一个技能授予多个派生技能时，武将牌上只显示该来源技能的图标，点击可查看所获得的技能。默认关闭，仅改变本地显示。",
+	init: false,
+	update: onFoldDerivedSkillUpdate,
+};
+
+/**
  * 武将详情插件配置
  * @type {Object}
  */
@@ -208,6 +219,7 @@ export const componentConfigs = {
 	playerMarkStyle,
 	loadingStyle,
 	gainSkillsVisible,
+	foldDerivedSkills,
 	characterPlugin,
 	component_title_end,
 };

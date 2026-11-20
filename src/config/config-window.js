@@ -319,6 +319,7 @@ function getConfigsByTab(tabId) {
 			{ key: "playerMarkStyle", name: "标记样式", type: "select" },
 			{ key: "loadingStyle", name: "光标+loading框", type: "select" },
 			{ key: "gainSkillsVisible", name: "获得技能显示", type: "select" },
+			{ key: "foldDerivedSkills", name: "派生技能折叠", type: "toggle" },
 			{ isTitle: true, name: "插件功能" },
 			{ key: "characterPlugin", name: "武将详情插件", type: "toggle" },
 		],

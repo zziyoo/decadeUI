@@ -174,3 +174,12 @@ export function onGainSkillsVisibleUpdate() {
 		ui.arena.dataset.gainSkillsVisible = lib.config.extension_十周年UI_gainSkillsVisible;
 	}
 }
+
+/**
+ * 即时更新武将牌上获赠技能的显示，不修改技能数据或录像。
+ */
+export function onFoldDerivedSkillUpdate() {
+	for (const player of new Set([...(game.players || []), ...(game.dead || [])])) {
+		player?.node?.gainSkill?.refresh?.();
+	}
+}
