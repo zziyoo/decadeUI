@@ -409,40 +409,39 @@ export function createPlayerElement(position, noclick) {
 			groups.map(g => g.parent + ":" + g.children.join(",")).join("|"),
 			[...pending].join("|"),
 		].join(";");
-		if (this._derivedGainRenderKey === key) return;
+		const markHost = this.player.node?.marks;
+		this._derivedGainMarks ??= new Map();
+		// 标记栏如被其他界面逻辑重新构建，也允许恢复此纯 UI 标记。
+		const lostMark = [...this._derivedGainMarks.values()].some(mark => mark.parentNode !== markHost);
+		if (this._derivedGainRenderKey === key && !lostMark) return;
 		this._derivedGainRenderKey = key;
-		this.classList.toggle("derived-gain-active", groups.length > 0);
 
-		if (!groups.length && !pending.size) {
-			this.innerHTML = this.skills.map(s => lib.translate[s] || "").filter(Boolean).join(" ");
+		// 只移除扩展自身创建的折叠标记，不触碰 player.marks 或原生标记。
+		for (const mark of this._derivedGainMarks.values()) mark.remove();
+		this._derivedGainMarks.clear();
+
+		if (!markHost || !groups.length) {
+			this.innerHTML = this.skills
+				.filter(id => !pending.has(id))
+				.map(id => lib.translate[id] || "")
+				.filter(Boolean)
+				.join(" ");
 			return;
 		}
 
-		const byChild = new Map(groups.flatMap(group => group.children.map(child => [child, group])));
-		const usedGroups = new Set();
-		this.textContent = "";
-		let first = true;
-		for (const skill of this.skills) {
-			if (pending.has(skill)) continue;
-			const group = byChild.get(skill);
-			if (group && usedGroups.has(group)) continue;
-			if (!first) this.appendChild(document.createTextNode(" "));
-			first = false;
-			if (!group) {
-				this.appendChild(document.createTextNode(lib.translate[skill] || ""));
-				continue;
-			}
+		// 已归组技能不再出现在 gain-skill 文字层；摘要直接显示在原生标记栏。
+		this.innerHTML = this.skills
+			.filter(id => !pending.has(id) && !assigned.has(id))
+			.map(id => lib.translate[id] || "")
+			.filter(Boolean)
+			.join(" ");
 
-			usedGroups.add(group);
-			const badge = document.createElement("span");
-			badge.className = "derived-gain-icon";
-			badge.textContent = get.translation(group.parent);
-			badge.title = group.children.map(id => get.translation(id)).join("、");
-			badge.setAttribute("role", "button");
-			badge.tabIndex = 0;
-
-			// 复用无名杀与十周年 UI 现有的介绍弹窗，以及现有技能简介样式。
-			badge._customintro = uiintro => {
+		for (const group of groups) {
+			// 复用现有标记 DOM 结构和 OL 的 .dui-marks > .mark 样式。
+			const mark = ui.create.div(".card.mark.other-skill.derived-gain-mark", markHost);
+			ui.create.div(".mark-text", mark, get.translation(group.parent).slice(0, 2));
+			mark.title = get.translation(group.parent) + "：" + group.children.map(id => get.translation(id)).join("、");
+			mark._customintro = uiintro => {
 				uiintro.add(get.translation(group.parent));
 				let count = 0;
 				for (const id of group.children) {
@@ -461,25 +460,9 @@ export function createPlayerElement(position, noclick) {
 				if (!count) uiintro.addText("当前没有可查看的获赠技能");
 				uiintro.add(ui.create.div(".placeholder.slim"));
 			};
-			const openIntro = function (event) {
-				event.stopPropagation();
-				event.preventDefault();
-				if (_status.dragged || _status.clicked || ui.intro) return;
-				const point = event.changedTouches?.[0] || event;
-				const rect = this.getBoundingClientRect();
-				ui.click.touchpop();
-				ui.click.intro.call(this, {
-					clientX: point.clientX ?? rect.left + 18,
-					clientY: point.clientY ?? rect.top + 12,
-				});
-				_status.clicked = false;
-			};
-			badge.addEventListener(lib.config.touchscreen ? "touchend" : "click", openIntro);
-			badge.addEventListener("keydown", e => {
-				if (e.key !== "Enter" && e.key !== " ") return;
-				openIntro.call(badge, e);
-			});
-			this.appendChild(badge);
+			// 与真实的十周年 UI 标记使用同一个交互入口，不新增弹窗系统。
+			mark.addEventListener(lib.config.touchscreen ? "touchend" : "click", ui.click.card);
+			this._derivedGainMarks.set(group.parent, mark);
 		}
 	};
 
