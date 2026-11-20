@@ -172,7 +172,6 @@ export function createOnlineSkillPlugin(lib, game, ui, get, ai, _status, app) {
 					skillControl.add(skills, eSkills);
 					if (gSkills?.length) skillControl.setGSkills(gSkills, eSkills);
 					skillControl.addCachedGSkills(eSkills);
-					skillControl.applyDerivedGrouping();
 					skillControl.update();
 					game.addVideo("updateSkillControl", player, clear);
 				}
@@ -193,95 +192,6 @@ export function createOnlineSkillPlugin(lib, game, ui, get, ai, _status, app) {
 			};
 		},
 
-
-		// 来源关系必须可验证；仅有 derivation 名单不足以证明技能由谁授予。
-		getVerifiedDerivedGroups(player) {
-			if (!player || lib.config["extension_十周年UI_foldDerivedSkills"] !== true) return [];
-
-			const owned = new Set(player.getSkills("invisible", null, false) || []);
-			if (!owned.size) return [];
-			const native = new Set();
-			for (const name of new Set([player.name, player.name1, player.name2].filter(Boolean))) {
-				const character = lib.character[name];
-				const raw = Array.isArray(character) ? character[3] : character?.skills;
-				if (Array.isArray(raw)) raw.forEach(skill => native.add(skill));
-			}
-			const grouped = new Set();
-			const result = [];
-			for (const source of [...(game.players || []), ...(game.dead || [])]) {
-				if (!source || source === player || typeof source.getSkills !== "function") continue;
-				for (const parent of source.getSkills("invisible", null, false) || []) {
-					const derivation = get.info(parent)?.derivation;
-					if (!derivation) continue;
-					const recipients = source.getStorage?.(parent + "_die");
-					// 如“甚宠”通过 *_die storage 记录受赠目标；没有记录的情况不猜测来源。
-					if (!Array.isArray(recipients) || !recipients.includes(player)) continue;
-					const candidates = Array.isArray(derivation) ? derivation : [derivation];
-					const children = candidates.filter(id => typeof id === "string" && owned.has(id) && !native.has(id) && !grouped.has(id));
-					if (!children.length) continue;
-					children.forEach(id => grouped.add(id));
-					result.push({ source: parent, children });
-				}
-			}
-			return result;
-		},
-
-		showDerivedSkillDetails(group) {
-			const previous = document.querySelector(".derived-skill-overlay");
-			previous?._derivedClose?.();
-			previous?.remove();
-			const backdrop = ui.create.div(".derived-skill-overlay", ui.window);
-			const dialog = ui.create.div(".derived-skill-dialog", backdrop);
-			const header = ui.create.div(".derived-skill-dialog-header", dialog);
-			ui.create.div(".derived-skill-dialog-title", header, get.translation(group.source));
-			const closeButton = ui.create.div(".derived-skill-close", header, "×");
-			const close = () => {
-				backdrop.remove();
-				document.removeEventListener("keydown", handleEscape);
-			};
-			const handleEscape = e => {
-				if (e.key === "Escape") close();
-			};
-			backdrop._derivedClose = close;
-			dialog.setAttribute("role", "dialog");
-			dialog.setAttribute("aria-modal", "true");
-			closeButton.addEventListener("click", e => {
-				e.stopPropagation();
-				close();
-			});
-			backdrop.addEventListener("click", e => {
-				e.stopPropagation();
-				if (e.target === backdrop) close();
-			});
-			dialog.addEventListener("click", e => e.stopPropagation());
-			document.addEventListener("keydown", handleEscape);
-
-			for (const id of group.children) {
-				// 弹窗打开后技能可能已失去，不再展示无效条目。
-				if (!game.me?.getSkills("invisible", null, false).includes(id)) continue;
-				const row = ui.create.div(".derived-skill-row", dialog);
-				ui.create.div(".derived-skill-name", row, get.translation(id));
-				const description = ui.create.div(".derived-skill-description", row);
-				let info = "";
-				try {
-					info = get.skillInfoTranslation?.(id, game.me, false) || lib.translate[id + "_info"] || "";
-				} catch (e) {
-					info = lib.translate[id + "_info"] || "";
-				}
-				description.innerHTML = info || "暂无技能描述";
-				if (getAvailableSkills(ui).includes(id)) {
-					const action = ui.create.div(".derived-skill-action", row, "使用技能");
-					action.addEventListener("click", e => {
-						e.stopPropagation();
-						// 触发本体已创建的隐藏控制节点，不直接调用技能或更改玩家数据。
-						const control = Array.from(ui.skillControlArea?.querySelectorAll("[data-id]") || []).find(node => node.dataset.id === id);
-						if (!control || !getAvailableSkills(ui).includes(id)) return;
-						close();
-						app.mockTouch(control);
-					});
-				}
-			}
-		},
 
 		// 获取角色原生技能集合
 		getNativeSkillSet() {
@@ -307,35 +217,6 @@ export function createOnlineSkillPlugin(lib, game, ui, get, ai, _status, app) {
 		},
 
 		controlElement: {
-
-			// 只折叠视觉按钮；实际技能及隐藏的原生控制节点保持不变。
-			applyDerivedGrouping() {
-				const container = this.node.combined;
-				for (const item of Array.from(container.children)) {
-					if (item.classList.contains("derived-skill-summary")) {
-						item.remove();
-					} else if (item.dataset.derivedFoldedFrom) {
-						item.style.display = "";
-						delete item.dataset.derivedFoldedFrom;
-					}
-				}
-				for (const group of plugin.getVerifiedDerivedGroups(game.me)) {
-					const children = Array.from(container.children).filter(item => group.children.includes(item.dataset.id));
-					if (!children.length) continue;
-					children.forEach(item => {
-						item.dataset.derivedFoldedFrom = group.source;
-						item.style.display = "none";
-					});
-					const label = get.translation(group.source);
-					const summary = ui.create.div(".skillitem.trigger-skill.derived-skill-summary", container, label.slice(0, 2));
-					summary.dataset.id = "__derived__" + group.source;
-					summary.title = label + "：" + group.children.map(id => get.translation(id)).join("、");
-					summary.addEventListener("click", e => {
-						e.stopPropagation();
-						plugin.showDerivedSkillDetails(group);
-					});
-				}
-			},
 
 			// 设置gskill缓存
 			setGSkills(skills, eSkills) {
@@ -556,7 +437,7 @@ export function createOnlineSkillPlugin(lib, game, ui, get, ai, _status, app) {
 
 				updateSkillUsability(this.node.combined.childNodes, skills, { lib, game, ui, get, ai, _status });
 
-				const count = Array.from(this.node.combined.children).filter(node => !node.dataset.derivedFoldedFrom).length;
+				const count = this.node.combined.childNodes.length;
 				const level = count > 2 ? 4 : count > 0 ? 2 : 0;
 				ui.arena.dataset.sclevel = level;
 

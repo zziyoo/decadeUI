@@ -177,12 +177,12 @@ export const gainSkillsVisible = {
 };
 
 /**
- * 派生技能折叠配置（仅 OL 样式）
+ * 派生技能折叠配置（获赠技能显示）
  * @type {Object}
  */
 export const foldDerivedSkills = {
 	name: "派生技能折叠",
-	intro: "当能够确认同一来源技能赠予了多个派生技能时，将其显示为一个来源图标。点击可查看获得的技能及发动入口。仅影响 OL 样式的本地显示，默认关闭。",
+	intro: "当其他角色通过一个技能授予多个派生技能时，武将牌上只显示该来源技能的图标，点击可查看所获得的技能。默认关闭，仅改变本地显示。",
 	init: false,
 	update: onFoldDerivedSkillUpdate,
 };

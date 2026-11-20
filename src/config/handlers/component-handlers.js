@@ -179,7 +179,7 @@ export function onGainSkillsVisibleUpdate() {
  * 即时更新 OL 样式派生技能分组，不修改技能数据或录像。
  */
 export function onFoldDerivedSkillUpdate() {
-	if (typeof ui.skillControl?.applyDerivedGrouping !== "function") return;
-	ui.skillControl.applyDerivedGrouping();
-	ui.skillControl.update?.();
+	for (const player of new Set([...(game.players || []), ...(game.dead || [])])) {
+		player?.node?.gainSkill?.refresh?.();
+	}
 }
