@@ -6,7 +6,6 @@
 
 import { lib, game, ui, get, ai, _status } from "noname";
 
-
 /**
  * AI技能提示条显示时长（毫秒）
  * @constant {number}
