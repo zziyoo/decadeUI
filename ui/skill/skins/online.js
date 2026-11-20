@@ -192,7 +192,6 @@ export function createOnlineSkillPlugin(lib, game, ui, get, ai, _status, app) {
 			};
 		},
 
-
 		// 获取角色原生技能集合
 		getNativeSkillSet() {
 			const nativeSkillSet = new Set();
@@ -217,7 +216,6 @@ export function createOnlineSkillPlugin(lib, game, ui, get, ai, _status, app) {
 		},
 
 		controlElement: {
-
 			// 设置gskill缓存
 			setGSkills(skills, eSkills) {
 				if (!skills?.length) return this;
