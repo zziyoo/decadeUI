@@ -1,0 +1,343 @@
+/**
+ * 十周年UI - 卡牌样式
+ */
+
+/** 卡牌选中效果 */
+
+.card::before {
+	content: "";
+	position: absolute;
+	top: -7px;
+	left: -7px;
+	width: 100%;
+	height: 100%;
+	border-width: 7px;
+	border-style: solid;
+	border-image-source: url("../../image/ui/card/card_select.png");
+	border-image-slice: 8 7 7 8;
+	border-image-width: 8px 7px 7px 8px;
+	border-radius: inherit;
+	box-shadow: none;
+	opacity: 0;
+	transition: opacity 0.3s linear;
+	z-index: 0;
+}
+
+.card::after {
+	display: none;
+}
+
+.card.selected::before {
+	opacity: 1;
+}
+
+/** 卡牌层级 */
+
+#arena > .card.thrown {
+	z-index: 5;
+}
+
+#arena > .card.thrown.gainingcard,
+#arena > .card.thrown.drawingcard {
+	z-index: 6;
+}
+
+/** 卡牌动画 */
+
+.card > .animation {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	line-height: 150px;
+	font-size: 100px;
+	font-family: "xingkai";
+	font-display: swap;
+	color: black;
+	text-align: center;
+	text-shadow:
+		0 0 5px white,
+		0 0 5px white,
+		0 0 5px white,
+		0 0 5px white,
+		0 0 5px white;
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* 火属性 */
+.card > .animation[data-nature="fire"] {
+	text-shadow:
+		0 0 4px #fff,
+		0 -5px 4px #ff3,
+		2px -10px 6px #fd3,
+		-2px -15px 10px #f80,
+		2px -25px 20px #f20;
+}
+
+/* 雷属性闪电效果 */
+.card > .animation[data-nature="thunder"]::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: calc(50% - 50px);
+	top: calc(50% - 30px);
+	width: 100px;
+	height: 60px;
+	background: linear-gradient(
+		to bottom,
+		white,
+		rgba(100, 100, 255, 1) 15%,
+		white 30%,
+		rgba(100, 100, 255, 1) 50%,
+		white 70%,
+		rgba(100, 100, 255, 1) 85%,
+		white
+	);
+	clip-path: polygon(100% 0, 20% 50%, 37% 60%, 0 100%, 80% 50%, 63% 40%);
+	-webkit-clip-path: polygon(100% 0, 20% 50%, 37% 60%, 0 100%, 80% 50%, 63% 40%);
+	transform: scale(1.5);
+	pointer-events: none;
+	z-index: -1;
+}
+
+.card > .animation-player {
+	display: block;
+	position: absolute;
+	left: -120%;
+	top: -70%;
+	width: 340%;
+	height: 240%;
+	transition: none;
+	pointer-events: none;
+	z-index: 8;
+}
+
+/** 出牌来源提示 */
+
+.card > .used-info {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 33%;
+	margin: 0;
+	padding: 0;
+	font-size: 17px;
+	font-family: "STHeiti", "SimHei", "Microsoft JhengHei", "Microsoft YaHei", "WenQuanYi Micro Hei", Helvetica, Arial, sans-serif !important;
+	color: rgb(255, 255, 200);
+	background: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0.1) 0%,
+		rgba(0, 0, 0, 0.3) 20%,
+		rgba(0, 0, 0, 0.6) 50%,
+		rgba(0, 0, 0, 0.3) 80%,
+		rgba(0, 0, 0, 0.1) 100%
+	);
+	opacity: 0;
+	z-index: 4;
+	/* 确保内部文字居中对齐 */
+	text-align: center;
+}
+
+.card.thrown:not(.drawingcard):not(.movingcard) > .used-info:not(:empty) {
+	opacity: 1;
+}
+
+/** 卡牌转换提示 */
+
+.card > .gaintag.info,
+.card.button > .gaintag.info {
+	position: absolute;
+	left: 4px;
+	top: calc(50% - 16px);
+	right: 4px;
+	bottom: auto;
+	width: auto;
+	font-size: 20px;
+	font-family: yuanli;
+	line-height: 24px;
+	color: #fffff0;
+	text-align: center;
+	text-shadow: none;
+	white-space: normal;
+	background-image: url("../../image/ui/card-base/cardBaseMap.png") !important;
+	background-size: cover;
+	border: 1px solid black;
+	border-radius: 2px;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.card > .gaintag.info:empty,
+.card.button > .gaintag.info:empty {
+	display: none;
+}
+
+.card[data-low="1"] > .gaintag.info {
+	top: calc(70% - 16px);
+}
+
+/** 卡名显示 */
+
+.card > .name,
+.card > .name.long,
+.dialog .buttons > .card > .name.long {
+	display: none;
+	top: auto;
+	bottom: 5px;
+	line-height: 16px;
+	font-size: 16px;
+	font-family: shousha;
+	font-weight: bold;
+	color: black;
+	text-shadow:
+		0 0 1px white,
+		0 0 3px white;
+	border: 1px solid black;
+	border-radius: 2px;
+	z-index: 1;
+}
+
+.card.decade-card:not(*[data-card-type="basic"]) > .name {
+	bottom: 1px;
+}
+
+/* 卡名辅助显示开启时 */
+[data-card-alternate-name-visible="on"] .card > .name,
+[data-card-alternate-name-visible="on"] .card > .name.long,
+[data-card-alternate-name-visible="on"] .dialog .buttons > .card > .name.long,
+[data-card-alternate-name-visible="on"] .card > .name {
+	display: block;
+	left: 1px;
+	top: auto;
+	bottom: 1px;
+	padding: 2px 4px;
+	font-size: 18px;
+	font-family: yuanli;
+	font-weight: bold;
+	color: rgb(0, 0, 0);
+	background-color: rgb(188, 190, 31);
+	border-radius: 2px;
+	z-index: 3;
+}
+
+/** 转换牌显示 */
+
+.card > .temp-name {
+	position: absolute;
+	left: 4px;
+	top: calc(50% - 12px);
+	right: 4px;
+	width: auto;
+	height: 24px;
+	font-size: 20px;
+	font-family: yuanli;
+	font-weight: bold;
+	line-height: 24px;
+	color: white;
+	text-align: center;
+	text-shadow: 0 0 2px black;
+	white-space: normal;
+	background: rgba(228, 207, 166, 0.8);
+	background-image: url("../../image/ui/card-base/cardBaseMap.png") !important;
+	background-size: cover;
+	background-position: center;
+	border: 1px solid black;
+	border-radius: 2px;
+	pointer-events: none;
+}
+
+.card > .temp-name[data-nature="fire"] {
+	color: red;
+	text-shadow:
+		0 0 4px #fff,
+		0 -5px 4px #ff3,
+		2px -10px 6px #fd3,
+		-2px -15px 10px #f80,
+		2px -25px 20px #f20;
+}
+
+.card > .temp-name[data-nature="thunder"] {
+	color: blue;
+	text-shadow:
+		0 0 5px lightblue,
+		0 0 10px lightblue;
+}
+
+.card > .temp-name:empty {
+	display: none;
+}
+
+/* 暗弱特殊显示 */
+.handcards.nsanruo > .card.decade-card[data-card-type="trick"]:not(*[data-card-multitarget="1"]),
+.handcards.nsanruo > .card.decade-card[data-card-name="sha"] {
+	background-image: url("../../../../image/character/ns_liuzhang.jpg") !important;
+	background-position: center;
+	background-size: cover !important;
+}
+
+/** 转化花色点数 */
+
+.card > .tempsuitnum {
+	top: -1px;
+	left: -1px;
+	width: 58px;
+	height: 100px;
+	font-size: 25px;
+	line-height: 42px;
+	color: #351d01;
+	text-align: center;
+	text-shadow: 0 0 3px #fff;
+	letter-spacing: -1px;
+	background-image: url("../../image/ui/misc/viewsuitnum.png");
+	background-size: 70% 60%;
+	background-repeat: no-repeat;
+	transform-origin: 0 0;
+	-webkit-text-size-adjust: none;
+	z-index: 2;
+}
+
+.card[data-virtual="1"] > .tempsuitnum {
+	display: none;
+}
+
+.card > .tempsuitnum > .num {
+	position: relative;
+	left: -11px;
+}
+
+.card > .tempsuitnum > .suit {
+	position: relative;
+	left: -10px;
+	top: -22px;
+}
+
+/* 红色花色 */
+.card[data-suit="heart"] > .suit-num,
+.card[data-suit="diamond"] > .suit-num,
+.card[data-tempsn="heart"] > .tempsuitnum,
+.card[data-tempsn="diamond"] > .tempsuitnum {
+	color: #df0101;
+}
+
+/* 黑色花色 */
+.card[data-suit="club"] > .suit-num,
+.card[data-suit="spade"] > .suit-num,
+.card[data-tempsn="club"] > .tempsuitnum,
+.card[data-tempsn="spade"] > .tempsuitnum {
+	color: #010101;
+}
+
+.dui-mobile .card > .tempsuitnum > .suit {
+	font-size: 16px;
+}
+
+/* 特殊发光效果 */
+.card.dctuoyu-fengtian-glow:before,
+.card.dctuoyu-qingqu-glow:before,
+.card.dctuoyu-junshan-glow:before {
+	opacity: 0.2;
+}

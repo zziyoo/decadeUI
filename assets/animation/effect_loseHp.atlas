@@ -1,0 +1,258 @@
+
+effect_loseHp.png
+size: 1014,1014
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tili_00
+  rotate: false
+  xy: 947, 928
+  size: 62, 84
+  orig: 612, 780
+  offset: 285, 345
+  index: -1
+tililiushi1_05
+  rotate: false
+  xy: 659, 45
+  size: 130, 154
+  orig: 612, 780
+  offset: 247, 305
+  index: -1
+tililiushi1_06
+  rotate: true
+  xy: 848, 214
+  size: 132, 156
+  orig: 612, 780
+  offset: 247, 305
+  index: -1
+tililiushi1_07
+  rotate: false
+  xy: 2, 22
+  size: 136, 160
+  orig: 612, 780
+  offset: 246, 304
+  index: -1
+tililiushi1_08
+  rotate: true
+  xy: 2, 184
+  size: 138, 159
+  orig: 612, 780
+  offset: 245, 304
+  index: -1
+tililiushi1_09
+  rotate: true
+  xy: 848, 348
+  size: 136, 157
+  orig: 612, 780
+  offset: 245, 303
+  index: -1
+tililiushi1_10
+  rotate: true
+  xy: 329, 52
+  size: 138, 160
+  orig: 612, 780
+  offset: 246, 302
+  index: -1
+tililiushi1_11
+  rotate: true
+  xy: 167, 185
+  size: 140, 160
+  orig: 612, 780
+  offset: 246, 302
+  index: -1
+tililiushi1_12
+  rotate: true
+  xy: 343, 192
+  size: 143, 158
+  orig: 612, 780
+  offset: 245, 303
+  index: -1
+tililiushi1_13
+  rotate: true
+  xy: 684, 346
+  size: 149, 162
+  orig: 612, 780
+  offset: 244, 303
+  index: -1
+tililiushi1_14
+  rotate: true
+  xy: 517, 347
+  size: 150, 165
+  orig: 612, 780
+  offset: 244, 303
+  index: -1
+tililiushi1_15
+  rotate: false
+  xy: 517, 179
+  size: 140, 166
+  orig: 612, 780
+  offset: 246, 302
+  index: -1
+tililiushi1_16
+  rotate: false
+  xy: 879, 486
+  size: 133, 170
+  orig: 612, 780
+  offset: 249, 302
+  index: -1
+tililiushi1_17
+  rotate: true
+  xy: 805, 96
+  size: 116, 175
+  orig: 612, 780
+  offset: 258, 300
+  index: -1
+tililiushi1_18
+  rotate: true
+  xy: 791, 5
+  size: 89, 173
+  orig: 612, 780
+  offset: 258, 298
+  index: -1
+tililiushi1_19
+  rotate: false
+  xy: 491, 10
+  size: 89, 167
+  orig: 612, 780
+  offset: 257, 303
+  index: -1
+tililiushi1_20
+  rotate: false
+  xy: 163, 16
+  size: 131, 167
+  orig: 612, 780
+  offset: 254, 308
+  index: -1
+tililiushi1_21
+  rotate: false
+  xy: 659, 201
+  size: 144, 143
+  orig: 612, 780
+  offset: 242, 324
+  index: -1
+tililiushi1_22
+  rotate: false
+  xy: 717, 497
+  size: 160, 159
+  orig: 612, 780
+  offset: 237, 313
+  index: -1
+tililiushi1_23
+  rotate: false
+  xy: 178, 327
+  size: 163, 161
+  orig: 612, 780
+  offset: 236, 312
+  index: -1
+tililiushi1_24
+  rotate: false
+  xy: 2, 324
+  size: 163, 159
+  orig: 612, 780
+  offset: 238, 316
+  index: -1
+tililiushi1_25
+  rotate: false
+  xy: 350, 337
+  size: 165, 162
+  orig: 612, 780
+  offset: 237, 315
+  index: -1
+tililiushi1_26
+  rotate: false
+  xy: 547, 499
+  size: 168, 161
+  orig: 612, 780
+  offset: 236, 314
+  index: -1
+tililiushi1_27
+  rotate: false
+  xy: 178, 490
+  size: 170, 163
+  orig: 612, 780
+  offset: 235, 313
+  index: -1
+tililiushi1_28
+  rotate: false
+  xy: 371, 501
+  size: 174, 162
+  orig: 612, 780
+  offset: 233, 312
+  index: -1
+tililiushi1_29
+  rotate: false
+  xy: 371, 665
+  size: 176, 164
+  orig: 612, 780
+  offset: 232, 311
+  index: -1
+tililiushi1_30
+  rotate: false
+  xy: 2, 659
+  size: 179, 168
+  orig: 612, 780
+  offset: 230, 308
+  index: -1
+tililiushi1_31
+  rotate: false
+  xy: 571, 662
+  size: 183, 170
+  orig: 612, 780
+  offset: 228, 307
+  index: -1
+tililiushi1_32
+  rotate: false
+  xy: 759, 658
+  size: 184, 175
+  orig: 612, 780
+  offset: 226, 302
+  index: -1
+tililiushi1_33
+  rotate: false
+  xy: 759, 835
+  size: 186, 177
+  orig: 612, 780
+  offset: 225, 301
+  index: -1
+tililiushi1_34
+  rotate: false
+  xy: 571, 834
+  size: 186, 178
+  orig: 612, 780
+  offset: 223, 299
+  index: -1
+tililiushi1_35
+  rotate: false
+  xy: 193, 831
+  size: 188, 181
+  orig: 612, 780
+  offset: 222, 297
+  index: -1
+tililiushi1_36
+  rotate: false
+  xy: 383, 831
+  size: 186, 181
+  orig: 612, 780
+  offset: 222, 297
+  index: -1
+tililiushi1_37
+  rotate: false
+  xy: 2, 829
+  size: 189, 183
+  orig: 612, 780
+  offset: 221, 296
+  index: -1
+tililiushi1_38
+  rotate: true
+  xy: 2, 485
+  size: 172, 174
+  orig: 612, 780
+  offset: 230, 303
+  index: -1
+tililiushi1_39
+  rotate: true
+  xy: 193, 655
+  size: 174, 176
+  orig: 612, 780
+  offset: 229, 302
+  index: -1

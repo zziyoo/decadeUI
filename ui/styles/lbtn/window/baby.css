@@ -1,0 +1,355 @@
+/**
+ * 宝宝杀风格按钮样式 - 非触屏布局
+ */
+
+/* 按钮控制区 */
+.lbtn-controls {
+	--width: 80px;
+	--height: 58.6px;
+	left: 0;
+	bottom: 15%;
+	z-index: 3;
+}
+
+#arena:not(.single-handcard):not(.chess).cxy-new-ui > .lbtn-controls ~ #mebg,
+#arena:not(.single-handcard):not(.chess).cxy-new-ui > .lbtn-controls ~ #me {
+	left: 40px !important;
+}
+
+.lbtn-controls ~ #me #handcards1 {
+	--lessw: 40px;
+}
+
+.lbtn-controls > div {
+	display: block;
+	position: relative;
+}
+
+/* 二级菜单 */
+.HOME {
+	--w: 69px;
+	--h: calc(var(--w) * 446 / 81);
+	width: var(--w);
+	height: var(--h);
+	top: 0%;
+	left: 30px;
+	background-size: 100% 100%;
+	background-image: url("../../../assets/lbtn/CD/hs_cd.png");
+	z-index: 68;
+	position: relative;
+	transition: all 1s;
+}
+
+/* 菜单按钮 */
+.SZ {
+	--w: 56px;
+	--h: calc(var(--w) * 73 / 71);
+	width: var(--w);
+	height: var(--h);
+	bottom: calc(100% - 128px);
+	left: 35px;
+	background-size: 100% 100%;
+	background-image: url("../../../assets/lbtn/CD/hs_shezhi.png");
+	z-index: 99;
+	position: fixed;
+}
+
+.LK {
+	--w: 56px;
+	--h: calc(var(--w) * 73 / 71);
+	width: var(--w);
+	height: var(--h);
+	bottom: calc(100% - 375px);
+	left: 35px;
+	background-size: 100% 100%;
+	background-image: url("../../../assets/lbtn/CD/hs_likai.png");
+	z-index: 99;
+	position: fixed;
+}
+
+.BJ {
+	--w: 56px;
+	--h: calc(var(--w) * 73 / 71);
+	width: var(--w);
+	height: var(--h);
+	bottom: calc(100% - 316px);
+	left: 35px;
+	background-size: 100% 100%;
+	background-image: url("../../../assets/lbtn/CD/hs_fankui.png");
+	z-index: 99;
+	position: fixed;
+}
+
+.TX {
+	--w: 56px;
+	--h: calc(var(--w) * 73 / 71);
+	width: var(--w);
+	height: var(--h);
+	bottom: calc(100% - 255px);
+	left: 35px;
+	background-size: 100% 100%;
+	background-image: url("../../../assets/lbtn/CD/hs_touxiang.png");
+	z-index: 99;
+	position: fixed;
+}
+
+.TG {
+	--w: 56px;
+	--h: calc(var(--w) * 74 / 71);
+	width: var(--w);
+	height: var(--h);
+	bottom: calc(100% - 191px);
+	left: 33px;
+	background-size: 100% 100%;
+	background-image: url("../../../assets/lbtn/CD/hs_tuoguan.png");
+	z-index: 99;
+	position: fixed;
+}
+
+.lbtn-confirm:not(.closing).removing {
+	opacity: 1 !important;
+}
+
+/* 功能按钮 */
+.jiluButton_new {
+	display: block;
+	width: 85px;
+	height: 50px;
+	position: absolute;
+	bottom: 0.5%;
+	left: 0;
+	background-image: url("../../../assets/lbtn/uibutton/hs_jiaoliu.png");
+	background-size: 100% 100%;
+	border-radius: 1px;
+	z-index: 4;
+}
+
+.meiguiButton_new {
+	display: block;
+	width: 85px;
+	height: 50px;
+	position: absolute;
+	bottom: 9%;
+	left: 0px;
+	background-image: url("../../../assets/lbtn/uibutton/hs_meigui.png");
+	background-size: 100% 100%;
+	z-index: 3;
+}
+
+/* 控制按钮 */
+.control {
+	--height: 32px;
+	width: auto !important;
+	background: transparent;
+	box-shadow: none;
+	line-height: normal;
+	padding: 0;
+}
+
+.control > div {
+	background-image: url("../../../assets/lbtn/uibutton/new_btnnHS.png");
+	background-size: 100% 100%;
+	line-height: var(--h);
+	padding: 2.6px 23px !important;
+	min-width: 90px !important;
+	max-height: 50px !important;
+	text-align: center;
+	margin-top: 0px !important;
+	margin-bottom: -15px !important;
+	color: #000000;
+	font-family: "yuanli";
+	font-size: 20px;
+}
+
+/* 无懈按钮位置 */
+#arena > #dui-controls > .control.stayleft {
+	left: calc(50% - 420px) !important;
+	margin-bottom: 5px !important;
+	order: 3;
+}
+
+.control > div.primary2 {
+	bottom: 1.8px;
+	color: #000000;
+	font-family: "yuanli";
+	font-size: 20px;
+	line-height: 35px;
+	padding: 2.6px 23px !important;
+	margin-left: 55px !important;
+	margin-right: 0px !important;
+	margin-top: 0px !important;
+	margin-bottom: -15px !important;
+	background-size: 100% 100%;
+	background-image: url("../../../assets/lbtn/uibutton/new_btnnHS.png");
+	overflow: visible;
+	transition: none;
+}
+
+.control > div.primary {
+	color: #000000;
+	font-family: "yuanli";
+	font-size: 20px;
+	line-height: 35px;
+	padding: 2.6px 23px !important;
+	margin-left: 10px !important;
+	margin-right: 10px !important;
+	margin-top: 0px !important;
+	margin-bottom: -15px !important;
+	background-size: 100% 100%;
+	background-image: url("../../../assets/lbtn/uibutton/new_btnnHS.png");
+}
+
+.control > div.disabled:not([data-type="endButton"]) {
+	background-size: 100% 100%;
+	filter: grayscale(100%);
+}
+
+.lbtn-confirm[data-skill] > [data-type="skill2"] {
+	display: none;
+}
+
+/* 手牌数显示 */
+.handcardNumber {
+	bottom: 0px;
+	right: 255px;
+	font-family: "yuanli";
+	text-shadow:
+		#f5d78e 0 0 1px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px;
+	color: #f5d78e;
+	z-index: 3;
+}
+
+.handcardNumber > .cardNumber {
+	display: none !important;
+}
+
+/* 牌堆数显示 */
+.cardRoundNumber {
+	top: 16px;
+	left: 75px;
+	font-weight: 700;
+	font-family: "yuanli";
+	z-index: 3;
+}
+
+.cardRoundNumber > .cardPileNumber {
+	top: -15px;
+	width: 110px;
+	height: 75px;
+	background-image: url("../../../assets/lbtn/uibutton/hs_jilu.png");
+	background-size: 100% 100%;
+	background-color: transparent;
+	position: relative;
+	z-index: 1;
+}
+
+.cardRoundNumber > .cardPileNumber > span {
+	left: -5px;
+	top: 40px;
+	width: 100%;
+	display: block;
+	position: absolute;
+	line-height: 20px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 18px;
+}
+
+.cardRoundNumber > .roundNumber,
+.cardRoundNumber > .time {
+	left: 17px;
+	top: 2px;
+	height: 20px;
+	line-height: 16px;
+	white-space: nowrap;
+	color: #ffffff;
+	z-index: 3;
+}
+
+.cardRoundNumber > .time {
+	top: 2px;
+	left: 55px;
+	font-size: 17px;
+	color: #ffffff;
+}
+
+/* 托管中图标 */
+#autonode > div:last-child {
+	z-index: 10;
+	margin-bottom: -75px !important;
+	left: calc(50% - 440px);
+	font-size: 0px;
+	text-shadow: none;
+	--w: 400px;
+	--h: calc(var(--w) * 149 / 598);
+	width: var(--w);
+	height: var(--h);
+	background-image: url("../../../assets/lbtn/CD/tuoguan2.png");
+	background-size: 100% 100%;
+	-webkit-text-fill-color: transparent;
+	text-shadow: none !important;
+}
+
+/* 左手模式 */
+.xiaolianButton_new1 {
+	display: block;
+	--w: 47px;
+	--h: 47px;
+	width: var(--w);
+	height: var(--h);
+	position: absolute;
+	bottom: 14%;
+	right: 0;
+	background-image: url("../../../assets/lbtn/uibutton/new_xiaolian_new.png");
+	background-size: 100% 100%;
+	z-index: 3;
+}
+
+/* 左手手牌显示 */
+.handcardNumber1 {
+	bottom: 0px;
+	left: 0px;
+	font-family: "yuanli";
+	text-shadow:
+		#f5d78e 0 0 1px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px,
+		black 0 0 2px;
+	color: #f5d78e;
+	z-index: 1;
+}
+
+.handcardNumber1 > .cardPicture {
+	left: 130px;
+	bottom: -6px;
+	--w: 130px;
+	--h: calc(var(--w) * 92 / 400);
+	width: var(--w);
+	height: var(--h);
+	background-image: url("../../../assets/lbtn/uibutton/new_count1.png");
+	background-size: 100% 100%;
+	position: relative;
+	transform: scaleX(-1);
+	z-index: -1;
+}
+
+.handcardNumber1 > .cardNumber {
+	left: 160px;
+	bottom: 18px;
+	height: 8px;
+	line-height: 25px;
+	text-align: center;
+	color: #fffcf5;
+	font-size: 20px;
+	white-space: nowrap;
+	letter-spacing: 0.35px;
+}

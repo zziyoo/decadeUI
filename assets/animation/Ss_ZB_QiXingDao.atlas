@@ -1,0 +1,118 @@
+
+Ss_ZB_QiXingDao.png
+size: 603,603
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tx_05
+  rotate: true
+  xy: 371, 122
+  size: 174, 83
+  orig: 200, 120
+  offset: 14, 2
+  index: -1
+tx_06
+  rotate: true
+  xy: 367, 298
+  size: 181, 86
+  orig: 200, 120
+  offset: 11, 0
+  index: -1
+tx_07
+  rotate: true
+  xy: 165, 58
+  size: 188, 87
+  orig: 200, 120
+  offset: 8, 0
+  index: -1
+tx_08
+  rotate: false
+  xy: 405, 508
+  size: 196, 93
+  orig: 200, 120
+  offset: 4, 0
+  index: -1
+tx_09
+  rotate: false
+  xy: 2, 248
+  size: 199, 109
+  orig: 200, 120
+  offset: 1, 0
+  index: -1
+tx_10
+  rotate: false
+  xy: 204, 481
+  size: 199, 120
+  orig: 200, 120
+  offset: 1, 0
+  index: -1
+tx_11
+  rotate: false
+  xy: 2, 481
+  size: 200, 120
+  orig: 200, 120
+  offset: 0, 0
+  index: -1
+tx_12
+  rotate: false
+  xy: 2, 359
+  size: 200, 120
+  orig: 200, 120
+  offset: 0, 0
+  index: -1
+tx_13
+  rotate: false
+  xy: 204, 360
+  size: 161, 119
+  orig: 200, 120
+  offset: 19, 1
+  index: -1
+tx_14
+  rotate: false
+  xy: 2, 128
+  size: 161, 118
+  orig: 200, 120
+  offset: 19, 2
+  index: -1
+tx_15
+  rotate: false
+  xy: 2, 9
+  size: 161, 117
+  orig: 200, 120
+  offset: 19, 3
+  index: -1
+tx_16
+  rotate: true
+  xy: 254, 85
+  size: 161, 115
+  orig: 200, 120
+  offset: 19, 4
+  index: -1
+tx_17
+  rotate: true
+  xy: 455, 345
+  size: 161, 113
+  orig: 200, 120
+  offset: 19, 5
+  index: -1
+tx_18
+  rotate: false
+  xy: 204, 248
+  size: 161, 110
+  orig: 200, 120
+  offset: 19, 7
+  index: -1
+tx_19
+  rotate: true
+  xy: 456, 182
+  size: 161, 106
+  orig: 200, 120
+  offset: 19, 8
+  index: -1
+tx_20
+  rotate: true
+  xy: 456, 19
+  size: 161, 103
+  orig: 200, 120
+  offset: 19, 8
+  index: -1

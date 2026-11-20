@@ -1,0 +1,171 @@
+﻿/**
+ * 十周年UI - 扩展样式
+ * 注：不要重新定义本体已有的字体，避免覆盖
+ */
+
+/** 字体定义 */
+
+/* 扩展专用字体 */
+@font-face {
+	font-family: "HYZLSJ";
+	src: url("../../ui/assets/fonts/HYZLSJ.woff2");
+}
+
+@font-face {
+	font-family: "BKJT";
+	src: url("../../ui/assets/fonts/BKJT.ttf");
+}
+
+@font-face {
+	font-family: "WDZLFT";
+	src: url("../../ui/assets/fonts/WDZLFT.woff2");
+}
+
+@font-face {
+	font-family: "FZLBJW";
+	src: url("../../ui/assets/fonts/FZLBJW.woff2");
+}
+
+@font-face {
+	font-family: "ATLL";
+	src: url("../../ui/assets/fonts/ATLL.woff2");
+}
+
+@font-face {
+	font-family: "FZLSFT";
+	src: url("../../ui/assets/fonts/FZLSFT.woff2");
+}
+/*自用*/
+@font-face {
+	font-family: "HYXLSJ";
+	src: url("../../ui/assets/fonts/HYXLSJ.ttf");
+}
+@font-face {
+	font-family: "ZY";
+	src: url("../../ui/assets/fonts/ZY.ttf");
+}
+/** 导入对话框 */
+
+.menu-container > .menu.main.cxy-import-dialog {
+	width: 420px;
+	height: 130px;
+	padding: 15px;
+	top: 50% !important;
+	left: 50% !important;
+	transform: translate(-50%, -50%);
+}
+
+.menu.main.cxy-import-dialog > .caption {
+	padding-top: 0;
+	padding-bottom: 8px;
+}
+
+/** 控制按钮区 */
+
+#control {
+	width: calc(90% - 480px);
+	top: calc(200% / 3);
+	left: calc(5% + 240px);
+	text-align: center;
+	pointer-events: none;
+	z-index: 5;
+}
+
+#control > * {
+	pointer-events: auto;
+}
+
+#window:not(.nopointer) #control {
+	cursor: pointer;
+}
+
+#control.nozoom > div {
+	transition-property: opacity;
+}
+
+#control > div.stayleft {
+	transition-property: opacity !important;
+}
+
+#control > div {
+	position: absolute;
+	left: 50%;
+}
+
+/* 控制按钮样式 */
+.control {
+	padding: 2px 4px;
+	font-size: 18px;
+	white-space: nowrap;
+	overflow: hidden;
+	opacity: 0;
+}
+
+.control.removing.removing2 {
+	transform: scale(0.2);
+}
+
+.control > div {
+	position: relative;
+	padding: 3px;
+	margin: 0;
+}
+
+.control.disabled {
+	opacity: 1 !important;
+	cursor: default !important;
+}
+
+/** 无懈蓝框 */
+
+.glow:not(.button):not(.card) {
+	box-shadow: none !important;
+	-webkit-filter: grayscale(100%);
+	background-size: 100% 100%;
+	pointer-events: none;
+	z-index: 89;
+}
+
+/** 手杀菜单 */
+
+.shousha_menu {
+	width: 100%;
+	padding: 0.5px;
+	font-family: yuanli;
+	background-color: rgba(134, 200, 241, 0.5);
+	border-radius: 3px;
+}
+
+.KZJS,
+.JDTSM,
+.JDTSSM,
+.GTBBSM,
+.JMYSSM,
+.QTMHSM > .shousha_text {
+	width: 250px;
+	font-size: 14px;
+	text-align: left;
+	word-wrap: break-word;
+}
+
+/** 更新弹窗 */
+
+.shousha_update {
+	background-size: cover;
+	z-index: 999;
+}
+
+.shousha_update > .shousha_update_close {
+	--w: 76px;
+	--h: calc(var(--w) * 64 / 76);
+	position: fixed;
+	width: var(--w);
+	height: var(--h);
+	top: 0;
+	right: 0;
+	margin: 23px;
+	overflow: hidden;
+	background-image: url("../../ui/assets/common/shousha_close.png");
+	background-size: 100% 100%;
+	z-index: 999;
+}

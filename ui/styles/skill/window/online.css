@@ -1,0 +1,383 @@
+/**
+ * OL风格 - 技能按钮样式
+ * 对应原 shoushaUI/skill/main4.css
+ */
+
+#arena[data-right-layout="on"] > .skill-control {
+	max-width: 235px;
+	bottom: 0%;
+	right: 155px;
+	z-index: 8;
+}
+
+#arena[data-right-layout="off"] > .skill-control {
+	max-width: 220px;
+	bottom: 0px;
+	left: 180px;
+	z-index: 0;
+}
+
+.skill-control div {
+	position: relative;
+}
+
+.skill-control .skillitem {
+	float: right;
+	white-space: nowrap;
+	color: #f5d78e;
+	font-size: 18px;
+}
+
+.skill-control > div {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.skill-control > div::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* 右手布局 */
+#arena[data-right-layout="on"] > .skill-control .combined {
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-right: 6px;
+	flex-wrap: wrap-reverse;
+	max-height: 150px;
+}
+
+#arena[data-right-layout="on"] > .skill-control .combined.scroll-enabled {
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: flex-start;
+	align-content: flex-start;
+	max-height: 144px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+/* 左手布局 */
+#arena[data-right-layout="off"] > .skill-control .combined {
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-left: 5px;
+	flex-wrap: wrap-reverse;
+	max-height: 150px;
+}
+
+#arena[data-right-layout="off"] > .skill-control .combined.scroll-enabled {
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+	max-height: 135px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+/* 主动技样式 */
+.skill-control > .combined > .skillitem.enable-skill {
+	/*	margin: 2px -2px;*/
+	width: 112px;
+	height: 48px;
+	right: 0% !important;
+	line-height: 40px;
+	text-align: center;
+	color: #ffe286;
+	font-family: "HYXLSJ";
+	font-size: 27px;
+	font-weight: 700;
+	background-image: url("../../../assets/skill/online/btnnOL1.png");
+	background-size: 100% 100%;
+	letter-spacing: 2px;
+	flex: 0 0 auto;
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.skill-control > .combined > .skillitem.enable-skill.select {
+	background-image: url("../../../assets/skill/online/btnnOL4.png");
+	filter: brightness(1);
+}
+
+.skill-control > .combined > .skillitem.enable-skill:not(.usable):not(.select) {
+	filter: grayscale(100%);
+}
+
+/* 限定技样式 */
+.skill-control > .combined > .xiandingji.enable-skill {
+	/*	margin: 3px 0;*/
+	width: 112px;
+	height: 48px;
+	right: 0% !important;
+	line-height: 40px;
+	font-weight: 700;
+	text-align: center;
+	color: #ffe286;
+	font-family: "HYXLSJ";
+	font-size: 27px;
+	background-image: url("../../../assets/skill/online/btnnOL1.png");
+	background-size: 100% 100%;
+	letter-spacing: 2px;
+	flex: 0 0 auto;
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.skill-control > .combined > .xiandingji.enable-skill.select {
+	background-image: url("../../../assets/skill/online/btnnOL4.png");
+}
+.skill-control > .combined > .xiandingji.enable-skill:not(.usable):not(.select) {
+	background-image: url("../../../assets/skill/online/btnnOL5.png");
+	filter: grayscale(100%);
+}
+/* 被动技样式 */
+.skill-control > .combined > .skillitem.trigger-skill {
+	/*	margin: 3px 0;*/
+	right: 0% !important;
+	width: 112px;
+	height: 48px;
+	font-weight: 500;
+	transform: scale(0.875);
+	line-height: 40px;
+	text-align: center;
+	font-size: 30px;
+	color: #b18955;
+	font-family: "HYXLSJ";
+	font-weight: 700;
+	background-image: url("../../../assets/skill/online/btnnOL3.png");
+	background-size: 100% 100%;
+	letter-spacing: 2px;
+	flex: 0 0 auto;
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* 技能标记区 - 从底部向上排列 */
+.skillMarks {
+	/*	overflow: visible;*/
+	left: 116px !important;
+	bottom: 6px !important;
+	top: auto !important;
+	z-index: 90 !important;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+}
+
+.skillMarks > .skillMarkItem {
+	--h: 19px;
+	width: 20px !important;
+	height: 20px !important;
+	/*	right: 0px;*/
+	line-height: 16px;
+	text-align: center;
+	display: block;
+	position: relative;
+}
+
+.skillMarkItem.xiandingji {
+	background-image: url("../../../assets/skill/online/xiandingjiOL.png");
+	background-size: 100% 100%;
+	text-shadow: none;
+	--w: 31px;
+	--h: 18px;
+	width: var(--w) !important;
+	height: var(--h) !important;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	color: #ddc78f;
+	font-size: 12.5px;
+	font-family: "HYXLSJ";
+	font-weight: bold;
+	border-radius: 0;
+	text-indent: -2px;
+	letter-spacing: 0px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.skillMarkItem.xiandingji.used {
+	filter: grayscale(1);
+	color: #888;
+}
+
+.skillMarkItem + .skillMarkItem {
+	margin-bottom: 1px;
+}
+
+.skillMarkItem.juexingji {
+	background-image: url("../../../assets/skill/online/juexingjiOL.png");
+	background-size: 100% 100%;
+	text-shadow: none;
+	--w: 30px;
+	--h: calc(var(--w) * 1 / 1);
+	left: 5px !important;
+	width: var(--w);
+	height: var(--h);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #f5d78e;
+	font-size: 16px;
+	font-family: "HYXLSJ";
+	font-weight: bold;
+	text-shadow: 0 0 2px #000;
+}
+
+.skillMarkItem.juexingji.used {
+	filter: grayscale(1);
+	color: #888;
+}
+
+.skillMarkItem.zhuanhuanji {
+	--w: 18px;
+	--h: calc(var(--w) * 1 / 1);
+	width: var(--w);
+	height: var(--h);
+	left: 5px !important;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	transform-style: preserve-3d;
+	background-image: url("../../../assets/skill/online/skillitem_yinyang_bg.png");
+}
+
+.skillMarkItem.zhuanhuanji.yang {
+	background-image: url("../../../assets/skill/online/skillitem_yinyang_bg.png");
+}
+
+.skillMarkItem.zhuanhuanji.yin {
+	background-image: url("../../../assets/skill/online/skillitem_yinyang_bg_1.png");
+}
+.skillMarkItem.duty {
+	background-image: url("../../../assets/skill/online/mark_dutyOL.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #f5d78e;
+	font-size: 16px;
+	font-family: "HYXLSJ";
+	font-weight: bold;
+	text-shadow: 0 0 2px #000;
+}
+
+.skillMarkItem.duty.fail {
+	filter: grayscale(100%);
+	color: #888;
+}
+.skillMarkItem.xiandingji + .skillMarkItem.zhuanhuanji {
+	left: -5px;
+	margin-left: -10px;
+}
+.skillMarkItem.zhuanhuanji + .skillMarkItem.xiandingji {
+	left: 10px;
+	margin-left: -10px;
+}
+.skillMarkItem.xiandingji + .skillMarkItem.juexingji {
+	left: -5px;
+	margin-left: -10px;
+}
+.skillMarkItem.juexingji + .skillMarkItem.xiandingji {
+	left: 10px;
+	margin-left: -10px;
+}
+/* 技能黄色圆点样式 */
+.skill-yellow-dot {
+	position: absolute;
+	left: 95px;
+	top: 5px;
+	width: 12px;
+	height: 12px;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #c9bc73;
+	font-weight: bold;
+	background: none;
+	border-radius: 0;
+}
+
+/* 限定技pass图片样式 */
+.skill-xianding-pass {
+	position: absolute;
+	left: 3px;
+	top: 3px;
+	width: 15px;
+	height: 15px;
+	z-index: 3;
+	pointer-events: none;
+}
+
+/* 转换技图片样式 */
+.skill-zhuanhuanji-img {
+	position: absolute;
+	left: 3px;
+	top: 3px;
+	width: 15px;
+	height: 15px;
+	z-index: 3;
+	pointer-events: none;
+}
+
+/* 滚动指示器样式 */
+.skill-control.scroll-enabled::after {
+	content: "";
+	position: absolute;
+	width: 25px;
+	height: 20px;
+	z-index: 10;
+	pointer-events: none;
+	opacity: 1;
+	background-image: url("../../../assets/skill/online/shop_move_down.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	animation: scroll-bounce 2s infinite;
+}
+
+#arena[data-right-layout="on"] > .skill-control.scroll-enabled::after {
+	right: auto;
+	left: 104px;
+	bottom: -3px;
+}
+
+@keyframes scroll-bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+
+	40% {
+		transform: translateY(-3px);
+	}
+
+	60% {
+		transform: translateY(-2px);
+	}
+}

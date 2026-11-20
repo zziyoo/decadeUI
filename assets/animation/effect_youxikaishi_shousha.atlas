@@ -1,0 +1,244 @@
+
+effect_youxikaishi_shousha.png
+size: 1928,1928
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dafutoujiji/dafutoujiji_00000
+  rotate: true
+  xy: 268, 8
+  size: 241, 278
+  orig: 377, 460
+  offset: 68, 91
+  index: -1
+dafutoujiji/dafutoujiji_00001
+  rotate: false
+  xy: 913, 42
+  size: 241, 274
+  orig: 377, 460
+  offset: 66, 93
+  index: -1
+dafutoujiji/dafutoujiji_00002
+  rotate: false
+  xy: 668, 511
+  size: 247, 272
+  orig: 377, 460
+  offset: 60, 94
+  index: -1
+dafutoujiji/dafutoujiji_00003
+  rotate: true
+  xy: 1449, 188
+  size: 246, 270
+  orig: 377, 460
+  offset: 60, 95
+  index: -1
+dafutoujiji/dafutoujiji_00004
+  rotate: false
+  xy: 1156, 2
+  size: 243, 264
+  orig: 377, 460
+  offset: 60, 98
+  index: -1
+dafutoujiji/dafutoujiji_00005
+  rotate: false
+  xy: 722, 961
+  size: 236, 256
+  orig: 377, 460
+  offset: 63, 102
+  index: -1
+di
+  rotate: false
+  xy: 2, 1219
+  size: 960, 707
+  orig: 960, 707
+  offset: 0, 0
+  index: -1
+dunpaiguang/dunpaiguang_00000
+  rotate: false
+  xy: 931, 587
+  size: 346, 313
+  orig: 617, 576
+  offset: 136, 137
+  index: -1
+dunpaiguang/dunpaiguang_00001
+  rotate: false
+  xy: 366, 897
+  size: 354, 320
+  orig: 617, 576
+  offset: 132, 134
+  index: -1
+dunpaiguang/dunpaiguang_00002
+  rotate: true
+  xy: 1600, 1210
+  size: 356, 323
+  orig: 617, 576
+  offset: 131, 133
+  index: -1
+dunpaiguang/dunpaiguang_00003
+  rotate: true
+  xy: 1600, 1568
+  size: 358, 325
+  orig: 617, 576
+  offset: 130, 132
+  index: -1
+fangsheguangdundi/fangsheguangdundi_00000
+  rotate: false
+  xy: 2, 881
+  size: 362, 336
+  orig: 617, 576
+  offset: 128, 121
+  index: -1
+fuzituowei/fuzituowei_00000
+  rotate: true
+  xy: 2, 470
+  size: 409, 265
+  orig: 409, 265
+  offset: 0, 0
+  index: -1
+jiangjun7
+  rotate: true
+  xy: 964, 902
+  size: 424, 515
+  orig: 426, 517
+  offset: 1, 1
+  index: -1
+jiangjun9
+  rotate: false
+  xy: 964, 1328
+  size: 634, 598
+  orig: 636, 600
+  offset: 1, 1
+  index: -1
+kaizhan1
+  rotate: true
+  xy: 1481, 700
+  size: 508, 420
+  orig: 510, 422
+  offset: 1, 1
+  index: -1
+qianfuzhang3
+  rotate: true
+  xy: 269, 251
+  size: 267, 339
+  orig: 267, 339
+  offset: 0, 0
+  index: -1
+qianfuzhang4
+  rotate: true
+  xy: 2, 206
+  size: 262, 264
+  orig: 262, 264
+  offset: 0, 0
+  index: -1
+qianfuzhang5
+  rotate: true
+  xy: 917, 318
+  size: 267, 339
+  orig: 267, 339
+  offset: 0, 0
+  index: -1
+qianfuzhang6
+  rotate: true
+  xy: 1471, 436
+  size: 262, 264
+  orig: 262, 264
+  offset: 0, 0
+  index: -1
+ying1
+  rotate: false
+  xy: 366, 520
+  size: 300, 375
+  orig: 300, 375
+  offset: 0, 0
+  index: -1
+ying2
+  rotate: true
+  xy: 610, 214
+  size: 295, 301
+  orig: 295, 301
+  offset: 0, 0
+  index: -1
+zhaizhanzi/qianfuzhang3_00000
+  rotate: true
+  xy: 1279, 734
+  size: 166, 199
+  orig: 267, 339
+  offset: 50, 71
+  index: -1
+zhaizhanzi/qianfuzhang3_00001
+  rotate: true
+  xy: 722, 785
+  size: 174, 207
+  orig: 267, 339
+  offset: 46, 67
+  index: -1
+zhaizhanzi/qianfuzhang3_00002
+  rotate: true
+  xy: 1279, 561
+  size: 171, 190
+  orig: 267, 339
+  offset: 48, 84
+  index: -1
+zhaizhanzi/qianfuzhang3_00003
+  rotate: true
+  xy: 1258, 411
+  size: 148, 189
+  orig: 267, 339
+  offset: 49, 80
+  index: -1
+zhaizhanzi/qianfuzhang3_00004
+  rotate: true
+  xy: 1258, 268
+  size: 141, 178
+  orig: 267, 339
+  offset: 50, 83
+  index: -1
+zhaizhanzi/qianfuzhang3_00005
+  rotate: true
+  xy: 703, 75
+  size: 137, 164
+  orig: 267, 339
+  offset: 64, 96
+  index: -1
+zhaizhanzi/qianfuzhang3_00006
+  rotate: false
+  xy: 1737, 535
+  size: 163, 163
+  orig: 267, 339
+  offset: 53, 88
+  index: -1
+zhaizhanzi/qianfuzhang3_00007
+  rotate: false
+  xy: 2, 34
+  size: 165, 170
+  orig: 267, 339
+  offset: 51, 84
+  index: -1
+zhaizhanzi/qianfuzhang3_00008
+  rotate: true
+  xy: 1737, 380
+  size: 153, 170
+  orig: 267, 339
+  offset: 52, 84
+  index: -1
+zhaizhanzi/qianfuzhang3_00009
+  rotate: true
+  xy: 548, 55
+  size: 157, 153
+  orig: 267, 339
+  offset: 54, 86
+  index: -1
+zhaizhanzi/qianfuzhang3_00010
+  rotate: true
+  xy: 1721, 232
+  size: 146, 149
+  orig: 267, 339
+  offset: 54, 102
+  index: -1
+zhaizhanzi/qianfuzhang3_00011
+  rotate: false
+  xy: 1721, 91
+  size: 146, 139
+  orig: 267, 339
+  offset: 56, 105
+  index: -1
