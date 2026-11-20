@@ -383,19 +383,10 @@
 }
 
 /* 仅 OL 样式：派生技能折叠图标与详情层 */
-.skill-control > .combined > .derived-skill-summary {
-	min-width: 112px;
-	height: 40px;
-	background-image: url("../../assets/skill/online/btnnOL1.png");
-	background-size: 100% 100%;
-	color: #ffe286;
-	font-family: "HYXLSJ", sans-serif;
-	font-size: 24px;
-	font-weight: bold;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.skill-control > .combined > .skillitem.trigger-skill.derived-skill-summary {
 	cursor: pointer;
+	color: #ffe286;
+	background-image: url("../../assets/skill/online/btnnOL3.png");
 }
 .derived-skill-overlay {
 	position: absolute;
