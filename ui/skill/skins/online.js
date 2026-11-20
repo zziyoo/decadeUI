@@ -227,7 +227,9 @@ export function createOnlineSkillPlugin(lib, game, ui, get, ai, _status, app) {
 		},
 
 		showDerivedSkillDetails(group) {
-			document.querySelector(".derived-skill-overlay")?.remove();
+			const previous = document.querySelector(".derived-skill-overlay");
+			previous?._derivedClose?.();
+			previous?.remove();
 			const backdrop = ui.create.div(".derived-skill-overlay", ui.window);
 			const dialog = ui.create.div(".derived-skill-dialog", backdrop);
 			const header = ui.create.div(".derived-skill-dialog-header", dialog);
@@ -240,6 +242,9 @@ export function createOnlineSkillPlugin(lib, game, ui, get, ai, _status, app) {
 			const handleEscape = e => {
 				if (e.key === "Escape") close();
 			};
+			backdrop._derivedClose = close;
+			dialog.setAttribute("role", "dialog");
+			dialog.setAttribute("aria-modal", "true");
 			closeButton.addEventListener("click", e => {
 				e.stopPropagation();
 				close();
@@ -323,6 +328,7 @@ export function createOnlineSkillPlugin(lib, game, ui, get, ai, _status, app) {
 					});
 					const label = get.translation(group.source);
 					const summary = ui.create.div(".skillitem.trigger-skill.derived-skill-summary", container, label.slice(0, 2));
+					summary.dataset.id = "__derived__" + group.source;
 					summary.title = label + "：" + group.children.map(id => get.translation(id)).join("、");
 					summary.addEventListener("click", e => {
 						e.stopPropagation();
