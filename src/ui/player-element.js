@@ -410,7 +410,7 @@ export function createPlayerElement(position, noclick) {
 			[...pending].join("|"),
 		].join(";");
 		const markHost = this.player.node?.marks;
-		this._derivedGainMarks ??= new Map();
+		this._derivedGainMarks ??= new Set();
 		// 标记栏如被其他界面逻辑重新构建，也允许恢复此纯 UI 标记。
 		const lostMark = [...this._derivedGainMarks.values()].some(mark => mark.parentNode !== markHost);
 		if (this._derivedGainRenderKey === key && !lostMark) return;
@@ -462,7 +462,7 @@ export function createPlayerElement(position, noclick) {
 			};
 			// 与真实的十周年 UI 标记使用同一个交互入口，不新增弹窗系统。
 			mark.addEventListener(lib.config.touchscreen ? "touchend" : "click", ui.click.card);
-			this._derivedGainMarks.set(group.parent, mark);
+			this._derivedGainMarks.add(mark);
 		}
 	};
 
