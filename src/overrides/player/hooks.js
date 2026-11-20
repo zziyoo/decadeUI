@@ -7,16 +7,6 @@
 import { lib, game, ui, get, ai, _status } from "noname";
 
 
-let derivedGainRefreshTimer = null;
-
-/** 甚宠先 addSkills，后 markAuto 记录受赠者，因此需在授予完成后刷新显示。 */
-function refreshDerivedGainDisplays() {
-	if (lib.config.extension_十周年UI_foldDerivedSkills !== true) return;
-	for (const player of new Set([...(game.players || []), ...(game.dead || [])])) {
-		player?.node?.gainSkill?.refresh?.();
-	}
-}
-
 /**
  * AI技能提示条显示时长（毫秒）
  * @constant {number}
@@ -45,9 +35,6 @@ export function registerDecadeUIHooks() {
 	addHook("removeSkillCheck", handleRemoveSkill);
 
 	addHook("checkSkillAnimate", handleSkillAnimate);
-	if (!derivedGainRefreshTimer) {
-		derivedGainRefreshTimer = setInterval(refreshDerivedGainDisplays, 1000);
-	}
 }
 
 /**

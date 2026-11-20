@@ -176,7 +176,7 @@ export function onGainSkillsVisibleUpdate() {
 }
 
 /**
- * 即时更新 OL 样式派生技能分组，不修改技能数据或录像。
+ * 即时更新武将牌上获赠技能的显示，不修改技能数据或录像。
  */
 export function onFoldDerivedSkillUpdate() {
 	for (const player of new Set([...(game.players || []), ...(game.dead || [])])) {
