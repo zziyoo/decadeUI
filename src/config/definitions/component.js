@@ -5,7 +5,7 @@
  */
 import { lib } from "noname";
 import { createCollapseTitle, createCollapseEnd } from "../utils.js";
-import { onJindutiaoYangshiUpdate, onJindutiaoSetBlur, onJindutiaoSetUpdate, onJDTSYangshiUpdate, onGTBBYangshiClick, onPlayerMarkStyleUpdate, onLoadingStyleUpdate, onGainSkillsVisibleUpdate } from "../handlers/component-handlers.js";
+import { onJindutiaoYangshiUpdate, onJindutiaoSetBlur, onJindutiaoSetUpdate, onJDTSYangshiUpdate, onGTBBYangshiClick, onPlayerMarkStyleUpdate, onPlayerMarkOnTopUpdate, onLoadingStyleUpdate, onGainSkillsVisibleUpdate } from "../handlers/component-handlers.js";
 
 /**
  * 部件管理折叠标题
@@ -136,6 +136,17 @@ export const playerMarkStyle = {
 };
 
 /**
+ * 标记置顶（见 issue #198）
+ * @type {Object}
+ */
+export const playerMarkOnTop = {
+	name: "标记置顶",
+	init: false,
+	intro: "开启后将武将牌上的标记显示在技能文字、血条等元素上方；未开启单独装备栏时可能遮挡装备牌。",
+	update: onPlayerMarkOnTopUpdate,
+};
+
+/**
  * 生成loading框选项
  * @returns {Object} loading框选项映射
  */
@@ -206,6 +217,7 @@ export const componentConfigs = {
 	GTBBFont,
 	GTBBTime,
 	playerMarkStyle,
+	playerMarkOnTop,
 	loadingStyle,
 	gainSkillsVisible,
 	characterPlugin,
