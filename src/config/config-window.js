@@ -317,6 +317,7 @@ function getConfigsByTab(tabId) {
 			{ key: "GTBBFont", name: "播报字体", type: "select" },
 			{ key: "GTBBTime", name: "时间间隔", type: "select" },
 			{ key: "playerMarkStyle", name: "标记样式", type: "select" },
+			{ key: "playerMarkOnTop", name: "标记置顶", type: "toggle" },
 			{ key: "loadingStyle", name: "光标+loading框", type: "select" },
 			{ key: "gainSkillsVisible", name: "获得技能显示", type: "select" },
 			{ isTitle: true, name: "插件功能" },

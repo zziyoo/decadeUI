@@ -158,6 +158,20 @@ export function onPlayerMarkStyleUpdate() {
 }
 
 /**
+ * 标记置顶开关热更新
+ * @description 只切换容器的绘制层级，不重新创建标记，保留点击及标记状态
+ */
+export function onPlayerMarkOnTopUpdate() {
+	if (!ui.arena) return;
+
+	const enabled = lib.config.extension_十周年UI_playerMarkOnTop === true;
+	ui.arena.dataset.playerMarkOnTop = enabled ? "on" : "off";
+	if (window.decadeUI?.config) {
+		window.decadeUI.config.playerMarkOnTop = enabled;
+	}
+}
+
+/**
  * 光标+loading框更新处理
  */
 export function onLoadingStyleUpdate() {

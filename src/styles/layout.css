@@ -803,3 +803,8 @@ body[data-style="onlineUI"] #arena[data-long-level="five"] > .player > .wei,
 body[data-style="babysha"] #arena[data-long-level="five"] > .player > .wei {
 	background-image: url("../../image/ui/frame/long_yan2.png");
 }
+
+/* Issue #198：可选地将武将牌标记置于技能文字、血条与普通装备区上方。 */
+#arena[data-player-mark-on-top="on"] > .player > .dui-marks {
+	z-index: 120 !important;
+}
